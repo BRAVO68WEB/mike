@@ -39,7 +39,7 @@ class Mike extends Client{
         this.prefix = this.config.prefixes.main
         this.config.database.selected = this.config.database.main
 
-        if (os.platform() != 'linux') {
+        if (os.platform() != 'linux') { // new os
             this.type = 'beta'
             this.prefix = this.config.prefixes.beta
             this.config.database.selected = this.config.database.beta
