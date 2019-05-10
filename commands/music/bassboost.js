@@ -40,5 +40,8 @@ exports.output = async ({message, args}) => {
 exports.data = {
     triggers: ['bassboost'],
     description: 'Makes bassboost filter on.',
-    voice: true
+    voice: true,
+    usage: [
+        '{prefix}{command} [easy/hard/medium]',
+    ]
 }
