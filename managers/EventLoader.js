@@ -12,6 +12,7 @@ class EventLoader {
         Mike.on('guildMemberAdd', (member) => xrequire('guildMemberAdd')(member))
         Mike.on('guildMemberRemove', (member) => xrequire('guildMemberRemove')(member))
         Mike.on('presenceUpdate', (oldMember, newMember) => xrequire('presenceUpdate')(oldMember, newMember))
+        Mike.on('messageUpdate', (oldMessage, newMessage) => xrequire('messageUpdate')(oldMessage, newMessage))
     }
 }
 

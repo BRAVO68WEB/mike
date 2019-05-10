@@ -24,6 +24,14 @@ module.exports = async (id) => {
                   suggestions: {
                     enabled: false,
                     channel: ``,
+                  },
+                  mupdatelogs: {
+                    enabled: false,
+                    channel: ``,
+                  },
+                  mdeletelogs: {
+                    enabled: false,
+                    channel: ``,
                   }
               },
               star: {

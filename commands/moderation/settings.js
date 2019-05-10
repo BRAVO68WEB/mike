@@ -54,8 +54,26 @@ exports.output = async ({message, args}) => {
     \`m!settings wmess message [\`[text](http://mikebot.xyz/guide)\`]\`
     `
 
-    if (args[0] == `1` || !args[0]) return Mike.exec.snap(message, page1, false, null, null, `Page 1 of 2 -- m!settings [page]`)
-    if (args[0] == `2`) return Mike.exec.snap(message, page2, false, null, null, `Page 2 of 2 -- m!settings [page]`)
+    const page3 =`
+    _**${message.guild.name} settings:**_
+
+    **Message Update Logs**
+    ${guild.settings.mupdatelogs.enabled ? en : di}
+    ${dot} \`Channel\`: **${guild.settings.mupdatelogs.channel != `` ? `<#${guild.settings.mupdatelogs.channel}>` : `[not set]`}**
+    \`m!settings mupdatelogs [disable/enable]\`
+    \`m!settings mupdatelogs channel [#channel]\`
+
+    **Message Delete Logs**
+    ${guild.settings.mdeletelogs.enabled ? en : di}
+    ${dot} \`Channel\`: **${guild.settings.mdeletelogs.channel != `` ? `<#${guild.settings.mdeletelogs.channel}>` : `[not set]`}**
+    \`m!settings mdeletelogs [disable/enable]\`
+    \`m!settings mdeletelogs channel [#channel]\`
+
+    `
+
+    if (args[0] == `1` || !args[0]) return Mike.exec.snap(message, page1, false, null, null, `Page 1 of 3 -- m!settings [page]`)
+    if (args[0] == `2`) return Mike.exec.snap(message, page2, false, null, null, `Page 2 of 3 -- m!settings [page]`)
+    if (args[0] == `3`) return Mike.exec.snap(message, page3, false, null, null, `Page 3 of 3 -- m!settings [page]`)
     if (args[0] == `prefix`) require("../../settings/prefix")(message, guild, args)
     if (args[0] == `lvlupmess`) require("../../settings/lvlupmess")(message, guild, args)
     if (args[0] == `snipes`) require("../../settings/snipes")(message, guild, args)
@@ -63,6 +81,8 @@ exports.output = async ({message, args}) => {
     if (args[0] == `memberlogs`) require("../../settings/mlogs")(message, guild, args)
     if (args[0] == `suggestions`) require("../../settings/suggestions")(message, guild, args)
     if (args[0] == `wmess`) require("../../settings/wmess")(message, guild, args)
+    if (args[0] == `mupdatelogs`) require("../../settings/mupdatelogs")(message, guild, args)
+    if (args[0] == `mdeletelogs`) require("../../settings/mdeletelogs")(message, guild, args)
   }
   exports.data = {
       triggers: ['settings'],
