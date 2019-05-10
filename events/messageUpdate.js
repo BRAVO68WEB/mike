@@ -18,7 +18,7 @@ module.exports = async (oldMessage, newMessage) => {
           .addField(`New Message`,newMessage.content)
           .addBlankField()
           .setTimestamp()
-          .setColor("#ce72ea")
+          .setColor("#26b7b5")
       channel.send(embed).catch(e => {
             Mike.utils.log.error(e)
       });
