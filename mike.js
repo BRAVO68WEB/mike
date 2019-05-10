@@ -34,6 +34,10 @@ class Mike extends Client{
         this.db = require('./database')
         this.music = require('./music')
 
+        this.stats = {}
+        this.stats.games = {}
+        this.stats.songs = {}
+
         this.dbl = 0
         this.type = 'main'
         this.prefix = this.config.prefixes.main
