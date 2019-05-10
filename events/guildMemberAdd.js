@@ -23,6 +23,7 @@ module.exports = async (member) => {
 
       let msg = guild.settings.wmess.message
         .replace(new RegExp("{user.name}", "g"), member.user.username)
+        .replace(new RegExp("{tag}", "g"), member.user.tag)
         .replace(new RegExp("{server.name}", "g"), member.guild.name)
         .replace(new RegExp("{server.count}", "g"), member.guild.members.filter(m => !m.user.bot).size)
         .replace(new RegExp("{user.mention}", "g"), `<@${member.user.id}>`)

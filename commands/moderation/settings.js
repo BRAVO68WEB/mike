@@ -1,59 +1,73 @@
-const r = require('rethinkdb');
+exports.output = async ({message, args}) => {
+    const guild = await Mike.db.getGuild(message.guild.id)
 
-exports.output = async ({message}) => {
-    let guild = await Mike.db.getGuild(message.guild.id)
-    const e = `<:dcOnline:495281269391884288>`
-    const d = `<:dcDnd:495281269609857024>`
-    Mike.exec.snap(message, `
-${guild.prefix ? e : d} **1.** \`Custom Prefix\`
-${guild.settings.lvlupmess ? e : d} **2.** \`Level Up Messages\`
-${guild.settings.snipes ? e : d} **3.** \`Snipes\`
-${guild.star.enabled ? e : d} **4.** \`Starboard\`
-${guild.settings.mlogs.enabled ? e : d} **5.** \`Member Logs\`
-${guild.settings.wmess.enabled ? e : d} **6.** \`Welcome Message\`
-${guild.settings.suggestions.enabled ? e : d} **7.** \`Suggestions\`
+    const dot = `<:dcOffline:495281269379432449>`
+    const en = `<:dcOnline:495281269391884288> \`Enabled\``
+    const di = `<:dcDnd:495281269609857024> \`Disabled\``
+    const col = `\``
+    const page1 =`
+    _**${message.guild.name} settings:**_
 
-Type specific **number** to change settings.
-`, false)
+    **Custom Prefix**
+    ${guild.prefix ? en : di}
+    ${dot} \`Prefix\`: **${guild.prefix ? guild.prefix : `[not set]`}**
+    \`m!settings prefix [new prefix]\`
 
-    const answer = await Mike.Collector.awaitMessage(message.channel.id, message.author.id, 15*1000)
+    **Level Up Mesages**
+    ${guild.settings.lvlupmess ? en : di}
+    \`m!settings lvlupmess [disable/enable]\`
 
-    if (answer.content == "1") {
-      require("../../settings/prefix")(message, guild)
-    }
+    **Snipes**
+    ${guild.settings.snipes ? en : di}
+    \`m!settings snipes [disable/enable]\`
 
-    if (answer.content == "2") {
-      require("../../settings/lvlupmess")(message, guild)
-    }
+    **Starboard**
+    ${guild.star.enabled ? en : di}
+    ${dot} \`Channel\`: **${guild.star.channel != `` ? `<#${guild.star.channel}>` : `[not set]`}**
+    ${dot} \`Stars required\`: **${guild.star.number}**
+    \`m!settings starboard [disable/enable]\`
+    \`m!settings starboard channel [#channel]\`
+    \`m!settings starboard stars [1-10]\`
+    `
 
-    if (answer.content == "3") {
-      require("../../settings/snipes")(message, guild)
-    }
+    const page2 =`
+    _**${message.guild.name} settings:**_
 
-    if (answer.content == "4") {
-      require("../../settings/starboard")(message, guild)
-    }
+    **Member Logs**
+    ${guild.settings.mlogs.enabled ? en : di}
+    ${dot} \`Channel\`: **${guild.settings.mlogs.channel != `` ? `<#${guild.settings.mlogs.channel}>` : `[not set]`}**
+    \`m!settings memberlogs [disable/enable]\`
+    \`m!settings memberlogs channel [#channel]\`
 
-    if (answer.content == "5") {
-      require("../../settings/mlogs")(message, guild)
-    }
+    **Suggestions**
+    ${guild.settings.suggestions.enabled ? en : di}
+    ${dot} \`Channel\`: **${guild.settings.suggestions.channel != `` ? `<#${guild.settings.suggestions.channel}>` : `[not set]`}**
+    \`m!settings suggestions [disable/enable]\`
+    \`m!settings suggestions channel [#channel]\`
 
-    if (answer.content == "6") {
-      require("../../settings/wmess")(message, guild)
-    }
+    **Welcome Message**
+    ${guild.settings.wmess.enabled ? en : di}
+    ${dot} \`Channel\`: **${guild.settings.wmess.channel != `` ? `<#${guild.settings.wmess.channel}>` : `[not set]`}**
+    ${dot} \`Message\`: **${guild.settings.wmess.message != `` ? (guild.settings.wmess.message.length < 16 ? guild.settings.wmess.message : `${guild.settings.wmess.message.substring(0, 16)}...`) : `[not set]`}**
+    \`m!settings wmess [disable/enable]\`
+    \`m!settings wmess channel [#channel]\`
+    \`m!settings wmess message [\`[text](http://mikebot.xyz/guide)\`]\`
+    `
 
-    if (answer.content == "7") {
-      require("../../settings/suggestions")(message, guild)
-    }
-
-    if (!answer){
-        return Mike.exec.error(message,"Action cancelled.")
-    }
-}
-exports.data = {
-    triggers: ['settings'],
-    description: 'Changes settings for guild.',
-    userPerms: [
-        "MANAGE_GUILD"
-    ]
-}
+    if (args[0] == `1` || !args[0]) return Mike.exec.snap(message, page1, false, null, null, `Page 1 of 2 -- m!settings [page]`)
+    if (args[0] == `2`) return Mike.exec.snap(message, page2, false, null, null, `Page 2 of 2 -- m!settings [page]`)
+    if (args[0] == `prefix`) require("../../settings/prefix")(message, guild, args)
+    if (args[0] == `lvlupmess`) require("../../settings/lvlupmess")(message, guild, args)
+    if (args[0] == `snipes`) require("../../settings/snipes")(message, guild, args)
+    if (args[0] == `starboard`) require("../../settings/starboard")(message, guild, args)
+    if (args[0] == `memberlogs`) require("../../settings/mlogs")(message, guild, args)
+    if (args[0] == `suggestions`) require("../../settings/suggestions")(message, guild, args)
+    if (args[0] == `wmess`) require("../../settings/wmess")(message, guild, args)
+  }
+  exports.data = {
+      triggers: ['settings'],
+      description: 'Changes settings for guild.',
+      userPerms: [
+          "MANAGE_GUILD"
+      ]
+  }
