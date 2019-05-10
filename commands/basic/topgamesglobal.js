@@ -17,6 +17,7 @@ exports.output = async ({message}) => {
     let topPlayedGames = Object.entries(Mike.stats.games);
     topPlayedGames = topPlayedGames.sort((a, b) => b.tail().length - a.tail().length);
     topPlayedGames = topPlayedGames.slice(0, 9);
+    gameStats += `# ${Object.keys(Mike.stats.games).length} total games\n`
     for (let game of topPlayedGames) {
       gameStats += `${game.head().replace(':',' ')} : ${game.tail().length} player${game.tail().length == 1 ? '' : 's'}\n`
     }
@@ -24,6 +25,6 @@ exports.output = async ({message}) => {
     message.channel.send(gameStats)
 }
 exports.data = {
-    triggers: ['topgames-all'],
+    triggers: ['topgames'],
     description: 'Shows top games in your guild.'
 }

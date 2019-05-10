@@ -17,6 +17,7 @@ exports.output = async ({message}) => {
     let topPlayedSongs = Object.entries(Mike.stats.songs);
     topPlayedSongs = topPlayedSongs.sort((a, b) => b.tail().length - a.tail().length);
     topPlayedSongs = topPlayedSongs.slice(0, 9);
+    songStats += `# ${Object.keys(Mike.stats.songs).length} total songs\n`
     for (let song of topPlayedSongs) {
       songStats += `${song.head().replace(':',' ')} : ${song.tail().length} listener${song.tail().length == 1 ? '' : 's'}\n`
     }
@@ -24,6 +25,6 @@ exports.output = async ({message}) => {
     message.channel.send(songStats)
 }
 exports.data = {
-    triggers: ['topsongs-all'],
+    triggers: ['topsongs'],
     description: 'Shows top songs in all guilds.'
 }
