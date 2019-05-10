@@ -1,4 +1,5 @@
 module.exports = async (message) => {
+    Mike.stats.messages.total += 1
     if (message.author.bot) return
     let prefix = Mike.prefix
     const guild = await Mike.db.getGuild(message.guild.id)

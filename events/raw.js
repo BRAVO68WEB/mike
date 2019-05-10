@@ -4,6 +4,7 @@ const events = {
 };
 
 module.exports = async (event) => {
+    Mike.stats.events.total += 1
     if (!events.hasOwnProperty(event.t)) return;
 
     const { d: data } = event;

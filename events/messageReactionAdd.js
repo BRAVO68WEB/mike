@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 
 module.exports = async (reaction, user) => {
+    Mike.stats.events.reactions += 1
     if (!reaction.message.guild) return;
     if (reaction.emoji.name !== "⭐") return;
     const guild = await Mike.db.getGuild(reaction.message.guild.id);

@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 
 
 module.exports = async (message) => {
+  Mike.stats.messages.deletions += 1
     try{
         let img = null
         if (message.attachments.array()[0] != undefined) img = message.attachments.array()[0].url

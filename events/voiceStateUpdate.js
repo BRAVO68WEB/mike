@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 module.exports = async (oldMem, newMem) => {
+    Mike.stats.events.voiceUpdates += 1
     try{
         let vC = oldMem.voiceChannelID;
         let player = await Mike.player.get(oldMem.guild.id);

@@ -4,6 +4,7 @@ module.exports = async (oldMessage, newMessage) => {
   if (oldMessage.content === newMessage.content) return;
   if (!oldMessage.guild) return;
   if (newMessage.author.bot) return;
+  Mike.stats.messages.updates += 1
   try {
     await Mike.db.getGuild(oldMessage.guild.id).then(async guild => {
     if(guild.settings.mupdatelogs.enabled) {

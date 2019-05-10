@@ -37,6 +37,15 @@ class Mike extends Client{
         this.stats = {}
         this.stats.games = {}
         this.stats.songs = {}
+        this.stats.events = {}
+        this.stats.events.total = 0
+        this.stats.events.errors = 0
+        this.stats.events.voiceUpdates = 0
+        this.stats.events.reactions = 0
+        this.stats.messages = {}
+        this.stats.messages.total = 0
+        this.stats.messages.updates = 0
+        this.stats.messages.deletions = 0
 
         this.dbl = 0
         this.type = 'main'
