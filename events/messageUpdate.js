@@ -17,8 +17,6 @@ module.exports = async (oldMessage, newMessage) => {
           .addField(`User ID`,newMessage.author.id ,true)
           .addField(`Old Message`,oldMessage.content)
           .addField(`New Message`,newMessage.content)
-          .addBlankField()
-          .setTimestamp()
           .setColor("#26b7b5")
       channel.send(embed).catch(e => {
             Mike.utils.log.error(e)

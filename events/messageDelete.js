@@ -24,9 +24,7 @@ module.exports = async (message) => {
             .setDescription(`Message Deleted`)
             .addField(`User`,message.author.tag,true)
             .addField(`User ID`,message.author.id ,true)
-            .addField(`Message`,message.content)
-            .addBlankField()
-            .setTimestamp()
+            .addField(`Message`,message.content
             .setColor("RED")
         channel.send(embed).catch(e => {
               Mike.utils.log.error(e)
