@@ -5,6 +5,7 @@ module.exports = async (message) => {
     const guild = await Mike.db.getGuild(message.guild.id)
     if (guild.prefix && message.content.startsWith(guild.prefix)) prefix = guild.prefix
     if (!message.content.startsWith(prefix)) return Mike.db.addXp(message.author.id, message.guild.id, message)
+    if (guild.settings.disabledChannels.includes(message.channel.id)) return
     let [call, ...args] = message.content.slice(prefix.length).split(/ +/g)
 
     command = Mike.commands.find(cmd => cmd.data.triggers && cmd.data.triggers.includes(call.toLowerCase()))

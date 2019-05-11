@@ -69,6 +69,10 @@ exports.output = async ({message, args}) => {
     \`m!settings mdeletelogs [disable/enable]\`
     \`m!settings mdeletelogs channel [#channel]\`
 
+    **Commands In Channels**
+    ${dot} \`Disabled Channels\`: **${guild.settings.disabledChannels.length}**
+    \`m!settings channel [disable/enable] [#channel]\`
+
     `
 
     if (args[0] == `1` || !args[0]) return Mike.exec.snap(message, page1, false, null, null, `Page 1 of 3 -- m!settings [page]`)
@@ -83,6 +87,7 @@ exports.output = async ({message, args}) => {
     if (args[0] == `wmess`) require("../../settings/wmess")(message, guild, args)
     if (args[0] == `mupdatelogs`) require("../../settings/mupdatelogs")(message, guild, args)
     if (args[0] == `mdeletelogs`) require("../../settings/mdeletelogs")(message, guild, args)
+    if (args[0] == `channel`) require("../../settings/channels")(message, guild, args)
   }
   exports.data = {
       triggers: ['settings'],

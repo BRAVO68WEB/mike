@@ -32,7 +32,8 @@ module.exports = async (id) => {
                   mdeletelogs: {
                     enabled: false,
                     channel: ``,
-                  }
+                  },
+                  disabledChannels: []
               },
               star: {
                   enabled: false,
