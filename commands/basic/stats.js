@@ -8,7 +8,7 @@ exports.output = async ({message}) => {
       ["Users", Mike.users.size.toLocaleString(), true],
       ["Servers", Mike.guilds.size.toLocaleString(), true],
       ["Channels", Mike.channels.size.toLocaleString(), true],
-      ["Api Latency", Math.round(Mike.ping), true]
+      ["Api Latency", `${Math.round(Mike.ping)}ms`, true]
   ])
 }
 exports.data = {
