@@ -30,7 +30,7 @@ module.exports = async (reaction, user) => {
                         .setImage(image)
                         .setTimestamp();
                     const oldMsg = await starChannel.fetchMessage(starMsg.id);
-                    await oldMsg.edit(`⭐${reaction.message.reactions.get("⭐").count} ${reaction.message.channel}`,{ embed })
+                    await oldMsg.edit(`⭐**${reaction.message.reactions.get("⭐").count}** | ${reaction.message.channel}`,{ embed })
                 }else{
                     const embed = new Discord.RichEmbed()
                     .setDescription(`${reaction.message.content}\n\n[[link]](https://discordapp.com/channels/${reaction.message.guild.id}/${reaction.message.channel.id}/${reaction.message.id})`)
@@ -38,7 +38,7 @@ module.exports = async (reaction, user) => {
                     .setImage(image)
                     .setAuthor(reaction.message.author.tag, reaction.message.author.displayAvatarURL)
                     .setTimestamp();
-                    reaction.message.guild.channels.get(star.channel).send(`⭐${reaction.message.reactions.get("⭐").count} ${reaction.message.channel}`,{embed});
+                    reaction.message.guild.channels.get(star.channel).send(`⭐**${reaction.message.reactions.get("⭐").count}** | ${reaction.message.channel}`,{embed});
                 }
             }
         }
