@@ -3,7 +3,7 @@ exports.output = async ({message, args}) => {
         if (args[0] < 1 || args[0] > 100) {
             return Mike.exec.error(message, 'Only positive numbers ranged from 1 - 100 are accepted!')
         }
-        const fetched = await message.channel.fetchMessages({ limit: args[0] });
+        const fetched = await message.channel.fetchMessages({ limit: parseInt(args[0])});
         message.channel.bulkDelete(fetched);
         Mike.exec.snap(message, `${message.author.username} has deleted ${fetched.size} message(s)!`).then(msg => { msg.delete(6000); });
     }
