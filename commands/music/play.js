@@ -50,7 +50,7 @@ exports.output = async ({message, args}) => {
 
     function play(song) {
     let s = {title: song.info.title.replace(/`/g, "'"), channel: song.info.author, length: song.info.length, requester: message.author.tag, url: song.info.uri, track: song.track};
-    Mike.music.player.play(s, Mike, message).then(t => {
+    Mike.music.player.play(s, Mike, message).then(async t => {
         let url = ''
         if(s.url.startsWith("https://www.youtube.com/")) {
             const id = s.url.replace("https://www.youtube.com/watch?v=", "");
@@ -59,9 +59,9 @@ exports.output = async ({message, args}) => {
             url = null
         }
         if(t == "play") {
-            Mike.exec.snap(message,`Now playing: \`${s.title}\`\nfrom: \`${s.channel}\``,false, url)
+            Mike.exec.snap(message,`Now playing: \`${s.title}\`\nfrom: \`${s.channel}\`\n[\`${await Mike.utils.time.formatLength(s.length)}\`] [${message.author}]`,false, url)
         } else {
-            Mike.exec.snap(message,`Added to queue: \`${s.title}\`\nfrom:\`${s.channel}\``,false, url)
+            Mike.exec.snap(message,`Added to queue: \`${s.title}\`\nfrom:\`${s.channel}\`\n[\`${await Mike.utils.time.formatLength(s.length)}\`] [${message.author}]\nPosition in queue:\`${Mike.queue[message.guild.id].songs.length}\``,false, url)
         }
     });
 
