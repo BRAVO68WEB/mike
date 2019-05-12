@@ -1,3 +1,5 @@
+const snek = require('snekfetch');
+
 module.exports = async (message) => {
     Mike.stats.messages.total += 1
     if (message.author.bot) return
@@ -71,6 +73,12 @@ module.exports = async (message) => {
     if (command.data.developer == true && !Mike.config.roles.developer.includes(message.author.id)) return Mike.exec.error(message, `This command is only for developers.`)
     if (command.data.args.length > 0 && args.length < command.data.args.length) return Mike.exec.error(message, `Usage:\n\n` + command.data.usage.join('\n').replace(/{prefix}/g, Mike.prefix).replace(/{command}/g, command.data.triggers[0]))
     if (command.data.nsfw && !message.channel.nsfw) return Mike.exec.error(message, `This command is available only on nsfw channels.`)
+    if (command.data.voter) {
+        r = await snek.get('https://discordbots.org/api/bots/419620594645073930/check?userId=' + message.author.id).set({ Authorization: Mike.config.tokens.dblist })
+        if(r.body.voted == 0){
+            return Mike.exec.error(message, `\`This command is for \`[[voters]](https://discordbots.org/bot/419620594645073930/vote)\` only!\``, false, null, null, `May take two minutes to update.`)
+        }
+    }
 
     command.data.args.forEach( (arg, i) => {
             if (error.length > 0) return

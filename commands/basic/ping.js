@@ -3,5 +3,6 @@ exports.output = async ({message}) => {
 }
 exports.data = {
     triggers: ['ping'],
-    description: 'Shows bot ping.'
+    description: 'Shows bot ping.',
+    voter: true
 }
