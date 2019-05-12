@@ -1,6 +1,13 @@
 module.exports = async (message) => {
     Mike.stats.messages.total += 1
+
     if (message.author.bot) return
+
+
+    if (message.content.startsWith('\`\`\`javascript')) return require('../utils/codecheck')(message, 'javascript')
+    if (message.content.startsWith('\`\`\`json')) return require('../utils/codecheck')(message, 'json')
+    if (message.content.startsWith('\`\`\`js')) return require('../utils/codecheck')(message, 'js')
+
     let prefix = Mike.prefix
     const guild = await Mike.db.getGuild(message.guild.id)
     if (guild.prefix && message.content.startsWith(guild.prefix)) prefix = guild.prefix

@@ -12,6 +12,7 @@ module.exports = async (id) => {
               settings: {
                   lvlupmess: false,
                   snipes: true,
+                  codecheck: true,
                   mlogs: {
                     enabled: false,
                     channel: ``
