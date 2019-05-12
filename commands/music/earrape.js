@@ -11,5 +11,6 @@ exports.output = async ({message}) => {
 exports.data = {
     triggers: ['earrape'],
     description: 'Changes volume of current track to earrape..',
-    voice: true
+    voice: true,
+    voter: true
 }

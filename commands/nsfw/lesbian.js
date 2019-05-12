@@ -4,5 +4,6 @@ exports.output = async ({message}) => {
 exports.data = {
     triggers: ['lesbian'],
     description: 'Shows random lesbian image.',
-    nsfw: true
+    nsfw: true,
+    voter: true
 }

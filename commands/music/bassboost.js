@@ -43,5 +43,6 @@ exports.data = {
     voice: true,
     usage: [
         '{prefix}{command} [easy/hard/medium]',
-    ]
+    ],
+    voter: true
 }

@@ -19,5 +19,6 @@ exports.output = async ({message, dbUser}) => {
 }
 exports.data = {
     triggers: ['work'],
-    description: 'Work for cash.'
+    description: 'Work for cash.',
+    voter: true
 }

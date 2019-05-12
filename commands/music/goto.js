@@ -22,5 +22,6 @@ exports.data = {
             'type':'any',
             'name':'time'
         }
-    ]
+    ],
+    voter: true
 }

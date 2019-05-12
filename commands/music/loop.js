@@ -17,5 +17,6 @@ exports.output = async ({message}) => {
 exports.data = {
     triggers: ['loop'],
     description: 'Loops current track.',
-    voice: true
+    voice: true,
+    voter: true
 }

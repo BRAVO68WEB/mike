@@ -22,5 +22,6 @@ exports.data = {
             'type':'volume',
             'name':'volume'
         }
-    ]
+    ],
+    voter: true
 }
