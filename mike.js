@@ -32,12 +32,14 @@ class Mike extends Client{
 
         this.utils = require('./utils')
         this.db = require('./database')
+        this.datadog = require('./datadog')
         this.music = require('./music')
 
         this.stats = {}
         this.stats.games = {}
         this.stats.songs = {}
         this.stats.events = {}
+        this.stats.commands = {}
         this.stats.events.total = 0
         this.stats.events.errors = 0
         this.stats.events.voiceUpdates = 0
@@ -46,6 +48,7 @@ class Mike extends Client{
         this.stats.messages.total = 0
         this.stats.messages.updates = 0
         this.stats.messages.deletions = 0
+        this.stats.commands.total = 0
 
         this.dbl = 0
         this.type = 'main'
@@ -61,7 +64,7 @@ class Mike extends Client{
         }
 
         this.db.load()
-
+        this.datadog.init()
         if(this.type == 'beta'){
             this.login(this.config.tokens.beta)
         } else {

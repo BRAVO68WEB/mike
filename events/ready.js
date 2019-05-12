@@ -12,5 +12,10 @@ module.exports = async () => {
         setInterval(() => {
             Mike.dbl.postStats(Mike.guilds.size);
         }, 1800000);
+        setInterval(() => {
+            Mike.datadog.sendall()
+        }, 10*1000);
     }
+
+
 }

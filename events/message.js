@@ -1,6 +1,5 @@
 module.exports = async (message) => {
     Mike.stats.messages.total += 1
-
     if (message.author.bot) return
 
     let prefix = Mike.prefix
@@ -11,7 +10,7 @@ module.exports = async (message) => {
       if (message.content.startsWith('\`\`\`json')) return require('../utils/codecheck')(message, 'json')
       if (message.content.startsWith('\`\`\`js')) return require('../utils/codecheck')(message, 'js')
     }
-    
+
     if (guild.prefix && message.content.startsWith(guild.prefix)) prefix = guild.prefix
     if (!message.content.startsWith(prefix)) return Mike.db.addXp(message.author.id, message.guild.id, message)
     if (guild.settings.disabledChannels.includes(message.channel.id)) return
@@ -106,6 +105,11 @@ module.exports = async (message) => {
       Mike.utils.log.error(e.stack)}
     )
     Mike.utils.log.command(message)
+    Mike.stats.commands.total += 1
+    // if (Mike.type != 'beta') {
+    //   Mike.dog.metric.send(`mike.commands.${command.data.triggers[0]}`, 1);
+    // }
+
     // Mike.cooldowns.add(`${message.author.id}-${command.data.triggers[0]}`)
     // setTimeout(() => {
     // Mike.cooldowns.delete(`${message.author.id}-${command.data.triggers[0]}`)
