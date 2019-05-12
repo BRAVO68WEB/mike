@@ -3,13 +3,15 @@ module.exports = async (message) => {
 
     if (message.author.bot) return
 
-
-    if (message.content.startsWith('\`\`\`javascript')) return require('../utils/codecheck')(message, 'javascript')
-    if (message.content.startsWith('\`\`\`json')) return require('../utils/codecheck')(message, 'json')
-    if (message.content.startsWith('\`\`\`js')) return require('../utils/codecheck')(message, 'js')
-
     let prefix = Mike.prefix
     const guild = await Mike.db.getGuild(message.guild.id)
+
+    if (guild.settings.codecheck) {
+      if (message.content.startsWith('\`\`\`javascript')) return require('../utils/codecheck')(message, 'javascript')
+      if (message.content.startsWith('\`\`\`json')) return require('../utils/codecheck')(message, 'json')
+      if (message.content.startsWith('\`\`\`js')) return require('../utils/codecheck')(message, 'js')
+    }
+    
     if (guild.prefix && message.content.startsWith(guild.prefix)) prefix = guild.prefix
     if (!message.content.startsWith(prefix)) return Mike.db.addXp(message.author.id, message.guild.id, message)
     if (guild.settings.disabledChannels.includes(message.channel.id)) return
