@@ -3,7 +3,7 @@ exports.output = async ({message, args}) => {
     try {
         const answer = await Mike.Collector.awaitMessage(message.channel.id, message.author.id, 10*1000)
         if (answer.content == "yes") {
-            Mike.exec.snap(message,`Rebooting.`)
+            await Mike.exec.snap(message,`Rebooting.`)
             process.exit()
         }
         if (!answer) return Mike.exec.snap(message,`Cancelled operation.`)
