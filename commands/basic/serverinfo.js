@@ -3,8 +3,10 @@ exports.output = async ({message, args}) => {
   Mike.exec.mult(message, [
     ["ID", guild.id, true],
     ["Owner", guild.owner.user.tag, true],
-    ["Region", guild.region, true],
+    ["Region", guild.region.toTitleCase(), true],
     ["Roles", guild.roles.size - 1, true],
+    ["Text Channels", guild.channels.filter(c => c.type === 'text').size, true],
+    ["Voice Channels", guild.channels.filter(c => c.type === 'voice').size, true],
     ["Members", guild.members.filter(m => !m.user.bot).size, true],
     ["Bots", guild.members.filter(m => m.user.bot).size, true]
   ],
