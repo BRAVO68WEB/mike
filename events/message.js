@@ -112,7 +112,10 @@ module.exports = async (message) => {
         }
       Mike.utils.log.error(e.stack)}
     )
-    Mike.utils.log.command(message)
+    if (Mike.type != 'beta') {
+      Mike.utils.log.command(message)
+    }
+    
     Mike.stats.commands.total += 1
     // if (Mike.type != 'beta') {
     //   Mike.dog.metric.send(`mike.commands.${command.data.triggers[0]}`, 1);
