@@ -4,6 +4,13 @@ module.exports = async (message) => {
     Mike.stats.messages.total += 1
     if (message.author.bot) return
 
+    if (message.mentions.users.first() != null &&
+        message.content == message.mentions.users.first() &&
+        message.mentions.users.first().id == Mike.user.id) {
+
+        return Mike.exec.snap(message, `My prefix is ${Mike.prefix}.`)
+    }
+
     let prefix = Mike.prefix
     const guild = await Mike.db.getGuild(message.guild.id)
 
