@@ -10,7 +10,7 @@ exports.output = async ({message, args}) => {
     .then(async response => {
       let answer = response.body;
       console.log(answer)
-      if (!answer.stream === null) {
+      if (answer.stream === null) {
           Mike.exec.error(message, 'This channel is not 🔴 Live.')
       } else {
           return Mike.exec.mult(message, [
