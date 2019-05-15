@@ -59,13 +59,13 @@ module.exports = async (message) => {
 
     command.data.botPerms.forEach( (perm, i) => {
         if (!message.guild.member(Mike.user).hasPermission(perm)) {
-            return error = `Mike needs permission:\n${perm}`
+            return error = `Mike needs permission:\n${perm.toTitleCase().replace(`_`,` `)}`
         }
     })
 
     command.data.userPerms.forEach( (perm, i) => {
         if (!message.member.hasPermission(perm) && message.author.id != `214858075650260992`) {
-            return error = `${command.data.triggers[0].charAt(0).toUpperCase() + command.data.triggers[0].slice(1)} command is available only for users with permission:\n${perm}`
+            return error = `${command.data.triggers[0].charAt(0).toUpperCase() + command.data.triggers[0].slice(1)} command is available only for users with permission:\n${perm.toTitleCase().replace(`_`,` `)}`
         }
     })
 
