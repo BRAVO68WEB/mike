@@ -40,7 +40,8 @@ class Exec {
 
     async error(message, text, hightlight = true, thumbnail = null, image = null, footer = ``) {
         const embed = new Discord.RichEmbed()
-            .setDescription(`:name_badge: ${hightlight ? `\``: ``}${text}${hightlight ? `\``: ``}`)
+            .setDescription(`${hightlight ? `\``: ``}${text}${hightlight ? `\``: ``}`)
+            .setColor(`#f44262`)
             .setFooter(footer)
         return message.channel.send(embed);
     }
