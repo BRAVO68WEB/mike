@@ -21,7 +21,7 @@ exports.output = async ({message, args}) => {
     );
   }
   bannedUsersList = bannedUsersList.slice(i * 10, (i * 10) + 10);
-  Mike.exec.mult(message, bannedUsersList, `Page ${i + 1} of ${noOfPages > parseInt(noOfPages) ? parseInt(noOfPages) + 1 : parseInt(noOfPages)}`)
+  Mike.exec.mult(message, bannedUsersList, `Page ${i + 1} of ${noOfPages > parseInt(noOfPages) ? parseInt(noOfPages) + 1 : parseInt(noOfPages)}`,null,null,null,`Bans: ${bannedUsers.size}`)
 }
 exports.data = {
     triggers: ['banlist','bans'],
