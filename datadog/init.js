@@ -6,4 +6,7 @@ module.exports = async () => {
    app_key: Mike.config.tokens.dogapp,
   };
   Mike.dog.initialize(options);
+  setInterval(() => {
+      Mike.datadog.sendall()
+  }, 10*1000);
 };
