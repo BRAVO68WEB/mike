@@ -29,7 +29,7 @@ class Mike extends Client{
         this.config.database = require('./files/database.json')
 
         this.items = require('./files/items.json')
-        this.emojis = require('./files/emojis.json')
+        this.emoji = require('./files/emojis.json')
 
         this.utils = require('./utils')
         this.db = require('./database')

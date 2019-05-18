@@ -16,6 +16,7 @@ exports.output = async ({message, args}) => {
            }
        }
 }
+    Mike.categories = []
     Mike.managers.commandsloader = new Managers.CommandsLoader(Mike)
     return Mike.exec.snap(message,`Done.`)
 }

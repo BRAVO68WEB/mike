@@ -1,5 +1,4 @@
 const fs = require('fs');
-
 exports.output = async ({message, args}) => {
     let isCommand
     let isCategory
@@ -49,29 +48,21 @@ exports.output = async ({message, args}) => {
             votersText = `\n\n[Voters](https://discordbots.org/bot/419620594645073930/vote) Commands:\n\`${voters.join(', ')}\``
         }
 
-        Mike.exec.snap(message, `Commands:\n\`${normal.join(', ')}\`${votersText}` ,false)
+        Mike.exec.snap(message, `Commands:\n\`${normal.join(', ')}\`${votersText}` ,false, null, null, `${Mike.prefix}help <command>`)
 
 
     } else {
-
-        Mike.exec.mult(message, [
-            [':speech_balloon:Basic',`\`${Mike.prefix}help basic\``, true],
-            [':frame_photo:Images',`\`${Mike.prefix}help images\``, true],
-            [':joy_cat:Fun',`\`${Mike.prefix}help fun\``, true],
-            ['blank'],
-            [':tools:Moderation',`\`${Mike.prefix}help moderation\``, true],
-            [':crayon:Utility',`\`${Mike.prefix}help utility\``, true],
-            [':musical_note:Music',`\`${Mike.prefix}help music\``, true],
-            ['blank'],
-            [':notebook:Text',`\`${Mike.prefix}help text\``, true],
-            [':hot_pepper:NSFW',`\`${Mike.prefix}help nsfw\``, true],
-            [':bulb:Social',`\`${Mike.prefix}help social\``, true],
-            ['blank'],
-            ['Useful link', '[Invite Bot](https://discordapp.com/oauth2/authorize?client_id=419620594645073930&permissions=8&scope=bot) | [Official Server](https://discord.gg/hfGSb8y) | [Vote](https://discordbots.org/bot/419620594645073930/vote) | [Website](https://mikebot.xyz) | [Donate](https://patreon.com/badosz) | [Guide](https://mikebot.xyz/guide)']
-        ],
-        footer = `${Mike.prefix}help <category> | ${Mike.prefix}help <command>`
-        )
-
+        let msg = ``
+        Mike.categories.forEach(category => {
+          msg += `${Mike.emoji.markYes}\`${category}\`\n`
+        })
+        msg += `[[Invite Bot]](https://discordapp.com/oauth2/authorize?client_id=419620594645073930&permissions=8&scope=bot) `,
+        msg += `[[Support]](https://discord.gg/hfGSb8y) `,
+        msg += `[[Vote]](https://discordbots.org/bot/419620594645073930/vote)\n `
+        msg += `[[Website]](https://mikebot.xyz ) `
+        msg += `[[Donate]](https://patreon.com/badosz) `
+        msg += `[[Guide]](https://mikebot.xyz/guide)`
+        Mike.exec.snap(message, msg, false, null, null, `${Mike.prefix}help <category>`)
     }
 
 }
