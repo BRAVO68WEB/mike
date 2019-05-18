@@ -8,7 +8,7 @@ module.exports = async (message) => {
         message.content == message.mentions.users.first() &&
         message.mentions.users.first().id == Mike.user.id) {
 
-        return Mike.exec.snap(message, `My prefix is ${Mike.prefix}.`)
+        return Mike.exec.snap(message, `My prefix is ${Mike.prefix}`)
     }
 
     let prefix = Mike.prefix
