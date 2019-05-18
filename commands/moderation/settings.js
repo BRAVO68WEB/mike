@@ -1,9 +1,9 @@
 exports.output = async ({message, args}) => {
     const guild = await Mike.db.getGuild(message.guild.id)
 
-    const dot = `<:dcOffline:495281269379432449>`
-    const en = `<:dcOnline:495281269391884288> \`Enabled\``
-    const di = `<:dcDnd:495281269609857024> \`Disabled\``
+    const dot = Mike.emoji.markNeutral
+    const en = `${Mike.emoji.markYes} \`Enabled\``
+    const di = `${Mike.emoji.markNo} \`Disabled\``
     const col = `\``
     const page1 =`
     _**${message.guild.name} settings:**_
