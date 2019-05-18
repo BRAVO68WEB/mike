@@ -1,4 +1,5 @@
 const snek = require('snekfetch');
+const fs = require('fs');
 
 module.exports = async (message) => {
     Mike.stats.messages.total += 1
@@ -43,6 +44,8 @@ module.exports = async (message) => {
 
 
     if(!command) return
+
+    if (guild.settings.disabledCategories.includes(command.data.category)) return Mike.exec.error(message, 'This command category is disabled in this server.')
 
     command.data = await Object.assign({
         voter: false,
@@ -109,7 +112,8 @@ module.exports = async (message) => {
         command: command,
         message: message,
         args: args,
-        dbUser: dbUser
+        dbUser: dbUser,
+        dbGuild: guild
     })
     .catch(e => {
         if (e.stack.split('\n')[1].split(':')[(e.stack.split('\n')[1].split(':').length-2)] != undefined) {

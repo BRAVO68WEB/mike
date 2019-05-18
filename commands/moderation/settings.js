@@ -76,12 +76,20 @@ exports.output = async ({message, args}) => {
     **Code Checking**
     ${guild.settings.codecheck ? en : di}
     \`m!settings codecheck [disable/enable]\`
-
     `
 
-    if (args[0] == `1` || !args[0]) return Mike.exec.snap(message, page1, false, null, null, `Page 1 of 3 -- m!settings [page]`)
-    if (args[0] == `2`) return Mike.exec.snap(message, page2, false, null, null, `Page 2 of 3 -- m!settings [page]`)
-    if (args[0] == `3`) return Mike.exec.snap(message, page3, false, null, null, `Page 3 of 3 -- m!settings [page]`)
+    const page4 =`
+    _**${message.guild.name} settings:**_
+
+    **Categories**
+    ${dot} \`Disabled Categories\`: **${guild.settings.disabledCategories.length}**
+    \`m!settings category [disable/enable] [category name]\`
+    `
+
+    if (args[0] == `1` || !args[0]) return Mike.exec.snap(message, page1, false, null, null, `Page 1 of 4 -- m!settings [page]`)
+    if (args[0] == `2`) return Mike.exec.snap(message, page2, false, null, null, `Page 2 of 4 -- m!settings [page]`)
+    if (args[0] == `3`) return Mike.exec.snap(message, page3, false, null, null, `Page 3 of 4 -- m!settings [page]`)
+    if (args[0] == `4`) return Mike.exec.snap(message, page4, false, null, null, `Page 4 of 4 -- m!settings [page]`)
     if (args[0] == `prefix`) require("../../settings/prefix")(message, guild, args)
     if (args[0] == `lvlupmess`) require("../../settings/lvlupmess")(message, guild, args)
     if (args[0] == `snipes`) require("../../settings/snipes")(message, guild, args)
@@ -93,6 +101,7 @@ exports.output = async ({message, args}) => {
     if (args[0] == `mdeletelogs`) require("../../settings/mdeletelogs")(message, guild, args)
     if (args[0] == `channel`) require("../../settings/channels")(message, guild, args)
     if (args[0] == `codecheck`) require("../../settings/codecheck")(message, guild, args)
+    if (args[0] == `category`) require("../../settings/category")(message, guild, args)
   }
   exports.data = {
       triggers: ['settings'],

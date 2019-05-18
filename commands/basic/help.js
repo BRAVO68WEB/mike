@@ -1,5 +1,5 @@
 const fs = require('fs');
-exports.output = async ({message, args}) => {
+exports.output = async ({message, args, dbGuild}) => {
     let isCommand
     let isCategory
 
@@ -54,7 +54,7 @@ exports.output = async ({message, args}) => {
     } else {
         let msg = ``
         Mike.categories.forEach(category => {
-          msg += `${Mike.emoji.markYes}\`${category}\`\n`
+          msg += `${dbGuild.settings.disabledCategories.includes(category) ? Mike.emoji.markNo : Mike.emoji.markYes}\`${category}\`\n`
         })
         msg += `[[Invite Bot]](https://discordapp.com/oauth2/authorize?client_id=419620594645073930&permissions=8&scope=bot) `,
         msg += `[[Support]](https://discord.gg/hfGSb8y) `,

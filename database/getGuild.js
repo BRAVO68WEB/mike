@@ -34,7 +34,8 @@ module.exports = async (id) => {
                     enabled: false,
                     channel: ``,
                   },
-                  disabledChannels: []
+                  disabledChannels: [],
+                  disabledCategories: []
               },
               star: {
                   enabled: false,

@@ -11,9 +11,9 @@ class CommandsLoader {
 
             for (const file of commandFiles) {
 
-                const command = require(`../commands/${category}/${file}`);
-
-                Mike.commands.set(command.data.triggers, command, category);
+                let command = require(`../commands/${category}/${file}`);
+                command.data.category = category
+                Mike.commands.set(command.data.triggers, command);
             }
 
             Mike.categories.push(category);
