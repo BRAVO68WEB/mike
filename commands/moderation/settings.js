@@ -98,7 +98,7 @@ exports.output = async ({message, args}) => {
     **Reddit Notifications [[premium]](https://www.patreon.com/badosz)**
     ${guild.settings.redditNotifier.enabled ? en : di}
     ${dot} \`Channel\`: **${guild.settings.redditNotifier.channel != `` ? `<#${guild.settings.redditNotifier.channel}>` : `[not set]`}**
-    ${dot} \`Subreddits\`: **${guild.settings.redditNotifier.subs.length}**
+    ${dot} \`Subreddits\`: **${guild.settings.redditNotifier.subs ? guild.settings.redditNotifier.subs.length : 0}**
     \`m!settings redditNotif [disable/enable]\`
     \`m!settings redditNotif channel [#channel]\`
     \`m!settings redditNotif [add/remove] [subreddit (e: memes)]\`
