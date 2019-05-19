@@ -27,8 +27,8 @@ module.exports = async (message, guild, args) => {
       if (guild.settings.streamNotifier.streamers.includes(args[2])) {
         return Mike.exec.error(message,"This channel is already in notifications.",)
       }
-      if (guild.settings.streamNotifier.streamers.length >= 5) {
-        return Mike.exec.error(message,"You can't have more then 5 streamers Check out [premium](https://www.patreon.com/badosz) for that.",)
+      if (guild.settings.streamNotifier.streamers.length >= 5 && !guild.ispremium) {
+        return Mike.exec.error(message,"\`You can't have more then 5 streamers Check out \`[[premium]](https://www.patreon.com/badosz)\` for that.\`",false)
       }
       guild.settings.streamNotifier.streamers.push(args[2])
       await Mike.db.update('guilds', message.guild.id, "settings", guild.settings);
