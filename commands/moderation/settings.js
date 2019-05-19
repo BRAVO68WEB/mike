@@ -91,7 +91,7 @@ exports.output = async ({message, args}) => {
     ${dot} \`Streamers\`: **${guild.settings.streamNotifier.streamers.length}**
     \`m!settings streamNotif [disable/enable]\`
     \`m!settings streamNotif channel [#channel]\`
-    \`m!settings streamNotif [add/remove] [streamer]\`
+    \`m!settings streamNotif [add/remove] [streamer username]\`
     `
 
     if (args[0] == `1` || !args[0]) return Mike.exec.snap(message, page1, false, null, null, `Page 1 of 4 -- m!settings [page]`)
