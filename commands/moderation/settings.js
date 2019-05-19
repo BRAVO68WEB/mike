@@ -3,6 +3,8 @@ exports.output = async ({message, args}) => {
 
     const dot = Mike.emoji.markNeutral
     const en = `${Mike.emoji.markYes} \`Enabled\``
+    const e = `${Mike.emoji.markYes}`
+    const d = `${Mike.emoji.markNo}`
     const di = `${Mike.emoji.markNo} \`Disabled\``
     const col = `\``
     const page1 =`
@@ -92,6 +94,13 @@ exports.output = async ({message, args}) => {
     \`m!settings streamNotif [disable/enable]\`
     \`m!settings streamNotif channel [#channel]\`
     \`m!settings streamNotif [add/remove] [streamer username]\`
+
+    **Filters**
+    ${guild.settings.filters.invite ? e : d} \`Invite Filter\`
+    ${guild.settings.filters.emojis ? e : d} \`Emoji Spam Filter\`
+    \`m!settings inviteFilter [disable/enable]\`
+    \`m!settings emojiSpamFilter [disable/enable]\`
+
     `
 
     if (args[0] == `1` || !args[0]) return Mike.exec.snap(message, page1, false, null, null, `Page 1 of 4 -- m!settings [page]`)
@@ -111,6 +120,8 @@ exports.output = async ({message, args}) => {
     if (args[0] == `codecheck`) require("../../settings/codecheck")(message, guild, args)
     if (args[0] == `category`) require("../../settings/category")(message, guild, args)
     if (args[0] == `streamNotif`) require("../../settings/streamNotif")(message, guild, args)
+    if (args[0] == `inviteFilter`) require("../../settings/inviteFilter")(message, guild, args)
+    if (args[0] == `emojiSpamFilter`) require("../../settings/emojiFilter")(message, guild, args)
   }
   exports.data = {
       triggers: ['settings'],
