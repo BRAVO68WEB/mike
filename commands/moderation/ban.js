@@ -7,7 +7,7 @@ exports.output = async ({message, args}) => {
     try {
         if (reason) {
             Mike.exec.snap(message,`\`${mention.user.tag}\` has been successfuly banned! The reason for it is \`${reason}\``, false);
-            return member.ban(reason);
+            return mention.ban(reason);
         }
         Mike.exec.snap(message,`\`${mention.user.tag}\` has been successfuly banned!`, false);
         return mention.ban();

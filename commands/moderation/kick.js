@@ -7,7 +7,7 @@ exports.output = async ({message, args}) => {
     try {
         if (reason) {
             Mike.exec.snap(message,`\`${mention.user.tag}\` has been successfuly kicked! The reason for it is \`${reason}\``, false);
-            return member.kick(reason);
+            return mention.kick(reason);
         }
         Mike.exec.snap(message, `\`${mention.user.tag}\` has been successfuly kicked!`, false);
         return mention.kick();
