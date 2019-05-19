@@ -38,7 +38,7 @@ exports.output = async ({message, args}) => {
                     let song = queue.songs.shift();
                     if(!song) return;
                     Mike.music.player.play(song, Mike ,message).then(() => {
-                        Mike.exec.snap(message, `Now playing: \`${song.title}\`\nfrom:${song.channel}`, false)
+                        Mike.exec.snap(message, `Now playing: \`${song.title}\`\nfrom:\`${song.channel}\`\n[\`${await Mike.utils.time.formatLength(song.length)}\`] [${message.author}]`, false)
                     });
                 }
             }, 300);
