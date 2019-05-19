@@ -84,6 +84,14 @@ exports.output = async ({message, args}) => {
     **Categories**
     ${dot} \`Disabled Categories\`: **${guild.settings.disabledCategories.length}**
     \`m!settings category [disable/enable] [category name]\`
+
+    **Stream Notifications**
+    ${guild.settings.streamNotifier.enabled ? en : di}
+    ${dot} \`Channel\`: **${guild.settings.streamNotifier.channel != `` ? `<#${guild.settings.streamNotifier.channel}>` : `[not set]`}**
+    ${dot} \`Streamers\`: **${guild.settings.streamNotifier.streamers.length}**
+    \`m!settings streamNotif [disable/enable]\`
+    \`m!settings streamNotif channel [#channel]\`
+    \`m!settings streamNotif [add/remove] [streamer]\`
     `
 
     if (args[0] == `1` || !args[0]) return Mike.exec.snap(message, page1, false, null, null, `Page 1 of 4 -- m!settings [page]`)
@@ -102,6 +110,7 @@ exports.output = async ({message, args}) => {
     if (args[0] == `channel`) require("../../settings/channels")(message, guild, args)
     if (args[0] == `codecheck`) require("../../settings/codecheck")(message, guild, args)
     if (args[0] == `category`) require("../../settings/category")(message, guild, args)
+    if (args[0] == `streamNotif`) require("../../settings/streamNotif")(message, guild, args)
   }
   exports.data = {
       triggers: ['settings'],

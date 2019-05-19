@@ -54,7 +54,9 @@ exports.output = async ({message, args, dbGuild}) => {
     } else {
         let msg = ``
         Mike.categories.forEach(category => {
-          msg += `${dbGuild.settings.disabledCategories.includes(category) ? Mike.emoji.markNo : Mike.emoji.markYes}\`${category}\`\n`
+          if (category != `dev`) {
+            msg += `${dbGuild.settings.disabledCategories.includes(category) ? Mike.emoji.markNo : Mike.emoji.markYes}\`${category}\`\n`
+          }
         })
         msg += `[[Invite Bot]](https://discordapp.com/oauth2/authorize?client_id=419620594645073930&permissions=8&scope=bot) `,
         msg += `[[Support]](https://discord.gg/hfGSb8y) `,

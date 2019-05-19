@@ -34,6 +34,11 @@ module.exports = async (id) => {
                     enabled: false,
                     channel: ``,
                   },
+                  streamNotifier: {
+                    enabled: false,
+                    channel: ``,
+                    streamers: []
+                  },
                   disabledChannels: [],
                   disabledCategories: []
               },

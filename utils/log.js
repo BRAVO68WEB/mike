@@ -1,17 +1,23 @@
 const chalk = require('chalk');
 const Discord = require('discord.js');
 // const info = chalk.bold.yellow;
-const core = chalk.white.bgGreen.bold
-const info = chalk.white.bgMagenta.bold
+const core = chalk.white.bgYellow.bold
+const info = chalk.white.bgGreen.bold
 const db = chalk.white.bgCyan.bold
 const time = chalk.white.bgBlue.bold
+const stream = chalk.white.bgMagenta.bold
 const cerror = chalk.white.bgRed.bold
 exports.core = async (message) => {
     console.log(`${core('[MIKE CORE]')} ${message}`)
 }
 
+
 exports.info = async (message) => {
     console.log(`${time(`[` + await Mike.utils.time.getTime() + `]`)}${info('[INFO]')} ${message}`)
+}
+
+exports.stream = async (message) => {
+    console.log(`${time(`[` + await Mike.utils.time.getTime() + `]`)}${stream('[STREAM-NOTIFIER]')} ${message}`)
 }
 
 exports.db = async (message) => {
