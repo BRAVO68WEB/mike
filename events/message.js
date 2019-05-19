@@ -1,6 +1,9 @@
 const snek = require('snekfetch');
 const fs = require('fs');
 
+const inviteFilter = require('../filters/inviteFilter.js');
+const emojiFilter = require('../filters/emojiSpamFilter.js');
+
 module.exports = async (message) => {
     Mike.stats.messages.total += 1
     if (message.author.bot) return
@@ -20,6 +23,9 @@ module.exports = async (message) => {
       if (message.content.startsWith('\`\`\`json')) return require('../utils/codecheck')(message, 'json')
       if (message.content.startsWith('\`\`\`js')) return require('../utils/codecheck')(message, 'js')
     }
+
+    if (await inviteFilter(message, guild)) return;
+    if (await emojiFilter(message, guild)) return;
 
     if (guild.prefix && message.content.startsWith(guild.prefix)) prefix = guild.prefix
     if (!message.content.startsWith(prefix)) return Mike.db.addXp(message.author.id, message.guild.id, message)

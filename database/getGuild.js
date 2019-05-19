@@ -39,6 +39,10 @@ module.exports = async (id) => {
                     channel: ``,
                     streamers: []
                   },
+                  filters :{
+                    invite: false,
+                    emojis: false
+                  },
                   disabledChannels: [],
                   disabledCategories: []
               },
