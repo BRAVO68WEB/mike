@@ -95,6 +95,14 @@ exports.output = async ({message, args}) => {
     \`m!settings streamNotif channel [#channel]\`
     \`m!settings streamNotif [add/remove] [streamer username]\`
 
+    **Reddit Notifications [[premium]](https://www.patreon.com/badosz)**
+    ${guild.settings.redditNotifier.enabled ? en : di}
+    ${dot} \`Channel\`: **${guild.settings.redditNotifier.channel != `` ? `<#${guild.settings.redditNotifier.channel}>` : `[not set]`}**
+    ${dot} \`Subreddits\`: **${guild.settings.redditNotifier.subs.length}**
+    \`m!settings redditNotif [disable/enable]\`
+    \`m!settings redditNotif channel [#channel]\`
+    \`m!settings redditNotif [add/remove] [subreddit (e: memes)]\`
+
     **Filters**
     ${guild.settings.filters.invite ? e : d} \`Invite Filter\`
     ${guild.settings.filters.emojis ? e : d} \`Emoji Spam Filter\`
@@ -120,6 +128,7 @@ exports.output = async ({message, args}) => {
     if (args[0] == `codecheck`) require("../../settings/codecheck")(message, guild, args)
     if (args[0] == `category`) require("../../settings/category")(message, guild, args)
     if (args[0] == `streamNotif`) require("../../settings/streamNotif")(message, guild, args)
+    if (args[0] == `redditNotif`) require("../../settings/redditNotif")(message, guild, args)
     if (args[0] == `inviteFilter`) require("../../settings/inviteFilter")(message, guild, args)
     if (args[0] == `emojiSpamFilter`) require("../../settings/emojiFilter")(message, guild, args)
   }

@@ -39,6 +39,11 @@ module.exports = async (id) => {
                     channel: ``,
                     streamers: []
                   },
+                  redditNotifier: {
+                    enabled: false,
+                    channel: ``,
+                    subs: []
+                  },
                   filters :{
                     invite: false,
                     emojis: false

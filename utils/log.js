@@ -6,6 +6,7 @@ const info = chalk.white.bgGreen.bold
 const db = chalk.white.bgCyan.bold
 const time = chalk.white.bgBlue.bold
 const stream = chalk.white.bgMagenta.bold
+const reddit = chalk.white.bgYellow.bold
 const cerror = chalk.white.bgRed.bold
 exports.core = async (message) => {
     console.log(`${core('[MIKE CORE]')} ${message}`)
@@ -18,6 +19,10 @@ exports.info = async (message) => {
 
 exports.stream = async (message) => {
     console.log(`${time(`[` + await Mike.utils.time.getTime() + `]`)}${stream('[STREAM-NOTIFIER]')} ${message}`)
+}
+
+exports.reddit = async (message) => {
+    console.log(`${time(`[` + await Mike.utils.time.getTime() + `]`)}${reddit('[REDDIT-NOTIFIER]')} ${message}`)
 }
 
 exports.db = async (message) => {

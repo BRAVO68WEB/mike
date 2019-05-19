@@ -21,6 +21,7 @@ class Mike extends Client{
         this.exec = new Handlers.Exec(this)
         this.cooldowns = new Set()
         this.streamNotifier = Handlers.streamNotifier()
+        this.redditNotifer = Handlers.redditNotifier()
 
         this.config = {}
         this.config.tokens = require('./files/tokens.json')
@@ -53,6 +54,7 @@ class Mike extends Client{
         this.stats.commands.total = 0
 
         this.lastStreamers = []
+        this.lastReddit = []
 
         this.dbl = 0
         this.type = 'main'
