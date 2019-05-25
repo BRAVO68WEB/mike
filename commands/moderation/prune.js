@@ -16,7 +16,7 @@ exports.output = async ({message, args}) => {
         if (args.includes(`--bots`)) {
           fetched = fetched.filter(message => message.author.bot);
         }
-        
+
         let deleted = {}
         fetched.array().forEach(message => {
           if (deleted[message.author.tag] === undefined) {
@@ -28,8 +28,9 @@ exports.output = async ({message, args}) => {
         Object.keys(deleted).forEach(user => {
           who += `${deleted[user].length} message${deleted[user].length == 1 ? `` : `s`} by ${user}\n`
         })
-        const clearedMessages = message.channel.bulkDelete(fetched);
-        if (!clearedMessages.size) {
+        try {
+          await message.channel.bulkDelete(fetched);
+        } catch(e) {
           return Mike.exec.error(message, `This messages are no longer deletable by bots.`).then(msg => { msg.delete(5000) });
         }
         Mike.exec.snap(message, `${message.author.tag} has deleted ${fetched.size} message${fetched.size ? `` : `s`}!\n\n${who}`)
