@@ -1,7 +1,9 @@
 const { PlayerManager } = require("discord.js-lavalink")
 const Collector = require('../utils/collector.js');
 module.exports = async () => {
-    Mike.user.setPresence({ game: { type: 'WATCHING', name: `${Mike.prefix}help` }, status: 'online' });
+    setInterval(() => {
+        Mike.user.setPresence({ game: { type: 'WATCHING', name: `${Mike.prefix}help` }, status: 'online' });
+    }, 120000);
     Mike.player = new PlayerManager(Mike, [{ host: Mike.config.lavalink.host, port: Mike.config.lavalink.port, region: "eu-central", password: Mike.config.lavalink.password }], {
         user: Mike.user.id,
         shards: 1
