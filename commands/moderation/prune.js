@@ -16,9 +16,23 @@ exports.output = async ({message, args}) => {
         if (args.includes(`--bots`)) {
           fetched = fetched.filter(message => message.author.bot);
         }
-
-        message.channel.bulkDelete(fetched);
-        Mike.exec.snap(message, `${message.author.username} has deleted ${fetched.size} message(s)!`).then(msg => { msg.delete(6000); });
+        
+        let deleted = {}
+        fetched.array().forEach(message => {
+          if (deleted[message.author.tag] === undefined) {
+            deleted[message.author.tag] = []
+          }
+          deleted[message.author.tag].push(message.id)
+        })
+        let who = ``
+        Object.keys(deleted).forEach(user => {
+          who += `${deleted[user].length} message${deleted[user].length == 1 ? `` : `s`} by ${user}\n`
+        })
+        const clearedMessages = message.channel.bulkDelete(fetched);
+        if (!clearedMessages.size) {
+          return Mike.exec.error(message, `This messages are no longer deletable by bots.`).then(msg => { msg.delete(5000) });
+        }
+        Mike.exec.snap(message, `${message.author.tag} has deleted ${fetched.size} message${fetched.size ? `` : `s`}!\n\n${who}`)
     }
     return message.delete().then(() => { purge(); });
 }
@@ -26,10 +40,16 @@ exports.data = {
     triggers: ['prune', 'purge', 'clear', 'clean', 'delete'],
     description: 'Prunes messages.',
     usage: [
-        '{prefix}{command} [number]',
-        '{prefix}{command} [number]',
-        '{prefix}{command} [number] [--bots]',
-        '{prefix}{command} [number] [mention]'
+        '{prefix}{command} <number>',
+        '{prefix}{command} <number>',
+        '{prefix}{command} <number> [--bots]',
+        '{prefix}{command} <number> [mention]'
+    ],
+    args: [
+      {
+          'type':'int',
+          'name':'number'
+      },
     ],
     userPerms: [
         "MANAGE_MESSAGES"
