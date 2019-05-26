@@ -33,7 +33,7 @@ exports.output = async ({message, args}) => {
         } catch(e) {
           return Mike.exec.error(message, `This messages are no longer deletable by bots.`).then(msg => { msg.delete(5000) });
         }
-        Mike.exec.snap(message, `${message.author.tag} has deleted ${fetched.size} message${fetched.size ? `` : `s`}!\n\n${who}`)
+        Mike.exec.snap(message, `${message.author.tag} has deleted ${fetched.size} message${fetched.size == 1 ? `` : `s`}!\n\n${who}`)
     }
     return message.delete().then(() => { purge(); });
 }
