@@ -9,7 +9,6 @@ module.exports = async () => {
         shards: 1
     });
     Mike.Collector = new Collector(Mike);
-    console.log(JSON.parse(await Mike.cacher.getData('mike','lastStreamers')))
     Mike.lastStreamers = (JSON.parse(await Mike.cacher.getData('mike','lastStreamers')) || [])
     Mike.lastReddit = (JSON.parse(await Mike.cacher.getData('mike','lastReddit')) || [])
 

@@ -40,6 +40,7 @@ module.exports = async () => {
                   Mike.utils.log.error(e)
             });
             Mike.lastReddit[guild.id][subreddit] = post.data.id;
+            await Mike.cacher.saveData('mike','lastReddit', JSON.stringify(Mike.lastReddit))
           }
 
         }

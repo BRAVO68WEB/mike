@@ -24,9 +24,10 @@ module.exports = async () => {
               Mike.lastStreamers[guild.id] = [];
             }
             else {
-              Mike.lastStreamers[guild.id].forEach(stream => {
+              Mike.lastStreamers[guild.id].forEach(async stream => {
                   if (!streams.map(stream => stream._id).includes(stream)) {
                     Mike.lastStreamers[guild.id].splice(Mike.lastStreamers[guild.id].indexOf(stream), 1);
+                    await Mike.cacher.saveData('mike','lastStreamers', JSON.stringify(Mike.lastStreamers))
                   }
               });
             }
