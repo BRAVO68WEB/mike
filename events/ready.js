@@ -9,7 +9,14 @@ module.exports = async () => {
         shards: 1
     });
     Mike.Collector = new Collector(Mike);
+    console.log(JSON.parse(await Mike.cacher.getData('mike','lastStreamers')))
+    Mike.lastStreamers = (JSON.parse(await Mike.cacher.getData('mike','lastStreamers')) || [])
+    Mike.lastReddit = (JSON.parse(await Mike.cacher.getData('mike','lastReddit')) || [])
+
     Mike.utils.log.info(`Mike is ready on ${Mike.guilds.size} servers.`)
+    Mike.ready = true
+
+
     if (Mike.type != 'beta') {
         setInterval(() => {
             Mike.dbl.postStats(Mike.guilds.size);

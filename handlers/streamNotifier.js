@@ -4,6 +4,7 @@ const Discord = require('discord.js');
 module.exports = async () => {
     setInterval(async () => {
       try {
+        if (!Mike.ready) return
         data = await Mike.db.filter({"settings":{"streamNotifier":{"enabled":true}}})
         for (let guild of data) {
           if (guild.settings.streamNotifier.streamers.length == 0) continue;
@@ -44,7 +45,8 @@ module.exports = async () => {
                 await channel.send(embed).catch(e => {
                       Mike.utils.log.error(e)
                 });
-                Mike.lastStreamers[guild.id].push(stream._id);
+                await Mike.lastStreamers[guild.id].push(stream._id)
+                await Mike.cacher.saveData('mike','lastStreamers', JSON.stringify(Mike.lastStreamers))
               }
             }
           }

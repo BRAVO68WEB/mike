@@ -4,6 +4,7 @@ const Discord = require('discord.js');
 module.exports = async () => {
     setInterval(async () => {
       try {
+        if (!Mike.ready) return
         data = await Mike.db.filter({"settings":{"redditNotifier":{"enabled":true}}})
         for (let guild of data) {
           if (guild.settings.redditNotifier.subs.length == 0) continue;

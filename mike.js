@@ -14,6 +14,8 @@ class Mike extends Client{
         this.queue = {}
         this.categories = []
 
+        this.ready = false
+
         this.managers = {}
         this.managers.eventloader = new Managers.EventLoader(this)
         this.managers.commandsloader = new Managers.CommandsLoader(this)
@@ -22,6 +24,7 @@ class Mike extends Client{
         this.cooldowns = new Set()
         this.streamNotifier = Handlers.streamNotifier()
         this.redditNotifer = Handlers.redditNotifier()
+        this.cacher = require('./handlers/cacher.js')
 
         this.config = {}
         this.config.tokens = require('./files/tokens.json')
@@ -52,9 +55,6 @@ class Mike extends Client{
         this.stats.messages.updates = 0
         this.stats.messages.deletions = 0
         this.stats.commands.total = 0
-
-        this.lastStreamers = []
-        this.lastReddit = []
 
         this.dbl = 0
         this.type = 'main'
