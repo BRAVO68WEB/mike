@@ -8,20 +8,20 @@ exports.output = async ({message, args}) => {
             ['Author', `\`${message.author.tag}\``, false],
             ['Content',`\`${args}\``, false]
         ])
-        await poll.react('✅')
-        await poll.react('❎')
+        await poll.react(Mike.emoji.markYesID)
+        await poll.react(Mike.emoji.markNoID)
         return
     }
     args = args.split("|")
-    let text = ``
-    for (i = 0; i < args.length; i++) {
+    let text = `\`${args[0]}\`\n\n`
+    for (i = 0; i < args.length - 1; i++) {
         if (i < 20) {
-            text += `${letters[i]}\`${args[i]}\`\n`
+            text += `${letters[i]}\`${args[i+1]}\`\n`
         }
     }
     const poll = await Mike.exec.snap(message, text, false)
 
-    for (i = 0; i < args.length; i++) {
+    for (i = 0; i < args.length - 1; i++) {
         if (i < 20) {
             await poll.react(emojis[i])
         }
@@ -33,7 +33,7 @@ exports.data = {
     description: 'Creates poll.',
     usage: [
         '{prefix}{command} <text>',
-        '{prefix}{command} <option 1>|<option 2>|...',
+        '{prefix}{command} <text>|<option 1>|<option 2>|...',
     ],
     args: [
         {
