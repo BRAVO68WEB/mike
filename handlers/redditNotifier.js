@@ -6,6 +6,7 @@ module.exports = async () => {
       try {
         if (!Mike.ready) return
         data = await Mike.db.filter({"settings":{"redditNotifier":{"enabled":true}}})
+        Mike.utils.log.reddit(`Checking subreddits for ${data.length} guilds`)
         for (let guild of data) {
           if (guild.settings.redditNotifier.subs.length == 0) continue;
           const channel = Mike.channels.get(guild.settings.redditNotifier.channel);
@@ -27,7 +28,7 @@ module.exports = async () => {
                 Mike.lastReddit[guild.id][subreddit] = ``;
               }
             }
-            if (Mike.lastReddit[guild.id][subreddit] == post.data.id) return
+            if (Mike.lastReddit[guild.id][subreddit] == post.data.id) continue
             Mike.utils.log.reddit(`Sending post from r/${subreddit} to ${guild.id}`)
             const embed = new Discord.RichEmbed()
                 .setTitle(`New post on r/${subreddit}`)
