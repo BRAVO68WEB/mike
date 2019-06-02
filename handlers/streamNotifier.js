@@ -55,5 +55,5 @@ module.exports = async () => {
       } catch (e) {
         console.log(e)
       }
-    }, 10*1000);
+    }, 30*1000);
 };
