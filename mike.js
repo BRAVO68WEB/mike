@@ -8,11 +8,16 @@ class Mike extends Client {
     global.Mike = this
 
     this.tokens = require('./files/tokens.json')
+    this.prefixes = require('./files/prefixes.json')
+
+    this.eventHandler = new (require('./handlers/events.js'))(this)
 
     if (os.hostname() == 'badosz-pc') {
+      this.prefix = this.prefixes.beta
       this.login(this.tokens.beta)
     } else {
-      this.login(this.tokens.beta)
+      this.prefix = this.prefixes.main
+      this.login(this.tokens.main)
     }
 
   }
