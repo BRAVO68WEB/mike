@@ -31,6 +31,8 @@ module.exports = async (message, messagePrefix, dbGuild) => {
       message: message,
       args: args,
       dbGuild: dbGuild
+  }).catch(error => {
+    return require('../error')(message, error)
   })
   // args = await require('../args')(args, message)
 }

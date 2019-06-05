@@ -1,5 +1,5 @@
 exports.output = async ({message}) => {
-  Mike.models.snap({
+  Mike.models.snapx({
     object: message,
     message: `Api: \`${Math.floor(Mike.ping)}ms.\`
               Bot: \`${Date.now() - message.createdTimestamp}ms.\``,
