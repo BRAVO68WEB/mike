@@ -10,16 +10,20 @@ class Mike extends Client {
     this.tokens = require('./files/tokens.json')
     this.prefixes = require('./files/prefixes.json')
     this.databases = require('./files/databases.json')
+    this.links = require('./files/links.json')
 
     this.eventHandler = new (require('./handlers/events.js'))(this)
 
     this.db = require('./database')
+    this.models = require('./models')
 
-    this.type = os.hostname() == 'badosz-pc' ? 'beta' : 'main'
+    this.color = '#ffe680'
+
+    this.type = (os.hostname() == 'badosz-pc' ? 'beta' : 'main')
 
     this.db.init(this.databases[this.type])
     this.prefix = this.prefixes[this.type]
-    this.login(this.tokens.main)[this.type]
+    this.login(this.tokens[this.type])
 
 
   }
