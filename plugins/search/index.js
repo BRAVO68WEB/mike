@@ -6,6 +6,7 @@ module.exports = {
   name: '🔍 Search',
   id: 'search',
   description: 'Search for eveything you want!',
+  author: '214858075650260992',
   commands: commands,
   canBeDisabled: true,
   canBeHidden: true
