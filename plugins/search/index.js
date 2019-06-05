@@ -3,10 +3,10 @@ const commands = require('fs').readdirSync(`${__dirname}/commands/`)
   .map(file => require(`${__dirname}/commands/${file}`))
 
 module.exports = {
-  name: '📚 Basic',
-  id: 'basic',
-  description: 'Get more informations about the bot!',
+  name: '🔍 Search',
+  id: 'search',
+  description: 'Search for eveything you want!',
   commands: commands,
-  canBeDisabled: false,
-  canBeHidden: false
+  canBeDisabled: true,
+  canBeHidden: true
 }
