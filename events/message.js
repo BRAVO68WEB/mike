@@ -14,7 +14,7 @@ module.exports = async (message) => {
     messagePrefix = dbGuild.prefix
   }
 
-  if (message.content.startsWith(messagePrefix) {
+  if (message.content.startsWith(messagePrefix)) {
     return require('../handlers/message/command')(message, messagePrefix)
-
+  }
 }

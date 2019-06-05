@@ -1,3 +1,12 @@
 module.exports = async (message) => {
-  message.channel.send('N/A')
+  Mike.models.snap({
+    object: message,
+    message: `Hi I\'m ${Mike.user.username},
+              Type \`${Mike.prefix}help\` to find out more about my abilities!
+
+              If you need more specific help join here:\n
+              ${Mike.links.guild}`,
+    hightlight: false,
+    thumbnail: Mike.user.displayAvatarURL
+  })
 }
