@@ -5,7 +5,7 @@ module.exports = async (data) => {
   data = await Object.assign({
       object: null,
       message: `[Missing Message Content]`,
-      hightlight: true,
+      hightlight: false,
       thumbnail: null,
       image: null,
       color: Mike.color,
