@@ -13,9 +13,15 @@ module.exports = async (message, messagePrefix, dbGuild) => {
   })
 
   if(!command) return
-
+  if (!Mike.roles.developers.includes(message.author.id) && command.data.developer) {
+    return Mike.models.snap({
+      object: message,
+      message: '\`This command is for developers only.\`',
+      color: '#f44262'
+    })
+  }
   if (await require('../args')(args, command, message)) return
-  
+
   command.data = await Object.assign({
       voter: false,
       voice: false,
