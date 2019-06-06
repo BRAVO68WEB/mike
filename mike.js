@@ -13,6 +13,8 @@ class Mike extends Client {
     this.links = require('./files/links.json')
     this.roles = require('./files/roles.json')
 
+    this.http = require('snekfetch')
+
     this.eventHandler = new (require('./handlers/events.js'))(this)
 
     this.db = require('./database')
