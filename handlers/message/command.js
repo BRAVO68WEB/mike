@@ -14,6 +14,10 @@ module.exports = async (message, messagePrefix, dbGuild) => {
 
   if(!command) return
 
+  if (await require('../args')(args, command, message)) {
+    return console.log('xd')
+  }
+  console.log(await require('../args')(args, command, message))
   command.data = await Object.assign({
       voter: false,
       voice: false,
@@ -34,5 +38,5 @@ module.exports = async (message, messagePrefix, dbGuild) => {
   }).catch(error => {
     return require('../error')(message, error)
   })
-  // args = await require('../args')(args, message)
+
 }
