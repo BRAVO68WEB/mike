@@ -24,7 +24,7 @@ exports.data = {
     description: 'Eval js code.',
     developer: true,
     usage: [
-      '{prefix}{commands} <code>'
+      '{prefix}{command} <code>'
     ],
     args: [
       {
