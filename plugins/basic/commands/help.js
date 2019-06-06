@@ -50,5 +50,4 @@ exports.output = async ({message, args}) => {
 exports.data = {
     triggers: ['help'],
     description: 'Shows help message.',
-    donator: true
 }
