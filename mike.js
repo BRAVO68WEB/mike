@@ -11,6 +11,7 @@ class Mike extends Client {
     this.prefixes = require('./files/prefixes.json')
     this.databases = require('./files/databases.json')
     this.links = require('./files/links.json')
+    this.roles = require('./files/roles.json')
 
     this.eventHandler = new (require('./handlers/events.js'))(this)
 

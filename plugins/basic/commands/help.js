@@ -38,8 +38,10 @@ exports.output = async ({message, args}) => {
 
   let help = `Avalible Plugins:\n\n`
   await Mike.plugins.forEach(plugin => {
-    help += `**${plugin.name}** (ID: *${plugin.id}*)
-            \`${plugin.description}\`\n\n`
+    if (!(plugin.devOnly && !Mike.roles.developers.includes(message.author.id))) {
+      help += `**${plugin.name}** (ID: *${plugin.id}*)
+              \`${plugin.description}\`\n\n`
+    }
   })
   Mike.models.snap({
     object: message,
