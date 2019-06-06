@@ -5,7 +5,7 @@ module.exports = async (message, error) => {
     message: `**Ooops! Something went wrong!**
 
               This shouldn't have happend,
-              The error has been sent the to developer with code **#${code}**
+              The error has been sent to the developer with code **#${code}**
 
               If possible, please report it here too:
               ${Mike.links.guild}
