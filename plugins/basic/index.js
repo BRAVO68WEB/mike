@@ -5,7 +5,7 @@ const commands = require('fs').readdirSync(`${__dirname}/commands/`)
 module.exports = {
   name: '📚 Basic',
   id: 'basic',
-  description: 'Get more informations about the bot!',
+  description: 'Get more information about the bot!',
   author: '214858075650260992',
   commands: commands,
   canBeDisabled: false,
