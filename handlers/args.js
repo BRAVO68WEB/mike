@@ -21,6 +21,9 @@ module.exports = async (args, command, message) => {
       if (command.data.args[i].type == 'mention' && !message.mentions.members.first()) {
         return error(message, `Wrong \`[${command.data.args[i].name}]\` argument\n\nIt needs to be \`[${command.data.args[i].type}]\`.`)
       }
+      if (command.data.args[i].type == 'number' && isNaN(args[i])) {
+        return error(message, `Wrong \`[${command.data.args[i].name}]\` argument\n\nIt needs to be \`[${command.data.args[i].type}]\`.`)
+      }
     }
     resolve(false)
 
