@@ -10,5 +10,6 @@ module.exports = {
   commands: commands,
   canBeDisabled: true,
   canBeHidden: true,
-  devOnly: false
+  devOnly: false,
+  hidden: false
 }

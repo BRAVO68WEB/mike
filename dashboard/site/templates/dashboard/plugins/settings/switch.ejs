@@ -1,0 +1,28 @@
+<span class="name">
+  Enable / Disable
+</span>
+<label class="switch">
+  <input id="save-switch-default-button" type="checkbox">
+  <span class="slider round"></span>
+</label>
+<span id="save-switch-default-save" class="save">
+  SAVE
+</span>
+<script type="text/javascript">
+  $(document).on('click','#save-switch-default-save',function(e){
+      e.preventDefault()
+      $.ajax({
+          type: "POST",
+          url: "/api/<%= server.id %>/<%= plugin %>",
+          data: {
+              id: $("#save-switch-default-button").val(),
+          },
+          success: function(result) {
+              alert('ok')
+          },
+          error: function(result) {
+              alert("error")
+          }
+      })
+  })
+</script>
