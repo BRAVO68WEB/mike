@@ -27,7 +27,7 @@ module.exports = app => {
     const guild = await Mike.db.getGuild(req.params.id)
 
     let enabled = true
-    if (guild.settings.disabledPlugins.includes(plugin.name)) enabled = false
+    if (guild.settings.disabledPlugins.includes(plugin.id)) enabled = false
 
     renderTemplate(res, req, `dashboard/plugin.ejs`,
       {

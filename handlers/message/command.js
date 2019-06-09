@@ -6,7 +6,7 @@ module.exports = async (message, messagePrefix, dbGuild) => {
     const commandMatch = plugin.commands.find(cmd =>
       cmd.data.triggers && cmd.data.triggers.includes(commandName.toLowerCase())
     )
-    if (commandMatch !== undefined) {
+    if (commandMatch !== undefined && !dbGuild.settings.disabledPlugins.includes(plugin.id)) {
       command = commandMatch
     }
 
