@@ -13,6 +13,7 @@ class Mike extends Client {
     this.dashboards = require('./files/dashboards.json')
     this.links = require('./files/links.json')
     this.roles = require('./files/roles.json')
+    this.lavalink = require('./files/lavalink.json')
 
     this.http = require('snekfetch')
 

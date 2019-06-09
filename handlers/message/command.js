@@ -20,6 +20,13 @@ module.exports = async (message, messagePrefix, dbGuild) => {
       color: '#f44262'
     })
   }
+  if (command.data.voice == true && !message.member.voiceChannel) {
+    return Mike.models.snap({
+      object: message,
+      message: '\`Join voice channel first.\`',
+      color: '#f44262'
+    })
+  }
   if (await require('../args')(args, command, message)) return
 
   command.data = await Object.assign({
