@@ -1,4 +1,4 @@
-exports.output = async ({message, args}) => {
+exports.output = async ({message, args, dbGuild}) => {
 
   const plugin = Mike.plugins.find(plugin => plugin.id.includes(args[0]))
   if (plugin) {
@@ -38,7 +38,7 @@ exports.output = async ({message, args}) => {
 
   let help = `Avalible Plugins:\n\n`
   await Mike.plugins.forEach(plugin => {
-    if (!(plugin.devOnly && !Mike.roles.developers.includes(message.author.id))) {
+    if (!(plugin.devOnly && !Mike.roles.developers.includes(message.author.id)) && !dbGuild.settings.disabledPlugins.includes(plugin.id) && !plugin.hiddenInHelp) {
       help += `**${plugin.name}** (ID: *${plugin.id}*)
               \`${plugin.description}\`\n\n`
     }

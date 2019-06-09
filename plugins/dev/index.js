@@ -9,5 +9,6 @@ module.exports = {
   author: '214858075650260992',
   commands: commands,
   devOnly: true,
-  hidden: false
+  hiddenInDash: true,
+  hiddenInHelp: false
 }
