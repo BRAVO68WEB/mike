@@ -1,0 +1,21 @@
+<%- include ../build/head.ejs %>
+
+<span class="selection">
+  Please select a server
+</span>
+
+<div class="servers">
+  <% Mike.guilds.filter(g=>g.member(user.id)).forEach(server => { %>
+    <div class="server" onclick="<%= server.member(user.id).hasPermission("MANAGE_GUILD") %> ? window.location = '/dashboard/<%= server.id %>' : ''">
+        <span class="icon">
+          <img src="<%= server.iconURL ? server.iconURL : `https://dummyimage.com/128/7289DA/FFFFFF/&text=${encodeURIComponent(server.nameAcronym)}` %>">
+          <span class="name">
+            <%= server.name %>
+          </span>
+          <span class="members">
+            <%= server.members.size %> members
+          </span>
+        </span>
+    </div>
+  <% }); %>
+</div>

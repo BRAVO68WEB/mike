@@ -10,6 +10,7 @@ class Mike extends Client {
     this.tokens = require('./files/tokens.json')
     this.prefixes = require('./files/prefixes.json')
     this.databases = require('./files/databases.json')
+    this.dashboards = require('./files/dashboards.json')
     this.links = require('./files/links.json')
     this.roles = require('./files/roles.json')
 
@@ -26,6 +27,7 @@ class Mike extends Client {
 
     this.db.init(this.databases[this.type])
     this.prefix = this.prefixes[this.type]
+    this.dashboard = this.dashboards[this.type]
     this.login(this.tokens[this.type])
 
 
