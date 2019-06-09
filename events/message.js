@@ -10,7 +10,7 @@ module.exports = async (message) => {
 
   let messagePrefix = Mike.prefix
 
-  if (dbGuild.prefix && message.content.startsWith(guild.prefix)) {
+  if (dbGuild.prefix && message.content.startsWith(dbGuild.prefix)) {
     messagePrefix = dbGuild.prefix
   }
 
