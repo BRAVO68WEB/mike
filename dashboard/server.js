@@ -63,6 +63,7 @@ module.exports = () => {
 
   require('./routes/main')(app)
   require('./routes/dashboard')(app)
+    require('./routes/api')(app)
 
   app.listen(Mike.dashboard.port)
 

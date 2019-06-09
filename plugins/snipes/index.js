@@ -3,8 +3,8 @@ const commands = require('fs').readdirSync(`${__dirname}/commands/`)
   .map(file => require(`${__dirname}/commands/${file}`))
 
 module.exports = {
-  name: '🔫 Snipe',
-  id: 'snipe',
+  name: '🔫 Snipes',
+  id: 'snipes',
   description: 'See last deleted message!',
   author: '214858075650260992',
   commands: commands,
