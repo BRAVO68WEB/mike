@@ -23,9 +23,6 @@ exports.output = async ({message, args, dbGuild}) => {
                 Description: \`${plugin.description}\`
                 Author: \`${await Mike.users.get(plugin.author).tag}\`
 
-                Can Be Disabled: \`${plugin.canBeDisabled ? `Yes` : 'No'}\`
-                Can Be Hidden: \`${plugin.canBeHidden ? `Yes` : 'No'}\`
-
                 Commands:
                 ${commands.normal.join(', ')}
 
