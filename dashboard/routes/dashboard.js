@@ -24,10 +24,16 @@ module.exports = app => {
     if(!server) return res.redirect('/dashboard')
     const perms = server.member(req.user.id) ? server.member(req.user.id).hasPermission("MANAGE_GUILD") : false;
     if(!perms && !req.session.isAdmin) res.redirect('/dashboard');
+    const guild = await Mike.db.getGuild(req.params.id)
+    let enabled = true
+    if (plugin.id == 'basic' && guild.settings.disabledPlugins.includes('basic')) enabled = false
+    if (plugin.id == 'snipes' && !guild.settings.snipes) enabled = false
+
     renderTemplate(res, req, `dashboard/plugin.ejs`,
       {
         server: await Mike.db.getGuild(req.params.id),
-        plugin: req.params.plugin
+        plugin: req.params.plugin,
+        enabled: enabled
       }
     )
   })

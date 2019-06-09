@@ -49,7 +49,8 @@ module.exports = async (id) => {
                     emojis: false
                   },
                   disabledChannels: [],
-                  disabledCategories: []
+                  disabledCategories: [],
+                  disabledPlugins: [],
               },
               star: {
                   enabled: false,
