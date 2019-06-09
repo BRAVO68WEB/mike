@@ -8,8 +8,6 @@ module.exports = {
   description: 'Customize your server\'s prefix!',
   author: '214858075650260992',
   commands: commands,
-  canBeDisabled: false,
-  canBeHidden: false,
   devOnly: false,
   hidden: false
 }

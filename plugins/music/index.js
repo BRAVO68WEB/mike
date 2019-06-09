@@ -8,8 +8,6 @@ module.exports = {
   description: 'Listen to music with your friends!',
   author: '214858075650260992',
   commands: commands,
-  canBeDisabled: false,
-  canBeHidden: false,
   devOnly: false,
   hidden: false
 }

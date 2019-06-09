@@ -8,8 +8,6 @@ module.exports = {
   description: 'Own it.',
   author: '214858075650260992',
   commands: commands,
-  canBeDisabled: true,
-  canBeHidden: true,
   devOnly: true,
   hidden: false
 }

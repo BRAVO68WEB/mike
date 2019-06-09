@@ -8,8 +8,6 @@ module.exports = {
   description: 'Get more information about the bot!',
   author: '214858075650260992',
   commands: commands,
-  canBeDisabled: false,
-  canBeHidden: false,
   devOnly: false,
   hidden: false
 }

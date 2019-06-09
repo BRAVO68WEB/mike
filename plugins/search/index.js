@@ -8,8 +8,6 @@ module.exports = {
   description: 'Search for eveything you want!',
   author: '214858075650260992',
   commands: commands,
-  canBeDisabled: true,
-  canBeHidden: true,
   devOnly: false,
   hidden: false
 }
