@@ -23,8 +23,14 @@ module.exports = app => {
           guild.settings.disabledPlugins.push(req.params.plugin)
         }
       }
-      await Mike.db.update('guilds', req.params.id, "settings", guild.settings);
+      await Mike.db.update('guilds', req.params.id, "settings", guild.settings)
     }
+
+    if (req.params.type == 'prefix') {
+      if (req.body.prefix == "") return
+      await Mike.db.update('guilds', req.params.id, "prefix", req.body.prefix)
+    }
+
 
 
   })
