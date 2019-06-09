@@ -1,6 +1,6 @@
 exports.output = async ({message, args, dbGuild}) => {
 
-  const plugin = Mike.plugins.find(plugin => plugin.id.includes(args[0]))
+  const plugin = Mike.plugins.find(plugin => plugin.id == args[0].toLowerCase())
   if (plugin) {
     let commands = {
       normal:   [],
@@ -26,12 +26,52 @@ exports.output = async ({message, args, dbGuild}) => {
                 Commands:
                 ${commands.normal.join(', ')}
 
-                ${commands.voters.length > 0 ? `Voters commands:\n` + commands.voters.join(', ') : ``}
+                ${commands.voters.length > 0 ? `[Voters](${Mike.links.vote}) commands:\n` + commands.voters.join(', ') : ``}
 
                 ${commands.donators.length > 0 ? `Donators commands:\n` + commands.donators.join(', ') : ``}
                 `,
     })
   }
+  let command
+  if (args[0]) {
+    await Mike.plugins.forEach(plugin => {
+      const commandMatch = plugin.commands.find(cmd =>
+        cmd.data.triggers && cmd.data.triggers.includes(args[0].toLowerCase())
+      )
+      if (commandMatch !== undefined && !dbGuild.settings.disabledPlugins.includes(plugin.id)) {
+        command = commandMatch
+      }
+    })
+    if (command) {
+      command.data = await Object.assign({
+        voter: false,
+        voice: false,
+        cooldown: 1,
+        usage: ['{prefix}{command}'],
+        developer: false,
+        args: [],
+        nsfw: false,
+        userPerms: [],
+        botPerms: []
+      }, command.data)
+
+      return Mike.models.snap({
+        object: message,
+        message: `**${command.data.triggers[0]}**
+
+                  Triggers: \`${command.data.triggers.join(', ')}\`
+                  Description: \`${command.data.description}\`
+
+                  Usage:\`\u200B
+                  ${command.data.usage.join('\n')
+                                      .replace(/{prefix}/g, Mike.prefix)
+                                      .replace(/{command}/g, command.data.triggers[0])}\``,
+      })
+
+    }
+  }
+
+
 
   let help = `Avalible Plugins:\n\n`
   await Mike.plugins.forEach(plugin => {

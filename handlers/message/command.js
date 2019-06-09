@@ -31,6 +31,7 @@ module.exports = async (message, messagePrefix, dbGuild) => {
 
   command.data = await Object.assign({
       voter: false,
+      donator: false,
       voice: false,
       cooldown: 1,
       usage: ['{prefix}{command}'],

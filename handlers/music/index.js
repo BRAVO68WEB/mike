@@ -3,5 +3,5 @@ require('fs')
   .filter(file => file !== 'index.js' && file.includes('.'))
   .map(filename => {
     const moduleName = filename.split('.')[0];
-    exports[moduleName] = require(`${__dirname}/${filename}`);
+    exports[moduleName] = require(`${__dirname}/${filename}`)
 });
