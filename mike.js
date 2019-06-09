@@ -20,6 +20,7 @@ class Mike extends Client {
 
     this.db = require('./database')
     this.models = require('./models')
+    this.utils = require('./utils')
 
     this.color = '#ffe680'
 
