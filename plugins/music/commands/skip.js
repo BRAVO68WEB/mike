@@ -11,10 +11,10 @@ exports.output = async ({message}) => {
   let queue = Mike.queue[message.guild.id]
   queue.loop = false
   await player.stop()
-  return Mike.models.snap({
-    object: message,
-    message: '\`Skipped.\`',
-  })
+  // return Mike.models.snap({
+  //   object: message,
+  //   message: '\`Skipped.\`',
+  // })
 };
 
 exports.data = {

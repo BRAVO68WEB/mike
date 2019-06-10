@@ -47,11 +47,10 @@ exports.output = async ({message, args}) => {
           Mike.models.snap({
             object: message,
             message: `\`Loaded ${count} songs.\``,
-            color: '#f44262'
           })
 
           setTimeout(async () => {
-            let player = await Mike.player.get(message.guild.id);
+            let player = await Mike.player.get(message.guild.id)
             if(!player.playing) {
               let song = queue.songs.shift();
               if(!song) return;
@@ -59,12 +58,12 @@ exports.output = async ({message, args}) => {
                 Mike.models.snap({
                   object: message,
                   message: `Now playing: \`${song.title}\`
-                            from:\`${song.channel}\`
-                            [\`${await Mike.utils.time.formatLength(song.length)}\`] [${message.author}]`,
+                            from:\`${song.channel}\``,
+                  footer:`🔉 ${player.state.volume}% • Duration: ${await Mike.utils.time.formatLength(song.length) || 'N/A'} • Requester: ${message.author.tag}`
                 })
               })
             }
-          }, 300);
+          }, 300)
       } else {
               await play(s.tracks[0])
       }
@@ -81,23 +80,23 @@ exports.output = async ({message, args}) => {
       track: song.track
     }
     Mike.music.player.play(s, message).then(async t => {
+        let player = await Mike.player.get(message.guild.id)
         const url = (s.url.startsWith("https://www.youtube.com/") ? `https://i.ytimg.com/vi/${s.url.replace("https://www.youtube.com/watch?v=", "")}/hqdefault.jpg` : ``)
         if(t == "play") {
             Mike.models.snap({
               object: message,
               message: `Now playing: \`${s.title}\`
-                        from:\`${s.channel}\`
-                        [\`${await Mike.utils.time.formatLength(s.length)}\`] [${message.author}]`,
-              thumbnail: url
+                        from:\`${s.channel}\``,
+              thumbnail: url,
+              footer:`🔉 ${player.state.volume}% • Duration: ${await Mike.utils.time.formatLength(s.length) || 'N/A'} • Requester: ${message.author.tag}`
             })
         } else {
           Mike.models.snap({
             object: message,
             message: `Added to queue:: \`${s.title}\`
-                      from:\`${s.channel}\`
-                      [\`${await Mike.utils.time.formatLength(s.length)}\`] [${message.author}]
-                      Position in queue:\`${Mike.queue[message.guild.id].songs.length}\``,
-            thumbnail: url
+                      from:\`${s.channel}\``,
+            thumbnail: url,
+            footer:`Position: ${Mike.queue[message.guild.id].songs.length} • Duration: ${await Mike.utils.time.formatLength(s.length) || 'N/A'} • Requester: ${message.author.tag}`
 
           })
         }

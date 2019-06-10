@@ -1,5 +1,5 @@
 exports.output = async ({message}) => {
-  const player = Mike.player.get(message.guild.id);
+  const player = Mike.player.get(message.guild.id)
   if (!player.playing || !player) {
     return Mike.models.snap({
       object: message,

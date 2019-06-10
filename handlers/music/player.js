@@ -22,7 +22,7 @@ const play = async (song, message) => {
             resolve("play");
         }
 
-        player.once("end", data => {
+        player.once("end", async data => {
             if(queue.loop) {
                 let song = queue.np;
                 song.date = Date.now();
@@ -40,11 +40,20 @@ const play = async (song, message) => {
             }
             let next = queue.songs.shift();
             if(next == null) {
-                return;
+                return
             } else {
                 setTimeout(() => {
-                    play(next, message);
+                    play(next, message)
                 }, 400);
+                let player = await Mike.player.get(message.guild.id)
+                const url = (next.url.startsWith("https://www.youtube.com/") ? `https://i.ytimg.com/vi/${next.url.replace("https://www.youtube.com/watch?v=", "")}/hqdefault.jpg` : ``)
+                Mike.models.snap({
+                  object: message,
+                  message: `Now playing: \`${next.title}\`
+                            from:\`${next.channel}\``,
+                  thumbnail: url,
+                  footer:`🔉 ${player.state.volume}% • Duration: ${await Mike.utils.time.formatLength(next.length) || 'N/A'} • Requester: ${message.author.tag}`
+                })
             }
             return;
         });
