@@ -19,21 +19,14 @@ Mike is a customizable bot for your server with a lot of plugins:
 ### Contributing
 
 If you want to contribute to Mike, [join support
-server](https://discord.gg/ZwPfRfp)
-
-##### Self-hosting
-
-Mike is currently using a lof of 3rd party apis so self-hosting will be hard.
-Anyways Mike is not meant to be self-hosted
-
-It is not recommended to self-host Mike due to the fact that a lot 3rd party APIs and programs are being used.
-It simply would be too difficult.
-
+server](https://discord.gg/ZwPfRfp).
 
 ### Links
 
 [Invite](https://discordapp.com/oauth2/authorize?client_id=419620594645073930&permissions=8&scope=bot)
+
 [Website](https://mikebot.xyz)
+
 [Discord Bot List](https://discordbots.org/bot/419620594645073930)
 
 ### Mike uses
@@ -42,5 +35,11 @@ It simply would be too difficult.
 - [Lavalink](https://github.com/Frederikam/Lavalink)
 
 and many other things...
+
+#### Self-hosting
+
+It is not recommended to self-host Mike due to the fact that a lot 3rd party APIs and programs are being used.
+It simply would be too difficult.
+
 
 <!-- ## License -->
