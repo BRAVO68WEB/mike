@@ -33,7 +33,7 @@ module.exports = app => {
       {
         server: await Mike.db.getGuild(req.params.id),
         plugin: req.params.plugin,
-        enabled: enabled,
+        isEnabled: enabled,
         guild: guild
       }
     )

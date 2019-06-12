@@ -1,4 +1,4 @@
-.settings .switch {
+.settings .setting {
   width: 400px;
   height: 150px;
   background-color: #23272A;
@@ -10,7 +10,7 @@
   cursor: pointer;
 }
 
-.settings .switch .name {
+.settings .setting .name {
   position: absolute;
   font-size: 20px;
   top: 60px;
@@ -18,7 +18,7 @@
   text-align: right;
 }
 
-.settings .switch .save {
+.settings .setting .save {
   position: absolute;
   font-size: 15px;
   bottom: 10px;
@@ -29,22 +29,22 @@
   border-radius: 10%;
 }
 
-.settings .switch .switch {
+.settings .setting .switch {
   position: absolute;
   display: inline-block;
   width: 60px;
   height: 34px;
-  top: 45px;
+  top: 55px;
   right: 30px;
 }
 
-.settings .switch .switch input {
+.settings .setting .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-.settings .switch .slider {
+.settings .setting .switch .slider {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -56,7 +56,7 @@
   transition: .4s;
 }
 
-.settings .switch .slider:before {
+.settings .setting .switch .slider:before {
   position: absolute;
   content: "";
   height: 26px;
@@ -68,11 +68,11 @@
   transition: .4s;
 }
 
-.settings .switch input:checked + .slider {
+.settings .setting .switch input:checked + .slider {
   background-color: #ffe680;
 }
 
-.settings .switch input:focus + .slider {
+.settings .setting .switch input:focus + .slider {
   box-shadow: 0 0 1px #ffe680;
 }
 
@@ -82,12 +82,11 @@
   transform: translateX(26px);
 }
 
-/* Rounded sliders */
-.settings .switch .slider.round {
+.settings .setting .switch .slider.round {
   border-radius: 34px;
 }
 
-.settings .switch .slider.round:before {
+.settings .setting .switch .slider.round:before {
   border-radius: 50%;
 }
 

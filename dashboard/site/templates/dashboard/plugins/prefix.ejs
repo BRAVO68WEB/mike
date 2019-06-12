@@ -1,3 +1,28 @@
-<div class= "switch">
-  <%- include settings/prefix.ejs %>
+<div class="setting">
+  <span class="name">
+    Custom Prefix
+  </span>
+    <%- include settings/prefix.ejs %>
+  <span id="save-switch-default-save" class="save">
+    SAVE
+  </span>
+  <script type="text/javascript">
+    $(document).on('click','#save-switch-default-save',function(e){
+        e.preventDefault()
+        $.ajax({
+            type: "POST",
+            url: "/api/<%= server.id %>/<%= plugin %>/prefix",
+            data: {
+                prefix: $("#prefix").val(),
+            },
+            success: function(result) {
+                alert('ok')
+            },
+            error: function(result) {
+                alert(result)
+                console.log(result)
+            }
+        })
+    })
+  </script>
 </div>
