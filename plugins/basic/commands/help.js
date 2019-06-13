@@ -1,6 +1,5 @@
 exports.output = async ({message, args, dbGuild}) => {
-
-  const plugin = Mike.plugins.find(plugin => plugin.id == args[0].toLowerCase())
+  const plugin = Mike.plugins.find(plugin => plugin.id == (args[0] ? args[0].toLowerCase() : '*'))
   if (plugin) {
     let commands = {
       normal:   [],

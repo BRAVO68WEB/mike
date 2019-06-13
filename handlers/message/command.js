@@ -47,7 +47,8 @@ module.exports = async (message, messagePrefix, dbGuild) => {
       message: message,
       args: args,
       dbGuild: dbGuild
-  }).catch(error => {
+  })
+  .catch(error => {
     return require('../error')(message, error)
   })
 
