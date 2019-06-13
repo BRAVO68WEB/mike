@@ -19,6 +19,8 @@ class Mike extends Client {
 
     this.eventHandler = new (require('./handlers/events.js'))(this)
 
+    this.console = require('./handlers/console.js')
+
     this.db = require('./database')
     this.models = require('./models')
     this.utils = require('./utils')
