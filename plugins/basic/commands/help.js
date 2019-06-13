@@ -79,6 +79,7 @@ exports.output = async ({message, args, dbGuild}) => {
               \`${plugin.description}\`\n\n`
     }
   })
+  help += `Type \`${Mike.prefix}settings\` to configure plugins.`
   Mike.models.snap({
     object: message,
     message: help,
