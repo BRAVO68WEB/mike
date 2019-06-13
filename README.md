@@ -1,6 +1,10 @@
 <a href="https://discordbots.org/bot/419620594645073930"><img src="https://discordbots.org/api/widget/upvotes/419620594645073930.svg" alt="Mike Bot" /></a>
 [![Server](https://img.shields.io/discord/340947847728070666.svg?logo=discord&colorB=7289DA)](https://discord.gg/ZwPfRfp)
-<img src="https://img.shields.io/github/contributors/Badosz/mike.svg">
+<img src="https://img.shields.io/github/contributors/badosz0/mike.svg">
+[![GitHub issues](https://img.shields.io/github/issues/badosz0/mike.svg)](https://github.com/badosz0/mike/issues)
+[![GitHub forks](https://img.shields.io/github/forks/badosz0/mike.svg)](https://github.com/badosz0/mike/network)
+[![GitHub stars](https://img.shields.io/github/stars/badosz0/mike.svg)](https://github.com/badosz0/mike/stargazers)
+[![GitHub license](https://img.shields.io/github/license/badosz0/mike.svg)](https://github.com/badosz0/mike/blob/master/LICENSE)
 
 Mike is a customizable bot for your server with a lot of plugins:
 * Logs
