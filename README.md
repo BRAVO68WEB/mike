@@ -6,7 +6,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/badosz0/mike.svg)](https://github.com/badosz0/mike/stargazers)
 [![GitHub license](https://img.shields.io/github/license/badosz0/mike.svg)](https://github.com/badosz0/mike/blob/master/LICENSE)
 
-Mike is a customizable bot for your server with a lot of plugins:
+Mike is a customizable Discord bot with a lot of plugins:
 * Logs
 * Music
 * Economy
@@ -38,7 +38,7 @@ server](https://discord.gg/ZwPfRfp).
 - [RethinkDB](https://www.rethinkdb.com/)
 - [Lavalink](https://github.com/Frederikam/Lavalink)
 
-and many other things...
+and many more...
 
 #### Self-hosting
 
