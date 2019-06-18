@@ -1,6 +1,6 @@
 <a href="https://discordbots.org/bot/419620594645073930"><img src="https://discordbots.org/api/widget/upvotes/419620594645073930.svg" alt="Mike Bot" /></a>
 [![Server](https://img.shields.io/discord/340947847728070666.svg?logo=discord&colorB=7289DA)](https://discord.gg/ZwPfRfp)
-<img src="https://img.shields.io/github/contributors/badosz0/mike.svg">
+[![Github contributors](https://img.shields.io/github/contributors/badosz0/mike.svg)](https://github.com/badosz0/mike/contributors)
 [![GitHub issues](https://img.shields.io/github/issues/badosz0/mike.svg)](https://github.com/badosz0/mike/issues)
 [![GitHub forks](https://img.shields.io/github/forks/badosz0/mike.svg)](https://github.com/badosz0/mike/network)
 [![GitHub stars](https://img.shields.io/github/stars/badosz0/mike.svg)](https://github.com/badosz0/mike/stargazers)
