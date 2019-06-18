@@ -10,7 +10,8 @@ module.exports = async (data) => {
       thumbnail: null,
       image: null,
       color: Mike.color,
-      footer: ''
+      footer: '',
+      author: [``, null]
   }, data)
 
   const embed = new Discord.RichEmbed()
@@ -19,6 +20,7 @@ module.exports = async (data) => {
       .setImage(data.image)
       .setColor(data.color)
       .setFooter(data.footer)
+      .setAuthor(data.author[0], data.author[1])
       data.fields.forEach(field => {
         if (field[0] == 'blank') {
           embed.addBlankField()
