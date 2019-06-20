@@ -33,6 +33,23 @@ server](https://discord.gg/ZwPfRfp).
 
 [Discord Bot List](https://discordbots.org/bot/419620594645073930)
 
+### Contributors 
+
+Thanks goes to these wonderful people :
+
+<table>
+	<tr>
+		<td align="center">
+			<a href="https://github.com/juby210-PL">
+				<img src="https://avatars0.githubusercontent.com/u/48866434?s=460&v=4" width="100px;" alt="Juby210"/>
+				<br />
+				<sub>
+					<b>Juby210</b>
+				</sub>
+			</a><br />
+			<a href="#" title="Code">💻 </a></td>
+</table>
+
 ### Mike uses
 
 - [RethinkDB](https://www.rethinkdb.com/)
