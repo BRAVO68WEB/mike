@@ -10,6 +10,7 @@ module.exports = async (data) => {
       image: null,
       color: Mike.color,
       footer: '',
+      inmessage: '',
       author: [``, null]
   }, data)
 
@@ -20,5 +21,5 @@ module.exports = async (data) => {
       .setColor(data.color)
       .setFooter(data.footer)
       .setAuthor(data.author[0], data.author[1])
-  return data.object.channel.send(embed)
+  return data.object.channel.send(data.inmessage, {embed})
 }
