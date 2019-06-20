@@ -75,8 +75,7 @@ exports.output = async ({message, args, dbGuild}) => {
   let help = `Avalible Plugins:\n\n`
   await Mike.plugins.forEach(plugin => {
     if (!(plugin.devOnly && !Mike.roles.developers.includes(message.author.id)) && !dbGuild.settings.disabledPlugins.includes(plugin.id) && !plugin.hiddenInHelp) {
-      help += `**${plugin.name}** (ID: *${plugin.id}*)
-              \`${plugin.description}\`\n\n`
+      help += `**${plugin.name}** (ID: *${plugin.id}*)\n`
     }
   })
   help += `Type \`${Mike.prefix}settings\` to configure plugins.`
