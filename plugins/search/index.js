@@ -3,7 +3,7 @@ const commands = require('fs').readdirSync(`${__dirname}/commands/`)
   .map(file => require(`${__dirname}/commands/${file}`))
 
 module.exports = {
-  name: '🔍 Search',
+  name: ':mag: Search',
   id: 'search',
   description: 'Search for eveything you want!',
   author: '214858075650260992',

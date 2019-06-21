@@ -3,11 +3,11 @@ const commands = require('fs').readdirSync(`${__dirname}/commands/`)
   .map(file => require(`${__dirname}/commands/${file}`))
 
 module.exports = {
-  name: '🖋 Prefix',
+  name: ':pen_fountain: Prefix',
   id: 'prefix',
   description: 'Customize your server\'s prefix!',
   author: '214858075650260992',
   commands: commands,
   devOnly: false,
-  hiddenInHelp: true
+  hiddenInHelp: false
 }
