@@ -3,3 +3,9 @@ exports.link = async (text) => {
   if (match) return true
   else return false
 }
+
+exports.id = async (text) => {
+  const match =  /^([0-9]{15,21})$/i.exec(text)
+  if (match) return true
+  else return false
+}
