@@ -26,6 +26,10 @@ class Mike extends Client {
     this.models = require('./models')
     this.utils = require('./utils')
 
+    this.cache = {
+      youtube: {}
+    }
+
     this.color = '#ffe680'
 
     this.type = (os.hostname() == 'badosz-pc' ? 'beta' : 'main')

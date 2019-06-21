@@ -6,13 +6,19 @@ exports.output = async ({message, args}) => {
       if(ok) return
       if(s.loadType == "NO_MATCHES") {
         let found = false
-        await Mike.music.player.getSong(`ytsearch:${track}`).then(async songs => {
-          songs.tracks.forEach(async song => {
-            if(found) return
-            found = true
-            await play(song)
+        if (Mike.cache.youtube.hasOwnProperty(track)) {
+          found = true
+          await play(Mike.cache.youtube[track])
+        } else {
+          await Mike.music.player.getSong(`ytsearch:${track}`).then(async songs => {
+            songs.tracks.forEach(async song => {
+              if(found) return
+              found = true
+              Mike.cache.youtube[track] = song
+              await play(song)
+            })
           })
-        })
+        }
         if(!found) {
           return Mike.models.snap({
             object: message,
