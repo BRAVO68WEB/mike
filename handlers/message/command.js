@@ -26,7 +26,7 @@ module.exports = async (message, messagePrefix, dbGuild) => {
       userPerms: [],
       botPerms: []
   }, command.data)
-  
+
   if (!Mike.roles.developers.includes(message.author.id) && command.data.developer) {
     return Mike.models.snap({
       object: message,
@@ -41,6 +41,30 @@ module.exports = async (message, messagePrefix, dbGuild) => {
       color: '#f44262'
     })
   }
+
+  const userPerms = message.guild.members.get(message.author.id).permissions
+  const botPerms = message.guild.members.get(Mike.user.id).permissions
+
+  if (command.data.userPerms.some(perm => !userPerms.has(perm))) {
+    const perm = command.data.userPerms.filter(perm => !userPerms.has(perm))[0]
+    return Mike.models.snap({
+      object: message,
+      message: `You need to have \`${perm.toTitleCase().replace(`_`,` `)}\` permission to use this command.`,
+      color: '#f44262',
+      image: Mike.gifs[perm]
+    })
+  }
+
+  if (command.data.botPerms.some(perm => !botPerms.has(perm))) {
+    const perm = command.data.botPerms.filter(perm => !botPerms.has(perm))[0]
+    return Mike.models.snap({
+      object: message,
+      message: `${Mike.user.username} doesn't have \`${perm.toTitleCase().replace(`_`,` `)}\` permission.`,
+      color: '#f44262',
+      image: Mike.gifs[perm]
+    })
+  }
+
   if (await require('../args')(args, command, message)) return
 
   command.output({

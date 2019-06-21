@@ -14,6 +14,7 @@ class Mike extends Client {
     this.links = require('./files/links.json')
     this.roles = require('./files/roles.json')
     this.lavalink = require('./files/lavalink.json')
+    this.gifs = require('./files/gifs.json')
 
     this.http = require('snekfetch')
 
