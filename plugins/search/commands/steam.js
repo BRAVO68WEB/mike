@@ -2,7 +2,7 @@ var steam = require('steam-provider')
 var provider = new steam.SteamProvider()
 
 exports.output = async ({message, args}) => {
-  const game = args.slice(0).join(' ');
+  const game = args.slice(0).join(' ')
   provider.search(game).then(result => {
   if (result.length == 0){
       return Mike.models.snap({

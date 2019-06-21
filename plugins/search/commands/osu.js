@@ -1,14 +1,14 @@
-const snek = require('snekfetch');
+const snek = require('snekfetch')
 
 exports.output = async ({message, args}) => {
-  const username = args[0];
+  const username = args[0]
   Mike.http.get(`https://osu.ppy.sh/api/get_user`)
            .query({
              u: username,
              k: Mike.tokens.osu
            })
            .then(async response => {
-              const osustats = response.body;
+              const osustats = response.body
               if (osustats.length < 1) {
                 return Mike.models.snap({
                   object: message,

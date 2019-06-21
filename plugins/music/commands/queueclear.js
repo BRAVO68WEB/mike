@@ -6,7 +6,7 @@ exports.output = async ({message}) => {
     object: message,
     message: '\`Queue cleared.\`',
   })
-};
+}
 
 exports.data = {
   triggers: ['queueclear'],

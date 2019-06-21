@@ -32,8 +32,8 @@ exports.output = async ({message, dbGuild, args}) => {
       }
     } else if (args[0] == "stars") {
       if  (/^(1|2|3|4|5|6|7|8|9|10)$/i.test(args[1])) {
-          dbGuild.star.number = parseInt(args[1]);
-          await Mike.db.update('guilds', message.guild.id, "star", dbGuild.star);
+          dbGuild.star.number = parseInt(args[1])
+          await Mike.db.update('guilds', message.guild.id, "star", dbGuild.star)
           return Mike.models.snap({
             object: message,
             message: `\`Changed minimum amount of stars to ${args[1]}.\``,

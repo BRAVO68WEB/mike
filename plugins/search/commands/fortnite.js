@@ -5,7 +5,7 @@ exports.output = async ({message, args}) => {
       'User-Agent': `Mike Bot`
     })
     .then(async response => {
-      const player = response.body;
+      const player = response.body
       if (!player.lifeTimeStats) {
         return Mike.models.snap({
           object: message,
@@ -27,7 +27,7 @@ exports.output = async ({message, args}) => {
       })
     }).catch(error => {
         return require('../../../handlers/error')(message, error)
-    });
+    })
 }
 
 exports.data = {

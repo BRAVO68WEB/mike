@@ -3,7 +3,7 @@ exports.toseconds = async (str) => {
   let s = 0, m = 1
   while (p.length > 0) {
     s += m * parseInt(p.pop(), 10)
-    m *= 60;
+    m *= 60
   }
   return s
 }
@@ -44,7 +44,7 @@ exports.formatLength = async (ms, replace = true) => {
   var time = ""
   if(uh) {if(h >= 200) {time = "LIVE"} else {time = `${h}:${min}:${sec}`}} else {time = `${min}:${sec}`}
   if(replace) {
-      if(time == "00:00") return "LIVE";
+      if(time == "00:00") return "LIVE"
   }
-  return time;
+  return time
 }

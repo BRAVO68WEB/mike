@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const Discord = require('discord.js')
 
 
 module.exports = async (message) => {
@@ -17,7 +17,7 @@ module.exports = async (message) => {
       await Mike.db.getGuild(message.guild.id).then(async guild => {
       if(guild.settings.mdeletelogs.enabled) {
         channel = message.guild.channels.get(guild.settings.mdeletelogs.channel)
-        if(channel == undefined) return;
+        if(channel == undefined) return
         const embed = new Discord.RichEmbed()
             .setDescription(`Message Deleted`)
             .addField(`User`,message.author.tag,true)
@@ -26,7 +26,7 @@ module.exports = async (message) => {
             .setColor("RED")
         channel.send(embed).catch(e => {
               Mike.utils.log.error(e)
-        });
+        })
       }
       })
     } catch (e) {

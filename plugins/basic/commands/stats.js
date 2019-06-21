@@ -1,5 +1,5 @@
-const moment = require('moment');
-const m = require('moment-duration-format');
+const moment = require('moment')
+const m = require('moment-duration-format')
 
 exports.output = async ({message}) => {
     Mike.models.mult({

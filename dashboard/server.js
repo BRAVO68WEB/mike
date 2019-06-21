@@ -23,7 +23,7 @@ module.exports = () => {
     clientSecret: Mike.dashboard.secret
   }, (accessToken, refreshToken, profile, done) => {
     process.nextTick(() => done(null, profile))
-  }));
+  }))
 
   app.use(session({
     store: new MemoryStore({ checkPeriod: 86400000 }),
@@ -45,7 +45,7 @@ module.exports = () => {
   app.use(bodyParser.json())
   app.use(bodyParser.urlencoded({
     extended: true
-  }));
+  }))
 
   global.checkAuth = (req, res, next) => {
     if (req.isAuthenticated()) return next()

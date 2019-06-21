@@ -28,7 +28,7 @@ exports.output = async ({message, args}) => {
       ],
       thumbnail: `https://resources.bastionbot.org/images/weather/${result[0].current.skycode}.png`,
     })
-  });
+  })
 }
 exports.data = {
   triggers: ['weather'],

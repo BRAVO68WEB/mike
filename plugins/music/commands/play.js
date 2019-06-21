@@ -52,8 +52,8 @@ exports.output = async ({message, args}) => {
           setTimeout(async () => {
             let player = await Mike.player.get(message.guild.id)
             if(!player.playing) {
-              let song = queue.songs.shift();
-              if(!song) return;
+              let song = queue.songs.shift()
+              if(!song) return
               Mike.music.player.play(song ,message).then(async () => {
                 Mike.models.snap({
                   object: message,
@@ -68,7 +68,7 @@ exports.output = async ({message, args}) => {
               await play(s.tracks[0])
       }
       ok = true
-  });
+  })
 
   function play(song) {
     let s = {

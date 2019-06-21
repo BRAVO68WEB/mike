@@ -1,5 +1,5 @@
 exports.output = async ({message, args}) => {
-  const player = Mike.player.get(message.guild.id);
+  const player = Mike.player.get(message.guild.id)
   if (!player) {
     return Mike.models.snap({
       object: message,
@@ -19,7 +19,7 @@ exports.output = async ({message, args}) => {
     object: message,
     message: '\`Volume changed.\`',
   })
-};
+}
 
 exports.data = {
   triggers: ['volume','v', 'vol'],

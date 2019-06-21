@@ -12,7 +12,7 @@ exports.output = async ({message, args}) => {
     const picture = lyricdata.result.song_art_image_thumbnail_url
     const extendedsong = lyricdata.result.title_with_featured
     const artist = lyricdata.result.primary_artist.name
-    const lyricsbody = await Mike.utils.lyrics.scrape(lyricdata.result.url);
+    const lyricsbody = await Mike.utils.lyrics.scrape(lyricdata.result.url)
     if (!lyricsbody) {
       return Mike.models.snap({
         object: message,
@@ -27,7 +27,7 @@ exports.output = async ({message, args}) => {
               \`${lyricsbody.length >= 1900 ? `${lyricsbody.substr(0, 1900)}...` : lyricsbody}\``,
       thumbnail: picture
     })
-};
+}
 
 exports.data = {
   triggers: ['lyrics'],

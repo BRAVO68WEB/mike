@@ -8,7 +8,7 @@ exports.output = async ({message}) => {
       object: message,
       message: '\`Joined voice channel!\`',
     })
-};
+}
 
 exports.data = {
     triggers: ['join'],

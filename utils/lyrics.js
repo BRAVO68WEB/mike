@@ -8,7 +8,7 @@ class Lyrics {
       .then(res => res.body)
       .catch(error => {
         if (error.body.error) throw new Error(`${error.body.error}: ${error.body.error_description}`)
-        throw error;
+        throw error
       })
   }
 

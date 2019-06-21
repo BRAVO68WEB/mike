@@ -1,4 +1,4 @@
-const r = require('rethinkdb');
+const r = require('rethinkdb')
 
 module.exports = async (id) => {
         let guild = await r.table('guilds').get(id).run(Mike.db.connection)

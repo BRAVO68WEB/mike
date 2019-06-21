@@ -12,7 +12,7 @@ exports.output = async ({message, args}) => {
 		site: 'stackoverflow',
 		key: Mike.tokens.stackoverflow
   }).then(async response => {
-      let answer = response.body;
+      let answer = response.body
       if (!answer.items.length) {
         return Mike.models.snap({
           object: message,
@@ -20,7 +20,7 @@ exports.output = async ({message, args}) => {
           color: '#f44262'
         })
       } else {
-        answer = answer.items[0];
+        answer = answer.items[0]
         return Mike.models.mult({
           object: message,
           description: `[${answer.title}](${answer.link})`,

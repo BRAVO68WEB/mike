@@ -1,6 +1,6 @@
 
 exports.output = async ({message}) => {
-  const player = Mike.player.get(message.guild.id);
+  const player = Mike.player.get(message.guild.id)
   if (!player) {
     return Mike.models.snap({
       object: message,
@@ -26,7 +26,7 @@ exports.output = async ({message}) => {
     object: message,
     message: '\`Music is now in normal mode!\`',
   })
-};
+}
 
 exports.data = {
   triggers: ['normal'],

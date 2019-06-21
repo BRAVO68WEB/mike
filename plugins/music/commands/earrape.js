@@ -12,7 +12,7 @@ exports.output = async ({message}) => {
     object: message,
     message: '\`Volume changed to earrape.\`',
   })
-};
+}
 
 exports.data = {
   triggers: ['earrape'],

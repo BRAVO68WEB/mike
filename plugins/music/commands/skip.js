@@ -15,7 +15,7 @@ exports.output = async ({message}) => {
   //   object: message,
   //   message: '\`Skipped.\`',
   // })
-};
+}
 
 exports.data = {
   triggers: ['skip','s'],

@@ -25,7 +25,7 @@ module.exports = async (message) => {
                  let description = ''
                  let data = []
                  let thumbnail = ''
-                 response = response.body.query.pages[0];
+                 response = response.body.query.pages[0]
                 if (response.missing) return
                 if (response.invalid) return
                 if (response.extract && response.extract.length < 250) return

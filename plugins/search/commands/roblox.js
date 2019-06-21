@@ -4,7 +4,7 @@ exports.output = async ({message, args}) => {
              username: encodeURIComponent(args[0])
            })
            .then(async response => {
-              const user = response.body;
+              const user = response.body
               if(typeof user.Username == 'undefined') {
                 return Mike.models.snap({
                   object: message,

@@ -42,7 +42,7 @@ exports.output = async ({message, args}) => {
     object: message,
     message: '\`Music is now bass boosted.\`'
   })
-};
+}
 
 exports.data = {
   triggers: ['bassboost'],

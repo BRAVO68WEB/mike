@@ -13,7 +13,7 @@ exports.output = async ({message}) => {
     object: message,
     message: `\`Left voice channel.\``
   })
-};
+}
 
 exports.data = {
   triggers: ['leave'],

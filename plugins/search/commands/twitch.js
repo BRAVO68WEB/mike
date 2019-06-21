@@ -28,7 +28,7 @@ exports.output = async ({message, args}) => {
     }
 }).catch(err => {
     return require('../../../handlers/error')(message, error)
-});
+})
 }
 
 exports.data = {

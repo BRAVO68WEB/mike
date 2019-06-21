@@ -1,5 +1,5 @@
 exports.output = async ({message}) => {
-  const player = Mike.player.get(message.guild.id);
+  const player = Mike.player.get(message.guild.id)
   if (!player) {
     return Mike.models.snap({
       object: message,
@@ -15,7 +15,7 @@ exports.output = async ({message}) => {
     object: message,
     message: '\`Shuffled.\`',
   })
-};
+}
 
 exports.data = {
   triggers: ['shuffle'],

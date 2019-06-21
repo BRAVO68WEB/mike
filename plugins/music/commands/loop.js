@@ -1,5 +1,5 @@
 exports.output = async ({message}) => {
-  const player = Mike.player.get(message.guild.id);
+  const player = Mike.player.get(message.guild.id)
   if (!player || !player.playing) {
     return Mike.models.snap({
       object: message,
@@ -16,7 +16,7 @@ exports.output = async ({message}) => {
         message: `\`Loop disabled.\``
       })
   } else {
-      queue.loop = true;
+      queue.loop = true
       return Mike.models.snap({
         object: message,
         message: `\`Loop enabled.\``

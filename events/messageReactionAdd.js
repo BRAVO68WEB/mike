@@ -1,4 +1,4 @@
-const { RichEmbed }= require('discord.js');
+const { RichEmbed }= require('discord.js')
 
 module.exports = async (reaction, user) => {
   if (!reaction.message.guild) return
@@ -11,7 +11,7 @@ module.exports = async (reaction, user) => {
   const hasContent = reaction.message.content && reaction.message.content.length || reaction.message.attachments.size && reaction.message.attachments.first().height
 
   const total = reaction.message.reactions.find(r => r.emoji.name === '⭐') ? reaction.message.reactions.find(r => r.emoji.name === '⭐').count : 0
-  const fetch = await starChannel.fetchMessages({ limit: 100 });
+  const fetch = await starChannel.fetchMessages({ limit: 100 })
 
   const starMsg = fetch.find(m => m.content.startsWith("⭐") && m.embeds[0] && m.embeds[0].footer && m.embeds[0].footer.text.endsWith(reaction.message.id))
 
@@ -35,7 +35,7 @@ module.exports = async (reaction, user) => {
           const oldMsg = await starChannel.fetchMessage(starMsg.id)
           await oldMsg.edit(`⭐**${reaction.message.reactions.get("⭐").count}** | ${reaction.message.channel}`,{embed})
         } else {
-          reaction.message.guild.channels.get(guild.star.channel).send(`⭐**${reaction.message.reactions.get("⭐").count}** | ${reaction.message.channel}`,{embed});
+          reaction.message.guild.channels.get(guild.star.channel).send(`⭐**${reaction.message.reactions.get("⭐").count}** | ${reaction.message.channel}`,{embed})
         }
 
       }

@@ -6,8 +6,8 @@ module.exports = app => {
     if(!plugin) return res.redirect('/dashboard')
     const server = Mike.guilds.get(req.params.id)
     if(!server) return res.redirect('/dashboard')
-    const perms = server.member(req.user.id) ? server.member(req.user.id).hasPermission("MANAGE_GUILD") : false;
-    if(!perms && !req.session.isAdmin) res.redirect('/dashboard');
+    const perms = server.member(req.user.id) ? server.member(req.user.id).hasPermission("MANAGE_GUILD") : false
+    if(!perms && !req.session.isAdmin) res.redirect('/dashboard')
 
 
     if (req.params.type == 'switch-default') {
@@ -15,7 +15,7 @@ module.exports = app => {
       if(req.body.value == "true") {
         for( var i = 0; i < guild.settings.disabledPlugins.length; i++){
            if (guild.settings.disabledPlugins[i] === req.params.plugin) {
-             guild.settings.disabledPlugins.splice(i, 1);
+             guild.settings.disabledPlugins.splice(i, 1)
            }
         }
       } else {

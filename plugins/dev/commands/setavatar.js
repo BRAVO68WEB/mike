@@ -1,6 +1,6 @@
 exports.output = async ({message, args}) => {
   try {
-      Mike.user.setAvatar(args.join(' '));
+      Mike.user.setAvatar(args.join(' '))
       Mike.models.snap({
         object: message,
         message: `Done.`,

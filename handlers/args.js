@@ -1,6 +1,6 @@
 module.exports = async (args, command, message) => {
   return new Promise(async (resolve, reject) => {
-    const id = /^([0-9]{15,21})$/;
+    const id = /^([0-9]{15,21})$/
     const userMention = /<@!?([0-9]{15,21})>/
     const channelMention = /<#([0-9]{15,21})>/
     const roleMention = /<@&([0-9]{15,21})>/

@@ -15,7 +15,7 @@ exports.output = async ({message}) => {
     object: message,
     message: '\`Resumed.\`',
   })
-};
+}
 
 exports.data = {
   triggers: ['resume'],
