@@ -13,6 +13,20 @@ module.exports = async (message, messagePrefix, dbGuild) => {
   })
 
   if(!command) return
+
+  command.data = await Object.assign({
+      voter: false,
+      donator: false,
+      voice: false,
+      cooldown: 1,
+      usage: ['{prefix}{command}'],
+      developer: false,
+      args: [],
+      nsfw: false,
+      userPerms: [],
+      botPerms: []
+  }, command.data)
+  
   if (!Mike.roles.developers.includes(message.author.id) && command.data.developer) {
     return Mike.models.snap({
       object: message,
@@ -28,19 +42,6 @@ module.exports = async (message, messagePrefix, dbGuild) => {
     })
   }
   if (await require('../args')(args, command, message)) return
-
-  command.data = await Object.assign({
-      voter: false,
-      donator: false,
-      voice: false,
-      cooldown: 1,
-      usage: ['{prefix}{command}'],
-      developer: false,
-      args: [],
-      nsfw: false,
-      userPerms: [],
-      botPerms: []
-  }, command.data)
 
   command.output({
       command: command,
