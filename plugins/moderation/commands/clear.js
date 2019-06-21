@@ -85,14 +85,12 @@ exports.output = async ({message, args}) => {
       case 'with':
         if(!good(args[2], 2)) return
         if(!args[1]) args[1] = " "
-        console.log(args[1])
         fetched = fetched.filter(message => message.content.includes(args[1]))
         fetched = fetched.slice(0, args[2])
         break
       case 'without':
         if(!good(args[2], 2)) return
         if(!args[1]) args[1] = " "
-        console.log(args[1])
         fetched = fetched.filter(message => !message.content.includes(args[1]))
         fetched = fetched.slice(0, args[2])
         break
