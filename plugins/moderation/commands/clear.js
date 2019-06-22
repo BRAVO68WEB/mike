@@ -36,7 +36,7 @@ exports.output = async ({message, args}) => {
         break
       case 'links':
         if(!good(args[1], 1)) return
-        fetched = fetched.filter(async message => await Mike.utils.regex.link(message.content))
+        fetched = fetched.filter(message => message.content.includes('http'))
         fetched = fetched.slice(0, args[1])
         break
       case 'embeds':
