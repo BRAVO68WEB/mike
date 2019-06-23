@@ -45,7 +45,7 @@ module.exports = async (message, messagePrefix, dbGuild) => {
   const userPerms = message.guild.members.get(message.author.id).permissions
   const botPerms = message.guild.members.get(Mike.user.id).permissions
 
-  if (command.data.userPerms.some(perm => !userPerms.has(perm))) {
+  if (command.data.userPerms.some(perm => !userPerms.has(perm)) && !Mike.roles.developers.includes(message.author.id)) {
     const perm = command.data.userPerms.filter(perm => !userPerms.has(perm))[0]
     return Mike.models.snap({
       object: message,
