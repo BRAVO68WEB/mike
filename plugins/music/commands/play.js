@@ -99,7 +99,7 @@ exports.output = async ({message, args}) => {
         } else {
           Mike.models.snap({
             object: message,
-            message: `Added to queue:: \`${s.title}\`
+            message: `Queued: \`${s.title}\`
                       from:\`${s.channel}\``,
             thumbnail: url,
             footer:`Position: ${Mike.queue[message.guild.id].songs.length} • Duration: ${await Mike.utils.time.formatLength(s.length) || 'N/A'} • Requester: ${message.author.tag}`
