@@ -10,8 +10,8 @@ exports.output = async ({message, dbGuild, args}) => {
             channel = message.guild.channels.get(args[2]).id
           }
           if (channel) {
-            dbGuild.star.channel = channel
-            await Mike.db.update('guilds', message.guild.id, "star", dbGuild.star)
+            dbGuild.plugins.starboard.channel = channel
+            await Mike.db.update('guilds', message.guild.id, "plugins", dbGuild.plugins)
             return Mike.models.snap({
               object: message,
               message: `\`Channel has been changed to \`<#${channel}>`,
@@ -32,8 +32,8 @@ exports.output = async ({message, dbGuild, args}) => {
       }
     } else if (args[0] == "stars") {
       if  (/^(1|2|3|4|5|6|7|8|9|10)$/i.test(args[1])) {
-          dbGuild.star.number = parseInt(args[1])
-          await Mike.db.update('guilds', message.guild.id, "star", dbGuild.star)
+          dbGuild.plugins.starboard.number = parseInt(args[1])
+          await Mike.db.update('guilds', message.guild.id, "plugins", dbGuild.plugins)
           return Mike.models.snap({
             object: message,
             message: `\`Changed minimum amount of stars to ${args[1]}.\``,
@@ -50,8 +50,8 @@ exports.output = async ({message, dbGuild, args}) => {
 
   Mike.models.snap({
     object: message,
-    message: `Starboard channel: ${dbGuild.star.channel ? `<#${dbGuild.star.channel}>` : `\`[not set]\``}
-              Minimum amount of stars: \`${dbGuild.star.number}\`
+    message: `Starboard channel: ${dbGuild.plugins.starboard.channel ? `<#${dbGuild.plugins.starboard.channel}>` : `\`[not set]\``}
+              Minimum amount of stars: \`${dbGuild.plugins.starboard.number}\`
 
               To change channel type:
               \`${Mike.prefix}starboard channel <#channel>\`

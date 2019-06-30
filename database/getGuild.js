@@ -5,65 +5,22 @@ module.exports = async (id) => {
         if (!guild) {
           guild = (await r.table('guilds').insert({
               id: id,
-              ispremium: false,
-              allusers: {},
-              snipe: {},
               prefix: null,
-              settings: {
-                  lvlupmess: false,
-                  snipes: true,
-                  codecheck: true,
-                  mlogs: {
-                    enabled: false,
+              ispremium: false,
+              plugins: {
+                starboard: {
+                    number: 2,
                     channel: ``
-                  },
-                  wmess: {
-                    enabled: false,
-                    channel: ``,
-                    message: `Welcome {user.tag}`
-                  },
-                  suggestions: {
-                    enabled: false,
-                    channel: ``,
-                  },
-                  mupdatelogs: {
-                    enabled: false,
-                    channel: ``,
-                  },
-                  mdeletelogs: {
-                    enabled: false,
-                    channel: ``,
-                  },
-                  streamNotifier: {
-                    enabled: false,
-                    channel: ``,
-                    streamers: []
-                  },
-                  redditNotifier: {
-                    enabled: false,
-                    channel: ``,
-                    subs: []
-                  },
-                  filters :{
-                    invite: false,
-                    emojis: false
-                  },
-                  disabledChannels: [],
-                  disabledCategories: [],
-                  disabledPlugins: [],
+                },
               },
-              star: {
-                  enabled: false,
-                  number: 2,
-                  channel: ``
-              },
-              customcmds: []
+              settings: {
+                disabledPlugins: [],
+              }
+
           }, {
             returnChanges: true
       }).run(Mike.db.connection)).changes[0].new_val
 
   }
         return guild
-
-
 }
