@@ -12,7 +12,9 @@ module.exports = async (data) => {
       footer: '',
       inmessage: '',
       author: [``, null],
-      file: null
+      file: null,
+      title: '',
+      url: null
   }, data)
 
   const embed = new Discord.RichEmbed()
@@ -21,7 +23,9 @@ module.exports = async (data) => {
       .setThumbnail(data.thumbnail)
       .setImage(data.image)
       .setColor(data.color)
+      .setTitle(data.title)
       .setFooter(data.footer)
       .setAuthor(data.author[0], data.author[1])
+      .setURL(data.url)
   return data.object.channel.send(data.inmessage, {embed})
 }
