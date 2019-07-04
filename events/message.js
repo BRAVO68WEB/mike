@@ -2,7 +2,7 @@ module.exports = async (message) => {
   if (message.author.bot) return
   if (!message.guild) return
 
-  if (message.content == `<@${Mike.user.id}>`) {
+  if (message.content == `<@${Mike.user.id}>` || message.content == `<@!${Mike.user.id}>`) {
     return require('../handlers/message/mention')(message)
   }
   if (message.content.includes('wikipedia.org')) {
