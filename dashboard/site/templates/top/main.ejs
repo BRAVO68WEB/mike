@@ -1,25 +1,45 @@
 <%- include ../build/head.ejs %>
 
-<div class="top">
 
-  <% top.forEach(user => { %>
+<div class="page">
 
-  <div class="user" style="background:<%=  special.includes(user.id) ? "url('/public/img/developer.png')" : "" %>">
-
-    <img class="avatar" src="<%= user.avatar %>" width="50px" height="50px">
-    <span class="name"> <%= user.tag %> </span>
-    <div class="border">
-      <div class="progress" style="width:<%= user.bar %>%">
-      </div>
-    </div>
-    <span class="level">Level <%= user.level %></span>
-    <span class="xp"><%= user.xp %>/<%= user.needxp %> XP</span>
-    <span class="place">#<%= user.place %></span>
-
-
+  <div class="bar">
+    <img class="icon" src="<%= server.icon ? server.iconURL : `https://dummyimage.com/128/7289DA/FFFFFF/&text=${encodeURIComponent(server.nameAcronym)}` %>"/>
+    <span class="name"><%= server.name %></span>
   </div>
 
+  <div class="left">
+    <div class="how">
+      <b>How it works</b>
+      <span class="sub">
+        Every message you gain a random amount of XP.<br><br><br>
 
-  <% }) %>
+        Each level is harder to achive then the previous one.
+      </span>
+    </div>
+  </div>
+
+  <div class="top">
+
+    <% top.forEach(user => { %>
+
+    <div class="user" style="background:<%=  special.includes(user.id) ? "url('/public/img/developer.png')" : "" %>">
+
+      <img class="avatar" src="<%= user.avatar %>" width="50px" height="50px">
+      <span class="name"> <%= user.tag %> </span>
+      <div class="border">
+        <div class="progress" style="width:<%= user.bar %>%">
+        </div>
+      </div>
+      <span class="level">Level <%= user.level %></span>
+      <span class="xp"><%= user.xp %>/<%= user.needxp %> XP</span>
+      <span class="place">#<%= user.place %></span>
+
+
+    </div>
+
+
+    <% }) %>
+  </div>
 
 </div>

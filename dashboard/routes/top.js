@@ -4,8 +4,8 @@ module.exports = app => {
 
   app.get('/top/:id', async (req, res) => {
 
-    const server = await Mike.db.getGuild(req.params.id)
-    const data = server.users
+    const guild = await Mike.db.getGuild(req.params.id)
+    const data = guild.users
     const users = Object.keys(data)
                         .sort(
                           function(a,b){
@@ -30,11 +30,14 @@ module.exports = app => {
       }
       place++
     }
+
+    const server = await Mike.guilds.get(req.params.id)
     renderTemplate(res, req, `top/main.ejs`,
       {
-        server: server,
+        guild: guild,
         top: top,
-        special: Mike.roles.developers.concat(Mike.roles.contributors)
+        special: Mike.roles.developers.concat(Mike.roles.contributors),
+        server: server
       }
     )
   })
