@@ -3,9 +3,9 @@ const commands = require('fs').readdirSync(`${__dirname}/commands/`)
   .map(file => require(`${__dirname}/commands/${file}`))
 
 module.exports = {
-  name: ':frame_photo: Images',
-  id: 'images',
-  description: 'Get requested images from the internet or generate new!',
+  name: ':book: Info',
+  id: 'info',
+  description: 'Get more info about anything!',
   author: '214858075650260992',
   commands: commands,
   devOnly: false,
