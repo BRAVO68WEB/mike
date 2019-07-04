@@ -9,18 +9,24 @@ module.exports = async (id) => {
               ispremium: false,
               plugins: {
                 starboard: {
-                    number: 2,
-                    channel: ``
+                  number: 2,
+                  channel: ``
                 },
+                levels: {
+                  message: `**{user}** advanced to level **{level}**!`,
+                  messages: true
+                }
               },
               settings: {
                 disabledPlugins: [],
-              }
+              },
+              users: {}
 
           }, {
             returnChanges: true
       }).run(Mike.db.connection)).changes[0].new_val
 
   }
-        return guild
+    console.log(guild)
+    return guild
 }

@@ -1,0 +1,82 @@
+.top .user {
+  width: 750px;
+  height: 75px;
+  background-color: #23272A;
+  text-align: center;
+  margin: 10px;
+  position: relative;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.top .user img {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: #99AAB5;
+  margin-top: 12px;
+  position: absolute;
+  left: 15px;
+}
+
+
+.top .user .name {
+  position: absolute;
+  font-size: 20px;
+  top: 26px;
+  left: 75px;
+  text-align: right;
+}
+
+.border {
+    position: absolute;
+    font-size: 20px;
+    top: 45px;
+    left: 325px;
+    width:300px;
+    height:5px;
+    border:1px solid #ffe680;
+    position:relative;
+}
+.progress {
+    position: absolute;
+    font-size: 20px;
+    content:'\A';
+    background: #ffe680;
+    top:0; bottom:0;
+    left:0;
+}
+
+.top .user .xp {
+  text-shadow: 1px 1px 1px rgba(0,0,0,2);
+  position: absolute;
+  top: 28px;
+  left: 325px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.top .user .level {
+  text-shadow: 1px 1px 1px rgba(0,0,0,2);
+  position: absolute;
+  top: 28px;
+  right: 123px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.top .user .place {
+  text-shadow: 1px 1px 1px rgba(0,0,0,2);
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  padding: 10px;
+  text-align: center;
+  font-size: 15px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  text-align: center;
+  display: flex;
+  background: #2C2F33
+}

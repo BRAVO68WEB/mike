@@ -11,6 +11,8 @@ module.exports = async (message) => {
 
   const dbGuild = await Mike.db.getGuild(message.guild.id)
 
+  await Mike.db.addXp(message.author.id, message.guild.id, message, dbGuild)
+
   let messagePrefix = Mike.prefix
 
   if (dbGuild.prefix && message.content.startsWith(dbGuild.prefix)) {
