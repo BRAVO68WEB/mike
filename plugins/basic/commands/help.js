@@ -1,6 +1,6 @@
 exports.output = async ({message, args, dbGuild}) => {
   const plugin = Mike.plugins.find(plugin => plugin.id == (args[0] ? args[0].toLowerCase() : '*'))
-  if (plugin) {
+  if (plugin && !(plugin.devOnly && !Mike.roles.developers.includes(message.author.id))) {
     let commands = {
       normal:   [],
       voters:   [],
