@@ -16,12 +16,13 @@ module.exports = app => {
     let place = 1
     for (const u of users) {
       if (place < 101) {
-        user = await Mike.users.get(u)
+        user = await Mike.guilds.get(req.params.id).members.get(u)
+        if (!user) continue
         top.push({
           id: user.id,
           place: place,
-          tag: user.tag,
-          avatar: user.displayAvatarURL,
+          tag: user.user.tag,
+          avatar: user.user.displayAvatarURL,
           bar: data[user.id].xp / data[user.id].lvlnext * 100,
           xp: data[user.id].xp,
           needxp: data[user.id].lvlnext,
