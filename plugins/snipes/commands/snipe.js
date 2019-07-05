@@ -1,4 +1,5 @@
-exports.output = async ({message, dbGuild}) => {
+exports.output = async ({message}) => {
+  const dbGuild = await Mike.db.getGuild(message.guild.id, false)
   if (dbGuild.snipe.content == undefined) {
     return Mike.models.snap({
       object: message,
@@ -10,7 +11,8 @@ exports.output = async ({message, dbGuild}) => {
   if (dbGuild.snipe.image != null) dbGuild.snipe.content += `\n\n[[image link]](${data.snipe.image})`
   return Mike.models.snap({
     object: message,
-    message: `\`${user.username} said:\`\n${dbGuild.snipe.content}`,
+    message: `${dbGuild.snipe.content}`,
+    author: [user.tag, user.displayAvatarURL],
     thumbnail: user.displayAvatarURL
   })
 }

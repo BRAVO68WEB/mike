@@ -18,6 +18,7 @@ module.exports = async (id, cache = true) => {
         id: id,
         prefix: null,
         ispremium: false,
+        snipe: {},
         plugins: {
           starboard: {
             number: 2,
@@ -26,7 +27,7 @@ module.exports = async (id, cache = true) => {
           levels: {
             message: `**{user}** advanced to level **{level}**!`,
             messages: true
-          }
+          },
         },
         settings: {
           disabledPlugins: [],

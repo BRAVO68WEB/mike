@@ -15,7 +15,7 @@ module.exports = async (message) => {
     }
     try {
       await Mike.db.getGuild(message.guild.id).then(async guild => {
-      if(guild.settings.mdeletelogs.enabled) {
+      if(guild.settings.disabledPlugins.includes("DJWAKJLDLWAKJDLKAWJDLKAJWLD")) {
         channel = message.guild.channels.get(guild.settings.mdeletelogs.channel)
         if(channel == undefined) return
         const embed = new Discord.RichEmbed()
