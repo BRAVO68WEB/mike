@@ -5,6 +5,9 @@
   <div class="bar">
     <img class="icon" src="<%= server.icon ? server.iconURL : `https://dummyimage.com/128/7289DA/FFFFFF/&text=${encodeURIComponent(server.nameAcronym)}` %>"/>
     <span class="name"><%= server.name %></span>
+    <a href="https://www.patreon.com/badosz"">
+      <span class="premium">Get Premium</span>
+    </a>
   </div>
 
   <div class="left" style="height: 160px">
@@ -26,7 +29,7 @@
 
     <% top.forEach(user => { %>
 
-    <div class="user" style="background:<%=  special.includes(user.id) ? "url('/public/img/special.png')" : "" %>">
+      <div class="user" style="background:<%=  bg[user.id] ? `url("/public/img/bg/${bg[user.id]}.png")` : "" %>">
 
       <img class="avatar" src="<%= user.avatar %>" width="50px" height="50px">
       <span class="name"> <%= user.tag %> </span>

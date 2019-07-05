@@ -66,6 +66,17 @@
   padding: 0px 3px;
 }
 
+.page .bar .premium {
+  position: absolute;
+  font-size: 15px;
+  bottom: 10px;
+  right: 10px;
+  text-align: left;
+  background: #ffe680;
+  padding: 2px 7px;
+  color: #23272A;
+}
+
 .top .user {
   width: 750px;
   height: 75px;

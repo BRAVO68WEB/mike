@@ -38,7 +38,8 @@ module.exports = app => {
         guild: guild,
         top: top,
         special: Mike.roles.developers.concat(Mike.roles.contributors),
-        server: server
+        server: server,
+        bg: Mike.bg
       }
     )
   })

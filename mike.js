@@ -16,6 +16,7 @@ class Mike extends Client {
     this.customEmojis = require('./files/emojis.json')
     this.lavalink = require('./files/lavalink.json')
     this.gifs = require('./files/gifs.json')
+    this.bg = require('./files/bg.json')
 
     this.http = require('snekfetch')
 
