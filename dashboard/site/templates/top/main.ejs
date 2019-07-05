@@ -19,6 +19,17 @@
       </span>
   </div>
 
+  <% if (queue.songs.length != 0) { %>
+  <div class="left" style="height: 160px">
+      <b>Music Queue</b>
+      <div class="queue">
+        <% queue.songs.forEach((song, i)=> { %>
+          <span class="song"> <%= i + 1 %>. <%= song.title %> </span><br>
+        <% }) %>
+      </div>
+  </div>
+  <% } %>
+
   <div class="left" style="height: 160px">
     <b>Your AD here</b>
     <span class="sub" style="">

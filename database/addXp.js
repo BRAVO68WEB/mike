@@ -26,6 +26,7 @@ module.exports = async (user, guild, message, dbGuild) => {
             totalXP = 0;
             lvl++
             lvlnext = 100*(lvl-1)*(lvl+3)
+            delete Mike.cache.guilds[guild]
             if (g.plugins.levels.messages) {
                 await message.channel.send(g.plugins.levels.message.replace('{user}', message.author.tag)
                                                                    .replace('{level}', lvl)

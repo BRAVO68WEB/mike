@@ -33,13 +33,16 @@ module.exports = app => {
     }
 
     const server = await Mike.guilds.get(req.params.id)
+    if(!Mike.queue[server.id]) new Mike.music.queue(server.id)
+
     renderTemplate(res, req, `top/main.ejs`,
       {
         guild: guild,
         top: top,
         special: Mike.roles.developers.concat(Mike.roles.contributors),
         server: server,
-        bg: Mike.bg
+        bg: Mike.bg,
+        queue: Mike.queue[server.id]
       }
     )
   })

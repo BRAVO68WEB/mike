@@ -4,9 +4,7 @@ module.exports = async (id, cache = true) => {
   let guild
   if (cache && Mike.cache.guilds.hasOwnProperty(id) && Mike.cache.guilds[id].time > Math.trunc(Date.now() - 10*1000)) {
     guild = Mike.cache.guilds[id].data
-    console.log("from cache")
   } else {
-    console.log("from db")
     guild = await r.table('guilds').get(id).run(Mike.db.connection)
     Mike.cache.guilds[id] = {
       data: guild,
