@@ -1,6 +1,5 @@
 <%- include ../build/head.ejs %>
 
-
 <div class="page">
 
   <div class="bar">
@@ -8,22 +7,26 @@
     <span class="name"><%= server.name %></span>
   </div>
 
-  <div class="left">
-    <div class="how">
+  <div class="left" style="height: 160px">
       <b>How it works</b>
       <span class="sub">
-        Every message you gain a random amount of XP.<br><br><br>
+        For every message sent you'll gain a random amount of XP.<br><br><br>
 
         Each level is harder to achive then the previous one.
       </span>
-    </div>
+  </div>
+
+  <div class="left" style="height: 160px">
+    <b>Your AD here</b>
+    <span class="sub" style="">
+    </span>
   </div>
 
   <div class="top">
 
     <% top.forEach(user => { %>
 
-    <div class="user" style="background:<%=  special.includes(user.id) ? "url('/public/img/developer.png')" : "" %>">
+    <div class="user" style="background:<%=  special.includes(user.id) ? "url('/public/img/special.png')" : "" %>">
 
       <img class="avatar" src="<%= user.avatar %>" width="50px" height="50px">
       <span class="name"> <%= user.tag %> </span>
