@@ -2,7 +2,7 @@ const passport = require("passport")
 
 module.exports = app => {
 
-  app.get('/top/:id', async (req, res) => {
+  app.get('/server/:id', async (req, res) => {
 
     const guild = await Mike.db.getGuild(req.params.id)
     const data = guild.users
@@ -35,7 +35,7 @@ module.exports = app => {
     const server = await Mike.guilds.get(req.params.id)
     if(!Mike.queue[server.id]) new Mike.music.queue(server.id)
 
-    renderTemplate(res, req, `top/main.ejs`,
+    renderTemplate(res, req, `top/server.ejs`,
       {
         guild: guild,
         top: top,
