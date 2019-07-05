@@ -29,7 +29,8 @@ class Mike extends Client {
     this.utils = require('./utils')
 
     this.cache = {
-      youtube: {}
+      youtube: {},
+      guilds: {}
     }
 
     this.color = '#ffe680'
