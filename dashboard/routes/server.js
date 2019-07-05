@@ -35,7 +35,7 @@ module.exports = app => {
     const server = await Mike.guilds.get(req.params.id)
     if(!Mike.queue[server.id]) new Mike.music.queue(server.id)
 
-    renderTemplate(res, req, `top/server.ejs`,
+    renderTemplate(res, req, `server/main.ejs`,
       {
         guild: guild,
         top: top,
