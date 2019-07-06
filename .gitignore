@@ -5,3 +5,7 @@ files/tokens.json
 node_modules/
 package-lock.json
 demo/
+Lavalink.jar
+application.yml
+rethinkdb/
+logs/
