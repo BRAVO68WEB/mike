@@ -1,4 +1,7 @@
-files/
+files/dashboards.json
+files/databases.json
+files/lavalink.json
+files/tokens.json
 node_modules/
 package-lock.json
 demo/
