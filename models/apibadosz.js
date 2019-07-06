@@ -22,7 +22,7 @@ module.exports = async (data) => {
                 if (data.type == 'text') {
                   Mike.models.snap({
                     object: data.object,
-                    message: `\`${response.body[output]}\``,
+                    message: `\`${response.body[data.output]}\``,
                     footer: `api.badosz.com`
                   })
                 } else if (data.type == "image") {
