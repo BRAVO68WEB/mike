@@ -35,7 +35,7 @@ class Mike extends Client {
 
     this.color = '#ffe680'
 
-    this.type = (['badosz-pc','DESKTOP-5OKDRVN'].includes(os.hostname()) ==  ? 'beta' : 'main')
+    this.type = (['badosz-pc','DESKTOP-5OKDRVN'].includes(os.hostname()) ? 'beta' : 'main')
 
     this.db.init(this.databases[this.type])
     this.prefix = this.prefixes[this.type]
