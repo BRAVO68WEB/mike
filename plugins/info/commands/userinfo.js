@@ -1,6 +1,6 @@
 exports.output = async ({message, args}) => {
   const user = await Mike.utils.users.search(message, args[0])
-  const member = await message.guild.fetchMember(user);
+  const member = await message.guild.fetchMember(user)
   const isBot = {
     "true": `${Mike.customEmojis.markYes} Yes`,
     "false": `${Mike.customEmojis.markNo} No`
