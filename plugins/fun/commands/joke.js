@@ -7,6 +7,6 @@ exports.output = async ({message}) => {
   })
 }
 exports.data = {
-    triggers: ['joke'],
-    description: 'Shows random Joke post.'
+  triggers: ['joke'],
+  description: 'Shows random Joke post.'
 }

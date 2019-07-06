@@ -7,6 +7,6 @@ exports.output = async ({message}) => {
   })
 }
 exports.data = {
-    triggers: ['catface'],
-    description: 'Shows random catface.'
+  triggers: ['catface'],
+  description: 'Shows random catface.'
 }
