@@ -22,7 +22,7 @@ exports.output = async ({message}) => {
         ['Server creation date',message.guild.createdAt.toUTCString().substr(0, 16),true],
         ['Server ID',message.guild.id,true],
         ['Server Region', regions[message.guild.region] ,true],
-        ['Members', `<:dcOnline:495281269391884288> Online: ${message.guild.presences.findAll("status", "online").length}\n<:dcDnd:495281269609857024> Dnd: ${message.guild.presences.findAll("status", "dnd").length}\n<:dcIdle:495281269253603346> Idle: ${message.guild.presences.findAll("status", "idle").length}\n<:dcOffline:495281269379432449> Offline: ${message.guild.memberCount - message.guild.presences.array().length}`,false],
+        ['Members', `${Mike.customEmojis.statusOnline} Online: ${message.guild.presences.findAll("status", "online").length}\n${Mike.customEmojis.statusDnd} Dnd: ${message.guild.presences.findAll("status", "dnd").length}\n${Mike.customEmojis.statusIdle} Idle: ${message.guild.presences.findAll("status", "idle").length}\n${Mike.customEmojis.statusOffline} Offline: ${message.guild.memberCount - message.guild.presences.array().length}`,false],
         ['Bots',message.guild.members.filter(member => member.user.bot).size,true],
         ['Channels', `Text: ${message.guild.channels.findAll("type", "text").length}\nVoice: ${message.guild.channels.findAll("type", "voice").length}`, true]
       ],
