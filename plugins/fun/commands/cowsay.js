@@ -3,7 +3,7 @@ const cowsay = require("cowsay")
 exports.output = async ({message, args}) => {
   Mike.models.snap({
     object: message,
-    message:`\`\`\`${cowsay.say({ text : args.join(" ") })}\`\`\``,
+    message:`\`\`\`${cowsay.say({ text : args.join(" ").slice(0,12) })}\`\`\``,
   })
 }
 exports.data = {
