@@ -32,10 +32,10 @@ exports.search = async(message, string, returnAuthor = true) => {
     }).catch(err => console.log(err))
 }
 
-exports.tonum = (string) => {
+exports.tonum = (string, max = 100) => {
   let userHash = 0
   for (let i = 0; i < string.length; i++) {
     userHash += parseInt(string[i].charCodeAt(0))
   }
-  return Math.round(parseFloat(`0.${String(userHash)}`) * 100) + 1
+  return Math.round(parseFloat(`0.${String(userHash)}`) * max) + 1
 }
