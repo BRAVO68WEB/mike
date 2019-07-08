@@ -15,6 +15,14 @@ exports.output = async ({message, args, dbGuild}) => {
         commands.normal.push(`\`${command.data.triggers[0]}\``)
       }
     }
+    if (plugin.id == 'nsfw' && !message.channel.nsfw) {
+      return Mike.models.snap({
+        object: message,
+        message: `This command is available only on nsfw channels.`,
+        color: '#f44262',
+        image: Mike.gifs.nsfw
+      })
+    }
     return Mike.models.snap({
       object: message,
       message: `**${plugin.name}**
@@ -53,6 +61,15 @@ exports.output = async ({message, args, dbGuild}) => {
         userPerms: [],
         botPerms: []
       }, command.data)
+
+      if (command.data.nsfw && !message.channel.nsfw) {
+        return Mike.models.snap({
+          object: message,
+          message: `This command is available only on nsfw channels.`,
+          color: '#f44262',
+          image: Mike.gifs.nsfw
+        })
+      }
 
       return Mike.models.snap({
         object: message,
