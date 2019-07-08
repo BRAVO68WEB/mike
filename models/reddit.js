@@ -18,7 +18,7 @@ module.exports = async (data) => {
       const postTitle = post.data.title.length > 256 ? `${post.data.title.slice(0, 253)}...` : post.data.title
 
       if(data.type === "text"){
-        Mike.models.snap({
+        return Mike.models.snap({
           object: data.object,
           title: postTitle,
           message: post.data.selftext,
