@@ -17,12 +17,11 @@ exports.output = async ({message, args}) => {
       ["Muted", member.serverMute ? `${Mike.customEmojis.markYes} Yes` : `${Mike.customEmojis.markNo} No`, true],
       ["Color", member.displayHexColor, true],
       ["Highest Role", member.highestRole.name.replace(/@everyone/g, '-'), true],
-      ["Joined Guild", member.joinedAt.toUTCString(), true],
+      ["Joined Guild", member.joinedAt.toUTCString(), false],
       ["Account Created", user.createdAt.toUTCString(), false]
     ],
     thumbnail: user.displayAvatarURL
   })
-  console.log(user.presence)
 }
 exports.data = {
   triggers: ['userinfo','user'],
