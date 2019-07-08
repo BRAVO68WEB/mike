@@ -74,6 +74,23 @@ module.exports = async (message, messagePrefix, dbGuild) => {
     })
   }
 
+  if (command.data.voter) {
+      r = await Mike.http.get('https://discordbots.org/api/bots/419620594645073930/check?userId=' + message.author.id)
+                         .set(
+                           {
+                             Authorization: Mike.tokens.dblist
+                           }
+                         )
+      if(r.body.voted == 0) {
+          return Mike.models.snap({
+            object: message,
+            message: `\`This command is for\` [[voters]](https://discordbots.org/bot/419620594645073930/vote) \`only.\``,
+            color: '#f44262',
+            footer: `May take two minutes to update.`
+          })
+      }
+  }
+
   if (await require('../args')(args, command, message)) return
 
   command.output({
