@@ -42,6 +42,15 @@ module.exports = async (message, messagePrefix, dbGuild) => {
     })
   }
 
+  if (command.data.nsfw && !message.channel.nsfw) {
+    return Mike.models.snap({
+      object: message,
+      message: `This command is available only on nsfw channels.`,
+      color: '#f44262',
+      image: Mike.gifs.nsfw
+    })
+  }
+
   const userPerms = message.guild.members.get(message.author.id).permissions
   const botPerms = message.guild.members.get(Mike.user.id).permissions
 
