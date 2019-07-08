@@ -1,6 +1,7 @@
-exports.output = async ({message, args}) => {
 const roblox = require("noblox.js")
-roblox.getIdFromUsername(args.join(" ")).then(id => { // gets user id for the specific part of the embed
+
+exports.output = async ({message, args}) => {
+  roblox.getIdFromUsername(args.join(" ")).then(id => {
   if (id) {
     roblox.getPlayerInfo(parseInt(id)).then(function(info) {
        return Mike.models.mult({
