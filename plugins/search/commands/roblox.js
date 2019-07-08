@@ -1,28 +1,25 @@
 exports.output = async ({message, args}) => {
-  Mike.http.get('https://api.roblox.com/users/get-by-username')
-           .query({
-             username: encodeURIComponent(args[0])
-           })
-           .then(async response => {
-              const user = response.body
-              if(typeof user.Username == 'undefined') {
-                return Mike.models.snap({
-                  object: message,
-                  message: '\`Player not found.\`',
-                  color: '#f44262'
-                })
-              }
-              return Mike.models.mult({
-                object: message,
-                fields: [
-                  ['Status', user.IsOnline ? 'Online' : 'Offline', true],
-                  ['Username', user.Username, true],
-                  ['User ID', user.Id, true],
-                ]
-              })
-          }).catch(error => {
-              return require('../../../handlers/error')(message, error)
-          })
+const roblox = require("noblox.js")
+roblox.getIdFromUsername(args.join(" ")).then(id => { // gets user id for the specific part of the embed
+  if (id) {
+    roblox.getPlayerInfo(parseInt(id)).then(function(info) {
+       return Mike.models.mult({
+         object: message,
+         fields: [
+           ['Status', info.status || "None" ,true],
+           ['Username', info.username, true],
+           ['User ID', id, true],
+           ['Blurb', info.blurb || "Nothing",true],
+           ['Account Age', info.age + ' days',true],
+           ['Link to account', `[Click](https://roblox.com/users/${id}/profile)`,true]
+         ],
+         thumbnail: `https://www.roblox.com/bust-thumbnail/image?userId=${id}&width=420&height=420&format=png`
+       })
+     }).catch(error => {
+       return require('../../../handlers/error')(message, error)
+     })
+    }
+  })
 }
 
 exports.data = {
