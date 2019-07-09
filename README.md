@@ -33,7 +33,7 @@ server](https://discord.gg/ZwPfRfp).
 
 [Discord Bot List](https://discordbots.org/bot/419620594645073930)
 
-### Contributors 
+### Contributors
 
 Thanks goes to these wonderful people :
 
@@ -48,6 +48,17 @@ Thanks goes to these wonderful people :
 				</sub>
 			</a><br />
 			<a href="#" title="Code">💻 </a></td>
+		</td>
+		<td align="center">
+			<a href="https://github.com/Nimplex">
+				<img src="https://avatars2.githubusercontent.com/u/39964594?s=400&v=4" width="100px;" alt="Niplex"/>
+				<br />
+				<sub>
+					<b>Niplex</b>
+				</sub>
+			</a><br />
+			<a href="#" title="Code">💻 </a></td>
+		</td>
 </table>
 
 ### Mike uses
