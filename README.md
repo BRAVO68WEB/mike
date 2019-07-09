@@ -51,10 +51,10 @@ Thanks goes to these wonderful people :
 		</td>
 		<td align="center">
 			<a href="https://github.com/Nimplex">
-				<img src="https://avatars2.githubusercontent.com/u/39964594?s=400&v=4" width="100px;" alt="Niplex"/>
+				<img src="https://avatars2.githubusercontent.com/u/39964594?s=400&v=4" width="100px;" alt="Nimplex"/>
 				<br />
 				<sub>
-					<b>Niplex</b>
+					<b>Nimplex</b>
 				</sub>
 			</a><br />
 			<a href="#" title="Code">💻 </a></td>
