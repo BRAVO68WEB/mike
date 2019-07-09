@@ -1,0 +1,35 @@
+<%- include ../build/head.ejs %>
+
+<div class="page">
+
+  <table class="commands">
+    <th>
+      Plugin
+    </th>
+    <th>
+      Command
+    </th>
+    <th>
+      Description
+    </th>
+  <% Object.keys(plugins).forEach(function(plugin){ %>
+
+      <% plugins[plugin].forEach(command => { %>
+        <tr>
+          <td class>
+            <%= plugin %>
+          </td>
+          <td class = "name">
+            <%= command.name %>
+          </td>
+          <td>
+            <%= command.description %>
+          </td>
+        </tr>
+      <% }) %>
+
+  <% }) %>
+
+  </table>
+
+</div>

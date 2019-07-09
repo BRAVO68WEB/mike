@@ -51,11 +51,11 @@
   width: 100%;
 }
 
-tr:nth-child(even) {
+.page .left tr:nth-child(even) {
   background-color: #fff;
 }
 
-table {
+.page .left table {
   border-collapse: collapse;
   width: 35%;
 }

@@ -1,0 +1,26 @@
+.page .commands tr:nth-child(even) {
+  background-color: #23272A;
+}
+
+.page .commands {
+  border-collapse: collapse;
+  width: 35%;
+}
+
+.page .commands {
+  width: 100%;
+}
+
+.page .commands .plugin {
+  font-size: 50px;
+}
+
+.page .commands th {
+  text-align: left;
+}
+
+.page .commands .name{
+  font-size: 20px;
+  width: 300px;
+  color: #ffe680
+}
