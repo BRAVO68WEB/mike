@@ -5,7 +5,6 @@ exports.output = async ({message, args}) => {
            .then(async response => {
               const user = response.body
               let AcUsername = user.name
-              console.log(AcUsername)
               if(user.name == undefined) {
                 return Mike.models.snap({
                   object: message,
