@@ -1,32 +1,36 @@
-exports.output = async ({message, args}) => {
-  const B64 = require('Base64')
+const B64 = require('Base64')
 
+exports.output = async ({message, args}) => {
   Mike.http.get(`https://api.mojang.com/users/profiles/minecraft/${args.join(" ")}`)
            .then(async response => {
               const user = response.body
               let AcUsername = user.name
               console.log(AcUsername)
-              if(user.name == undefined) return Mike.models.snap({
+              if(user.name == undefined) {
+                return Mike.models.snap({
                   object: message,
                   message: '\`User doesn\'t exist.\`',
                   color: '#f44262'
-              })
+                })
+              }
               let AcID = user.id
               Mike.http.get(`https://api.mojang.com/user/profiles/${AcID}/names`)
-              .then(async response => {
-                let Names = response.body
-                let Name
-                let len = Names.length-1
-                for(let i=0; i<len+1;i++){
-                  Name+=Names[i].name
-                  Name+="\n"
-                }
+                       .then(async response => {
+                          const Names = response.body
+                          let history = ``
 
-                Mike.models.snap({
-                  object: message,
-                  message: `**Minecraft Userinfo**\n\nUsername: **${AcUsername}**\nID: **${AcID}**\n\n**${AcUsername}'s** usernames history:\n${Name}`,
-                })
-              })
+                          Names.forEach(name => {
+                            history += `${name.name} ${name.changedToAt ? `*(since ${new Date(name.changedToAt).toLocaleDateString("en-US")})*` : ``}\n`
+                          })
+                          Mike.models.snap({
+                            object: message,
+                            message: `**Username: **${AcUsername}
+                                      **ID: **${AcID}
+
+                                      **Username history:**
+                                      ${history}`,
+                          })
+                        })
 
             })
 }
