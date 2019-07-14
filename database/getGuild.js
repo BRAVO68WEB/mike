@@ -6,9 +6,11 @@ module.exports = async (id, cache = true) => {
     guild = Mike.cache.guilds[id].data
   } else {
     guild = await r.table('guilds').get(id).run(Mike.db.connection)
-    Mike.cache.guilds[id] = {
-      data: guild,
-      time: Math.trunc(Date.now())
+    if (guild) {
+      Mike.cache.guilds[id] = {
+        data: guild,
+        time: Math.trunc(Date.now())
+      }
     }
   }
   if (!guild) {
@@ -26,6 +28,7 @@ module.exports = async (id, cache = true) => {
             message: `**{user}** advanced to level **{level}**!`,
             messages: true
           },
+          customcmds: []
         },
         settings: {
           disabledPlugins: [],
@@ -34,7 +37,7 @@ module.exports = async (id, cache = true) => {
 
     }, {
       returnChanges: true
-}).run(Mike.db.connection)).changes[0].new_val
+    }).run(Mike.db.connection)).changes[0].new_val
 
   }
     return guild

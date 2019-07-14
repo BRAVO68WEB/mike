@@ -6,7 +6,7 @@ module.exports = async (id) => {
       .get(id)
       .delete()
       .run(Mike.db.connection)
-    delete Mike.cache.guilds[guild]
+    delete Mike.cache.guilds[id]
   } catch (e) {
     console.error(e)
     return false

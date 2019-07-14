@@ -8,3 +8,14 @@ String.prototype.toTitleCase = function() {
   newstr = newstr.join(' ')
   return newstr
 }
+
+exports.customparse = async (string) => {
+  const arr = string.split(/[{}]/)
+  let output = ``
+  arr.forEach(element => {
+    sarr = element.split("|")
+    output += sarr[Math.floor(Math.random()*sarr.length)]
+  })
+
+  return output
+}
