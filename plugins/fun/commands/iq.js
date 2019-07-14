@@ -8,7 +8,7 @@ exports.output = async ({message, args}) => {
 
 exports.data = {
     triggers: ['iq'],
-    description: 'None',
+    description: 'Shows user\'s iq',
     usage: [
       '{prefix}{command} [mention]',
       '{prefix}{command} [id]',
