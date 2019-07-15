@@ -17,7 +17,7 @@ module.exports = async (message) => {
           .addRow('Name', stored.guild.name)
           .addRow('Region', stored.guild.region)
           .addRow('Joined at', await stored.guild.members.get(Mike.user.id).joinedAt.toUTCString())
-          .addRow('Premium Server', stored.db.ispremium ? 'yes' : 'no')
+          .addRow('Premium Server', stored.db.ispremium ? 'Yes' : 'No')
           .addRow('Custom Prefix', stored.db.prefix ? stored.db.prefix : '[not set]')
           .addRow('Disabled Plugins', stored.db.settings.disabledPlugins.length > 0 ? stored.db.settings.disabledPlugins.join('\n') : '-')
           .addRow('Members', stored.guild.members.filter(m => !m.user.bot).size.toString())
@@ -29,5 +29,20 @@ module.exports = async (message) => {
         await Mike.db.deleteGuild(tokens[i])
       }
     }
+    if(tokens[i] == 'user')
+    {
+      i++
+      stored.user = await Mike.users.get(tokens[i])
+      i++
+      if(tokens[i] == 'print') {
+        const table = new AsciiTable(stored.user.id)
+          .addRow('Name', stored.user.tag)
+          .addRow('Bot', stored.user.bot ? 'Yes' : 'No')
+          .addRow('Created At', stored.user.createdAt.toUTCString())
+          .addRow('Status', stored.user.presence.status.replace(/online/g, `Online`).replace(/idle/g, `Idle`).replace(/dnd/g, `Dnd`).replace(/offline/g, `Offline`))
+          .addRow("In", stored.user.presence.game ? `${stored.user.presence.game.name}` : "Nothing")
+        message.channel.send(`\`\`\`css\n${table.toString()}\n\`\`\``)
+    }
   }
+}
 }
