@@ -9,3 +9,10 @@ exports.id = async (text) => {
   if (match) return true
   else return false
 }
+
+exports.webhook = async (text) => {
+  const match = /discordapp.com\/api\/webhooks\/([^\/]+)\/([^\/]+)/i.exec(text)
+  console.log(match)
+  if (match) return true
+  else return false
+}

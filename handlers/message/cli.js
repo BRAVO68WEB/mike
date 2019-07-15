@@ -26,7 +26,7 @@ module.exports = async (message) => {
         message.channel.send(`\`\`\`css\n${table.toString()}\n\`\`\``)
       }
       if (tokens[i] == 'delete') {
-        await Mike.db.deleteGuild(tokens[i])
+        await Mike.db.deleteGuild(stored.guild.id)
       }
     }
     if(tokens[i] == 'user')

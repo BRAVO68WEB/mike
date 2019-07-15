@@ -28,7 +28,14 @@ module.exports = async (id, cache = true) => {
             message: `**{user}** advanced to level **{level}**!`,
             messages: true
           },
-          customcmds: []
+          customcmds: [],
+          notifications: {
+            reddit: {
+                enabled: false,
+                webhook: ``,
+                subs: []
+            }
+          }
         },
         settings: {
           disabledPlugins: [],
