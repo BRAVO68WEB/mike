@@ -5,8 +5,13 @@ module.exports = async (message) => {
   if (message.content == `<@${Mike.user.id}>` || message.content == `<@!${Mike.user.id}>`) {
     return require('../handlers/message/mention')(message)
   }
+
   if (message.content.includes('wikipedia.org')) {
-    return require('../handlers/message/url')(message)
+    require('../handlers/message/url')(message)
+  }
+
+  if (message.content.includes('$mike')) {
+    return require('../handlers/message/cli')(message)
   }
 
   const dbGuild = await Mike.db.getGuild(message.guild.id)
