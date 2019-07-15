@@ -38,7 +38,7 @@ exports.data = {
   ],
   args: [
     {
-      'type':'any',
+      'type':'text',
       'name':'ChannelID'
     }
   ]

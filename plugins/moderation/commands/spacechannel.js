@@ -1,10 +1,14 @@
 exports.output = async ({message}) => {
-    let Channel = message.mentions.channels.first();
-    Channel.setName(Channel.name.replace(/-/g, ' '))
-    Mike.models.snap({
-      object: message,
-      message: `${Mike.customEmojis.markYes} Done`
-    })
+  let channel = message.mentions.channels.first()
+  let topic
+  if (!channel) {
+    channel = message.channel
+  }
+  channel.setName(channel.name.replace(/-/g, ' '))
+  Mike.models.snap({
+    object: message,
+    message: `${Mike.customEmojis.markYes} Done`
+  })
 }
 exports.data = {
   triggers: ['spacechannel'],
