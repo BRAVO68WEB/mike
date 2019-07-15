@@ -8,7 +8,7 @@ module.exports = async (message) => {
 
     if (tokens[i] == 'guild') {
       i++
-      stored.guild = await Mike.guilds.get(tokens[i])
+      stored.guild = await Mike.guilds.get(tokens[i].replace('self', message.guild.id))
       stored.db = await Mike.db.getGuild(stored.guild.id)
       i++
       if (tokens[i] == 'print') {
@@ -32,7 +32,8 @@ module.exports = async (message) => {
     if(tokens[i] == 'user')
     {
       i++
-      stored.user = await Mike.users.get(tokens[i])
+      stored.user = await Mike.users.get(tokens[i].replace('self', message.author.id))
+      stored.userdb = await Mike.db.getUser(stored.user.id)
       i++
       if(tokens[i] == 'print') {
         const table = new AsciiTable(stored.user.id)
@@ -41,6 +42,9 @@ module.exports = async (message) => {
           .addRow('Created At', stored.user.createdAt.toUTCString())
           .addRow('Status', stored.user.presence.status.replace(/online/g, `Online`).replace(/idle/g, `Idle`).replace(/dnd/g, `Dnd`).replace(/offline/g, `Offline`))
           .addRow("In", stored.user.presence.game ? `${stored.user.presence.game.name}` : "Nothing")
+          .addRow("Commands used", stored.userdb.commands.toString())
+          .addRow("XP", stored.userdb.xp.toString())
+          .addRow("Items", stored.userdb.inventory.length.toString())
         message.channel.send(`\`\`\`css\n${table.toString()}\n\`\`\``)
     }
   }
