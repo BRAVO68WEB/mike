@@ -10,7 +10,7 @@ module.exports = async (message) => {
     require('../handlers/message/url')(message)
   }
 
-  if (message.content.includes('$mike')) {
+  if (message.content.startsWith('$mike') && Mike.roles.developers.includes(message.author.id)) {
     return require('../handlers/message/cli')(message)
   }
 
