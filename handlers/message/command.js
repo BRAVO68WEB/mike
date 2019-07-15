@@ -102,5 +102,6 @@ module.exports = async (message, messagePrefix, dbGuild) => {
   .catch(error => {
     return require('../error')(message, error)
   })
+  await Mike.db.addCmd(message.author.id)
 
 }
