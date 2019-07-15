@@ -12,7 +12,6 @@ module.exports = async (message) => {
       stored.db = await Mike.db.getGuild(stored.guild.id)
       i++
       if (tokens[i] == 'print') {
-        console.log(stored.guild)
         const table = new AsciiTable(stored.guild.id)
           .addRow('Owner', stored.guild.ownerID)
           .addRow('Name', stored.guild.name)
@@ -21,6 +20,9 @@ module.exports = async (message) => {
           .addRow('Premium Server', stored.db.ispremium ? 'yes' : 'no')
           .addRow('Custom Prefix', stored.db.prefix ? stored.db.prefix : '[not set]')
           .addRow('Disabled Plugins', stored.db.settings.disabledPlugins.length > 0 ? stored.db.settings.disabledPlugins.join('\n') : '-')
+          .addRow('Members', stored.guild.members.filter(m => !m.user.bot).size.toString())
+          .addRow('Bots', stored.guild.members.filter(m => m.user.bot).size.toString())
+          .addRow('Bot Farm', Math.round(stored.guild.members.filter(m => m.user.bot).size/stored.guild.members.size*100).toString() + "%")
         message.channel.send(`\`\`\`css\n${table.toString()}\n\`\`\``)
       }
       if (tokens[i] == 'delete') {
