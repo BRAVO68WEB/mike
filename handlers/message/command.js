@@ -99,9 +99,9 @@ module.exports = async (message, messagePrefix, dbGuild) => {
       args: args,
       dbGuild: dbGuild
   })
-  // .catch(error => {
-  //   return require('../error')(message, error)
-  // })
+  .catch(error => {
+    return require('../error')(message, error)
+  })
   await Mike.db.addCmd(message.author.id)
 
 }
