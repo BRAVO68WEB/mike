@@ -24,8 +24,8 @@ module.exports = async (message) => {
     messagePrefix = dbGuild.prefix
   }
 
-  if(dbGuild.plugins.customcmds){
-    require('../handlers/message/customcmd')(message, messagePrefix, dbGuild)
+  if(message.content.startsWith(messagePrefix) && dbGuild.plugins.customcmds){
+    return require('../handlers/message/customcmd')(message, messagePrefix, dbGuild)
   }
 
   if (message.content.startsWith(messagePrefix)) {
