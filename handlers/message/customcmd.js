@@ -1,4 +1,5 @@
 module.exports = async (message, messagePrefix, dbGuild) => {
+  if (!message.content.startsWith(messagePrefix)) return
   let [commandName, ...args] = message.content.slice(messagePrefix.length).split(/ +/g)
   const command = dbGuild.plugins.customcmds.find(c => c.name === commandName)
 
