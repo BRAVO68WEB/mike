@@ -12,7 +12,12 @@ exports.id = async (text) => {
 
 exports.webhook = async (text) => {
   const match = /discordapp.com\/api\/webhooks\/([^\/]+)\/([^\/]+)/i.exec(text)
-  console.log(match)
   if (match) return true
+  else return false
+}
+
+exports.spotify = async (text) => {
+  const match = /https?:\/\/(?:open\.)?spotify\.com\/track\/([a-zA-Z0-9]{22})/i.exec(text)
+  if (match) return match
   else return false
 }

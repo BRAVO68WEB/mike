@@ -2,6 +2,19 @@ exports.output = async ({message, args}) => {
   const voiceChannel = message.member.voiceChannel
   let track = args.join(" ")
   let ok = false
+  const spotify = await Mike.utils.regex.spotify(track)
+  if (spotify) {
+    const result = await Mike.utils.spotify.search(spotify[1])
+    if (result) {
+      track = `${result.artists[0].name} ${result.name}`
+    } else {
+      return Mike.models.snap({
+        object: message,
+        message: '\`Nothing found.\`',
+        color: '#f44262'
+      })
+    }
+  }
   await Mike.music.player.getSong(track).then(async s => {
       if(ok) return
       if(s.loadType == "NO_MATCHES") {
@@ -77,6 +90,13 @@ exports.output = async ({message, args}) => {
   })
 
   function play(song) {
+    if (!song) {
+      return Mike.models.snap({
+        object: message,
+        message: '\`Nothing found.\`',
+        color: '#f44262'
+      })
+    }
     let s = {
       title: song.info.title.replace(/`/g, "'"),
       channel: song.info.author,
