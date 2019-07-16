@@ -12,8 +12,7 @@ exports.output = async ({message}) => {
   return Mike.models.snap({
     object: message,
     message: `${dbGuild.snipe.content}`,
-    author: [user.tag, user.displayAvatarURL],
-    thumbnail: user.displayAvatarURL
+    author: [user.tag, user.displayAvatarURL]
   })
 }
 
