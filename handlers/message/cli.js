@@ -42,9 +42,11 @@ module.exports = async (message) => {
           .addRow('Created At', stored.user.createdAt.toUTCString())
           .addRow('Status', stored.user.presence.status.replace(/online/g, `Online`).replace(/idle/g, `Idle`).replace(/dnd/g, `Dnd`).replace(/offline/g, `Offline`))
           .addRow("In", stored.user.presence.game ? `${stored.user.presence.game.name}` : "Nothing")
-          .addRow("Commands used", stored.userdb.commands.toString())
-          .addRow("XP", stored.userdb.xp.toString())
-          .addRow("Items", stored.userdb.inventory.length.toString())
+          if (!stored.user.bot) {
+            table.addRow("Commands used", stored.userdb.commands.toString())
+                 .addRow("XP", stored.userdb.xp.toString())
+                 .addRow("Items", stored.userdb.inventory.length.toString())
+          }
         message.channel.send(`\`\`\`css\n${table.toString()}\n\`\`\``)
     }
   }
