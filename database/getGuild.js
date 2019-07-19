@@ -34,6 +34,11 @@ module.exports = async (id, cache = true) => {
                 enabled: false,
                 webhook: ``,
                 subs: []
+            },
+            twitch: {
+                enabled: false,
+                webhook: ``,
+                streamers: []
             }
           }
         },
