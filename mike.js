@@ -7,17 +7,23 @@ class Mike extends Client {
 
     global.Mike = this
 
-    this.tokens = require('./files/tokens.json')
-    this.prefixes = require('./files/prefixes.json')
-    this.databases = require('./files/databases.json')
-    this.dashboards = require('./files/dashboards.json')
-    this.items = require('./files/items.json')
-    this.links = require('./files/links.json')
-    this.roles = require('./files/roles.json')
-    this.customEmojis = require('./files/emojis.json')
-    this.lavalink = require('./files/lavalink.json')
-    this.gifs = require('./files/gifs.json')
-    this.bg = require('./files/bg.json')
+    this.files = [
+      'tokens',
+      'prefixes',
+      'dashboards',
+      'databases',
+      'items',
+      'links',
+      'roles',
+      'customEmojis',
+      'lavalink',
+      'gifs',
+      'bg'
+    ]
+
+    this.files.forEach(file => {
+      this[file] = require(`./files/${file}.json`)
+    })
 
     this.http = require('snekfetch')
 
