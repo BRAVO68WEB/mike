@@ -94,6 +94,18 @@ exports.output = async ({message, args}) => {
         fetched = fetched.filter(message => !message.content.includes(args[1]))
         fetched = fetched.slice(0, args[2])
         break
+      case 'startswith':
+        if(!good(args[2], 2)) return
+        if(!args[1]) args[1] = " "
+        fetched = fetched.filter(message => message.content.startsWith(args[1]))
+        fetched = fetched.slice(0, args[2])
+        break
+      case 'endswith':
+        if(!good(args[2], 2)) return
+        if(!args[1]) args[1] = " "
+        fetched = fetched.filter(message => message.content.endsWith(args[1]))
+        fetched = fetched.slice(0, args[2])
+        break
       default:
         return Mike.models.snap({
           object: message,
@@ -139,7 +151,9 @@ exports.data = {
     '{prefix}{command} before <message id>',
     '{prefix}{command} after <message id>',
     '{prefix}{command} with <word> <number of messages>',
-    '{prefix}{command} without <word> <number of messages>'
+    '{prefix}{command} without <word> <number of messages>',
+    '{prefix}{command} startswith <word> <number of messages>',
+    '{prefix}{command} endswith <word> <number of messages>'
   ],
   args: [
     {
