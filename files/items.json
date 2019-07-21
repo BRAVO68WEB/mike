@@ -1,0 +1,51 @@
+[
+    {
+        "name":"box",
+        "worth":2500,
+        "category":"common",
+        "numberid":1,
+        "emoji":"<:itemBox:523918710717546557>",
+        "description":"Upgrades your work."
+    },
+    {
+        "name":"coin",
+        "worth":4500,
+        "category":"common",
+        "numberid":2,
+        "emoji":"<:itemCoin:523904670855331840>",
+        "description":"Gives you more daily money."
+    },
+    {
+        "name":"banana",
+        "worth":7000,
+        "category":"rare",
+        "numberid":3,
+        "emoji":"<:itemBanana:523926074367934467>",
+        "description":"Just a banana."
+    },
+    {
+        "name":"sword",
+        "worth":9000,
+        "category":"rare",
+        "numberid":4,
+        "emoji":"<:itemSword:523927630714765334>",
+        "description":"Helps you steal money."
+    },
+    {
+        "name":"shield",
+        "worth":10000,
+        "category":"rare",
+        "numberid":5,
+        "emoji":"<:ItemShield:555124342531555339>",
+        "description":"Protects your pocket."
+    },
+    {
+        "name":"syringe",
+        "worth":20000,
+        "category":"legendary",
+        "numberid":6,
+        "emoji":"<:ItemSyringe:555124286571020377>",
+        "description":"???"
+    }
+
+]

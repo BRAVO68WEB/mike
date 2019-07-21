@@ -1,0 +1,35 @@
+exports.output = async ({message, args}) => {
+  const user = await Mike.db.getUser(message.author.id)
+  if (isNaN(args[0]) || args[0] <= 0) {
+    return Mike.models.snap({
+      object: message,
+      message: '\`Provide valid amount of pocket money.\`',
+      color: '#f44262'
+    })
+  }
+  if (parseInt(args[0]) > user.pocket) {
+    return Mike.models.snap({
+      object: message,
+      message: '\`You don\'t have so much pocket money.\`',
+      color: '#f44262'
+    })
+  }
+  await Mike.db.transferBank(message.author.id, parseInt(args[0]))
+  Mike.models.snap({
+    object: message,
+    message: `Deposited \`${args[0]}$\` to bank.`,
+  })
+}
+exports.data = {
+  triggers: ['deposit'],
+  description: 'Deposit pocket money to bank.',
+  usage: [
+    '{prefix}{command} <money>',
+  ],
+  args: [
+    {
+      'type':'money',
+      'name':'money'
+    }
+  ]
+}
