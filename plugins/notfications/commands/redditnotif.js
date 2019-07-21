@@ -30,6 +30,14 @@ exports.output = async ({message, dbGuild, args}) => {
           color: '#f44262'
         })
       }
+      const check = await Mike.http.get(`https://www.reddit.com/api/info.json?url=https://www.reddit.com/r/${args[1]}`)
+      if (!check.body.data.children.length) {
+        return Mike.models.snap({
+          object: message,
+          message: '\`This subreddit doesn\'t exist.\`',
+          color: '#f44262'
+        })
+      }
       dbGuild.plugins.notifications.reddit.subs.push(args[1])
       await Mike.db.update('guilds', message.guild.id, "plugins", dbGuild.plugins)
       return Mike.models.snap({
@@ -55,12 +63,20 @@ exports.output = async ({message, dbGuild, args}) => {
         message: `\`Removed subreddit: ${args[1]}\``,
       })
     }
+  } else if (args[0] == 'enable' || args[0] == 'disable') {
+      dbGuild.plugins.notifications.reddit.enabled = (args[0] == 'enable')
+    await Mike.db.update('guilds', message.guild.id, "plugins", dbGuild.plugins)
+    return Mike.models.snap({
+      object: message,
+      message: `\`${args[0] == 'enable'? 'Enable' : 'Disable'}d!\``,
+    })
   }
 
   Mike.models.snap({
     object: message,
     message: `Reddit notifications webhook: ${dbGuild.plugins.notifications.reddit.webhook ? `[[link]](${dbGuild.plugins.notifications.reddit.webhook})` : `\`[not set]\``}
               Subreddits: \`${dbGuild.plugins.notifications.reddit.subs.length > 0 ? dbGuild.plugins.notifications.reddit.subs.join(', ') : '-'}\`
+              Enabled: ${dbGuild.plugins.notifications.reddit.enabled ? `\`Yes\`` : `\`No\``}
 
               To change webhook:
               \`${Mike.prefix}redditnotif webhook <webhook url>\`
@@ -70,6 +86,12 @@ exports.output = async ({message, dbGuild, args}) => {
 
               To remove subreddit:
               \`${Mike.prefix}redditnotif remove <subreddit>\`
+
+              To enable notifications:
+              \`${Mike.prefix}redditnotif enable\`
+
+              To disable notifications:
+              \`${Mike.prefix}redditnotif disable\`
               `,
   })
 }
