@@ -45,7 +45,8 @@ module.exports = async (id, cache = true) => {
         settings: {
           disabledPlugins: [],
         },
-        users: {}
+        users: {},
+        warns: {}
 
     }, {
       returnChanges: true

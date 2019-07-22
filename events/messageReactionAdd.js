@@ -7,7 +7,8 @@ module.exports = async (reaction, user) => {
   const guild = await Mike.db.getGuild(reaction.message.guild.id)
   if (guild.settings.disabledPlugins.includes("starboard")) return
 
-  const starChannel = reaction.message.guild.channels.get(guild.plugins.starboard.channel)
+  const starChannel = reaction.message.guild.channels.get(guild.plugins.starboard.channel
+  if (!starChannel) return
   const hasContent = reaction.message.content && reaction.message.content.length || reaction.message.attachments.size && reaction.message.attachments.first().height
 
   const total = reaction.message.reactions.find(r => r.emoji.name === '⭐') ? reaction.message.reactions.find(r => r.emoji.name === '⭐').count : 0

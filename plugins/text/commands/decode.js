@@ -1,6 +1,5 @@
 exports.output = async ({message, args}) => {
   const [type, ...text] = args
-  console.log(type)
   let decoded
   switch (type) {
     case 'base64':
