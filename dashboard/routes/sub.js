@@ -3,19 +3,24 @@ const fs = require("fs")
 module.exports = app => {
   app.get("/commands", async (req, res) => {
 
-      let commands = {}
+      let plugins = {}
 
       Mike.plugins.forEach(plugin => {
 
 
         if (['nsfw','dev'].includes(plugin.id)) return
 
-        commands[plugin.name.split(/[::]/)[2]] = []
+        plugins[plugin.id] = {
+          commands: {},
+          name: plugin.name.split(/[::]/)[2]
+        }
+
+        plugins[plugin.id].commands = []
 
 
         plugin.commands.forEach(command => {
 
-          commands[plugin.name.split(/[::]/)[2]].push({
+          plugins[plugin.id].commands.push({
             name: command.data.triggers[0],
             description: command.data.description
           })
@@ -23,9 +28,8 @@ module.exports = app => {
         })
 
       })
-
       renderTemplate(res, req, 'commands/main.ejs', {
-        plugins: commands
+        plugins: plugins
     })
   })
 
