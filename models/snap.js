@@ -19,7 +19,7 @@ module.exports = async (data) => {
 
   const embed = new Discord.RichEmbed()
       .attachFile(data.file)
-      .setDescription(`${data.hightlight ? `\``: ``}${data.message}${data.hightlight ? `\``: ``}`)
+      .setDescription(`${data.hightlight ? `\``: ``}${data.message.slice(0,2000)}${data.hightlight ? `\``: ``}`)
       .setThumbnail(data.thumbnail)
       .setImage(data.image)
       .setColor(data.color)
