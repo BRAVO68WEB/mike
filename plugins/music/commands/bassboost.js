@@ -8,7 +8,7 @@ exports.output = async ({message, args}) => {
     })
   }
 
-  if (args[0] == 'easy') {
+  if (args[0] == 'low') {
     await player.setEQ([
       {"band": 0, "gain": 2},
       {"band": 1, "gain": 4},
@@ -49,7 +49,7 @@ exports.data = {
   description: 'Makes bassboost filter on.',
   voice: true,
   usage: [
-      '{prefix}{command} [easy/hard/medium]',
+      '{prefix}{command} [low/medium/hard]',
   ],
   voter: true
 }
