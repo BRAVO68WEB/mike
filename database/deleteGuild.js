@@ -8,7 +8,6 @@ module.exports = async (id) => {
       .run(Mike.db.connection)
     delete Mike.cache.guilds[id]
   } catch (e) {
-    console.error(e)
     return false
   }
 }
