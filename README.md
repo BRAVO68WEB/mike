@@ -1,4 +1,6 @@
-<a href="https://discordbots.org/bot/419620594645073930"><img src="https://discordbots.org/api/widget/upvotes/419620594645073930.svg" alt="Mike Bot" /></a>
+# Mike
+
+[![Dbl](https://discordbots.org/api/widget/upvotes/419620594645073930.svg)](https://discordbots.org/bot/419620594645073930)
 [![Server](https://img.shields.io/discord/340947847728070666.svg?logo=discord&colorB=7289DA)](https://discord.gg/ZwPfRfp)
 [![Github contributors](https://img.shields.io/github/contributors/mike-boat/mike.svg)](https://github.com/mike-boat/mike/contributors)
 [![GitHub issues](https://img.shields.io/github/issues/mike-boat/mike.svg)](https://github.com/mike-boat/mike/issues)
