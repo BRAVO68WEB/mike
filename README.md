@@ -6,6 +6,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/mike-boat/mike.svg)](https://github.com/mike-boat/mikestargazers)
 [![GitHub license](https://img.shields.io/github/license/mike-boat/mike.svg)](https://github.com/mike-boat/mike/blob/master/LICENSE)
 
+---
 Mike is a customizable Discord bot with a lot of plugins:
 * Logs
 * Music
@@ -20,11 +21,13 @@ Mike is a customizable Discord bot with a lot of plugins:
 * Image Generation
 * Twitch, Reddit Notifications
 
+---
 ### Contributing
 
 If you want to contribute to Mike, [join support
 server](https://discord.gg/ZwPfRfp).
 
+---
 ### Links
 
 [Invite](https://discordapp.com/oauth2/authorize?client_id=419620594645073930&permissions=8&scope=bot)
@@ -33,6 +36,7 @@ server](https://discord.gg/ZwPfRfp).
 
 [Discord Bot List](https://discordbots.org/bot/419620594645073930)
 
+---
 ### Contributors
 
 Thanks goes to these wonderful people :
@@ -61,6 +65,7 @@ Thanks goes to these wonderful people :
 		</td>
 </table>
 
+---
 ### Mike uses
 
 - [RethinkDB](https://www.rethinkdb.com/)
@@ -68,6 +73,7 @@ Thanks goes to these wonderful people :
 
 and many more...
 
+---
 #### Self-hosting
 
 It is not recommended to self-host Mike due to the fact that a lot 3rd party APIs and programs are being used.
