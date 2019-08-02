@@ -13,17 +13,18 @@ exports.output = async ({message, args}) => {
             Mike.models.snap({
               object: message,
               message: `**Reason: ** ${reason}`,
-              author: [`${mention.user.tag} has been banned.`, user.displayAvatarURL],
+              author: [`${mention.user.tag} has been banned.`, mention.user.displayAvatarURL],
             })
             return mention.ban(reason)
         }
         Mike.models.snap({
           object: message,
           message: ``,
-          author: [`${mention.user.tag} has been banned.`, user.displayAvatarURL],
+          author: [`${mention.user.tag} has been banned.`, mention.user.displayAvatarURL],
         })
         return mention.ban()
     } catch (error) {
+        console.log(error)
         return Mike.models.snap({
           object: message,
           message: `\`I can not ban this user.\``,
