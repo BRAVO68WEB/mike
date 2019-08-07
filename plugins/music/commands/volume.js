@@ -14,10 +14,11 @@ exports.output = async ({message, args}) => {
         color: '#f44262'
       })
   }
+
   await player.volume(args[0])
   return Mike.models.snap({
     object: message,
-    message: '\`Volume changed.\`',
+    message: `**Volume:**\n${`[▬](${Mike.links.website})`.repeat(Math.round(player.state.volume/20))}${`▬`.repeat(10-Math.round(player.state.volume/20))} \`${player.state.volume}%\``,
   })
 }
 
