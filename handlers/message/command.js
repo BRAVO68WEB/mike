@@ -74,7 +74,7 @@ module.exports = async (message, messagePrefix, dbGuild) => {
     })
   }
 
-  if (command.data.voter) {
+  if (command.data.voter && !Mike.roles.developers.includes(message.author.id)) {
       r = await Mike.http.get('https://discordbots.org/api/bots/419620594645073930/check?userId=' + message.author.id)
                          .set(
                            {
