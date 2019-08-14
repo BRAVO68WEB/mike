@@ -47,5 +47,9 @@ module.exports = async (reaction, user) => {
 
       }
     }
+  } else if (total <= 0 && starMsg) {
+    try {
+      starMsg.delete()
+    } catch (e) {console.log(e)}
   }
 }

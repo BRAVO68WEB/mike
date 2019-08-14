@@ -6,6 +6,7 @@ class events {
     Mike.on('messageDelete', message => eRequire('messageDelete')(message))
     Mike.on('voiceStateUpdate', (oldMember, newMember) => eRequire('voiceStateUpdate')(oldMember, newMember))
     Mike.on('messageReactionAdd', (reaction, user) => eRequire('messageReactionAdd')(reaction, user))
+    Mike.on('messageReactionRemove', (reaction, user) => eRequire('messageReactionRemove')(reaction, user))
     Mike.on('raw', e => eRequire('raw')(e))
   }
 }

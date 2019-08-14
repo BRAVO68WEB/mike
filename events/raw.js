@@ -8,7 +8,7 @@ module.exports = async (event) => {
   const { d: data } = event
   const user = Mike.users.get(data.user_id)
   const channel = Mike.channels.get(data.channel_id) || await user.createDM()
-  if (channel.messages.has(data.message_id)) return
+  if (channel.messages.has(data.message_id) && events[event.t] == 'messageReactionAdd') return
   const message = await channel.fetchMessage(data.message_id)
   const emojiKey = (data.emoji.id) ? `${data.emoji.name}:${data.emoji.id}` : data.emoji.name
   const reaction = message.reactions.get(emojiKey)
