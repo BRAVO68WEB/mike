@@ -1,12 +1,15 @@
 exports.output = async ({message}) => {
-const servers_names = Mike.guilds.map(m=>m.name).join("\n");
-    Mike.models.mult({
-      object: message,
-      fields: [
-        ['Servers',servers_names,false],
-      ],
-    })
-};
+  const servers = Mike.guilds.map(s => `${s.name} - \`${s.id}\``).join("\n")
+
+  Mike.models.mult({
+    object: message,
+    fields: [
+      ['Servers', servers, false]
+    ],
+  })
+
+}
+
 exports.data = {
     triggers: ['servers'],
     description: 'None',
