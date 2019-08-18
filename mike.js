@@ -1,5 +1,4 @@
 const { Client } = require('discord.js')
-const os = require('os')
 
 class Mike extends Client {
   constructor(bot) {
@@ -41,8 +40,15 @@ class Mike extends Client {
     }
 
     this.color = '#ffe680'
+    this.types = ['main', 'beta']
 
-    this.type = (['badosz-pc','DESKTOP-5OKDRVN'].includes(os.hostname()) ? 'beta' : 'main')
+    if (!this.types.includes(process.argv[2])) {
+      this.console.error(`Please run Mike with version argument! (${this.types.join(', ')})`)
+      this.console.warn(`Mike has frozen own process. Please reboot.`)
+      while (true) {}
+    }
+
+    this.type = process.argv[2]
 
     this.db.init(this.databases[this.type])
     this.prefix = this.prefixes[this.type]
