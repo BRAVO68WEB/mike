@@ -3,9 +3,9 @@ const commands = require('fs').readdirSync(`${__dirname}/commands/`)
   .map(file => require(`${__dirname}/commands/${file}`))
 
 module.exports = {
-  name: ':pen_fountain: Prefix',
-  id: 'prefix',
-  description: 'Customize your server\'s prefix!',
+  name: ':trophy: Levels',
+  id: 'levels',
+  description: 'Let your users reach top by gaining XP!',
   author: '214858075650260992',
   commands: commands,
   devOnly: false,

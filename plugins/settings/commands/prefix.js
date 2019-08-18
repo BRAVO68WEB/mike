@@ -18,9 +18,18 @@ exports.output = async ({message, dbGuild, args}) => {
 }
 
 exports.data = {
-    triggers: ['prefix'],
-    description: 'Shows custom prefix.',
-    usage: [
-        '{prefix}{command} [prefix]',
-    ]
+  triggers: ['prefix'],
+  description: 'Shows custom prefix.',
+  usage: [
+      '{prefix}{command} [prefix]',
+  ],
+  args: [
+    {
+      'type':'text',
+      'name':'prefix'
+    }
+  ],
+  userPerms: [
+      "MANAGE_GUILD"
+  ]
 }

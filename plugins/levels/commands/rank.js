@@ -21,7 +21,7 @@ exports.output = async ({message, args}) => {
 
 }
 exports.data = {
-    triggers: ['rank', 'level'],
+    triggers: ['rank'],
     description: 'Shows user level.',
     usage: [
       '{prefix}{command} [mention]',
