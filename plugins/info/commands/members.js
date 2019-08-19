@@ -1,16 +1,16 @@
 exports.output = async ({message}) => {
-  const msg = `**Members (${message.guild.members.filter(m => !m.user.bot).size})**
-  ${Mike.customEmojis.statusOnline} Online - ${message.guild.members.filter(m => m.presence.status == 'online' && !m.user.bot).size} Online
-  ${Mike.customEmojis.statusIdle} Idle - ${message.guild.members.filter(m => m.presence.status == 'idle' && !m.user.bot).size} Idle
-  ${Mike.customEmojis.statusDnd} Dnd - ${message.guild.members.filter(m => m.presence.status == 'dnd' && !m.user.bot).size} Dnd
-  ${Mike.customEmojis.statusOffline} Offline - ${message.guild.members.filter(m => m.presence.status == 'offline' && !m.user.bot).size} Offline
 
-  **Bots (${message.guild.members.filter(m => m.user.bot).size})**
-  ${Mike.customEmojis.statusOnline} Online - ${message.guild.members.filter(m => m.presence.status == 'online' && m.user.bot).size} Online
-  ${Mike.customEmojis.statusIdle} Idle - ${message.guild.members.filter(m => m.presence.status == 'idle' && m.user.bot).size} Idle
-  ${Mike.customEmojis.statusDnd} Dnd - ${message.guild.members.filter(m => m.presence.status == 'dnd' && m.user.bot).size} Dnd
-  ${Mike.customEmojis.statusOffline} Offline - ${message.guild.members.filter(m => m.presence.status == 'offline' && m.user.bot).size} Offline
+  function byStatus(message, status) {
+    return message.guild.members.filter(m => m.presence.status == status && !m.user.bot).size
+  }
 
+  const total = message.guild.members.filter(m => !m.user.bot).size
+
+  const msg = `**Members (${total})**
+  ${Mike.customEmojis.statusOnline} \`${Math.floor(byStatus(message, 'online')/total*100)}%\` [ ${byStatus(message, 'online')} ] Online
+  ${Mike.customEmojis.statusIdle} \`${Math.floor(byStatus(message, 'idle')/total*100)}%\` [ ${byStatus(message, 'idle')} ] Idle
+  ${Mike.customEmojis.statusDnd} \`${Math.floor(byStatus(message, 'dnd')/total*100)}%\` [ ${byStatus(message, 'dnd')} ] Dnd
+  ${Mike.customEmojis.statusOffline} \`${Math.floor(byStatus(message, 'offline')/total*100)}%\` [ ${byStatus(message, 'offline')} ] Offline
 
   `
   Mike.models.snap({
@@ -19,6 +19,6 @@ exports.output = async ({message}) => {
   })
 }
 exports.data = {
-    triggers: ['members', 'bots'],
-    description: 'Shows member and bots count in server.'
+    triggers: ['members'],
+    description: 'Shows member count in server.'
 }
