@@ -1,0 +1,36 @@
+exports.output = async ({message, args}) => {
+  Mike.http.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + args.join(" "))
+    .then(async response => {
+      const cocktail = response.body
+      console.log(cocktail)
+      if(!cocktail.drinks)
+      {
+        Mike.models.snap({
+          object: message,
+          message: '\`Bad cocktail name!\`',
+          color: '#f44262'
+          })
+          return;
+        }
+      else{
+        Mike.models.snap({
+          object: message,
+          message: `**${cocktail.drinks[0].strDrink}**`,
+          image: cocktail.drinks[0].strDrinkThumb,
+        })
+      }
+    })
+}
+exports.data = {
+  triggers: ['cocktail'],
+  description: 'cocktail',
+  usage: [
+    '{prefix}{command} <name>'
+  ],
+  args: [
+    {
+      'type':'any',
+      'name':'text'
+    }
+  ]
+}
