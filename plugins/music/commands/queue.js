@@ -20,17 +20,16 @@ exports.output = async ({message}) => {
     }
 
     let list = ``
-    let nzm = 0
+    let numberOfTracks = 0
     let totaltime = 0
     queue.songs.forEach((song, i) => {
-        nzm += 1
+        numberOfTracks  += 1
         totaltime += song.length
         if (i < 10) {
-            let length = formatLength(song.length)
-            list += `${i+1}. **${song.title}**\n\`${length} | ${song.requester}\`\n`
+            list += `\`${i+1}.\`[**${song.title.substring(0, 50)}**](${song.url})\n\`\t[${formatLength(song.length)} | ${song.requester}]\`\n`
         }
     })
-    list += `\n\`Total: ${nzm} | Total Time: ${formatLength(totaltime)}\``
+    list = `**${numberOfTracks} Tracks | ${formatLength(totaltime)}**\n\n` + list
 
     return Mike.models.snap({
       object: message,
