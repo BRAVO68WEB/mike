@@ -6,26 +6,26 @@ exports.output = async ({message, args}) => {
     const emote = discord.Util.parseEmoji(args[0])
     const match = args[0].match(/<:[a-zA-Z0-9_-]+:(\d{18})>/)
     let emoji = {}
-    let name = '???'
-    let guild = '???'
-    let id = '???'
+    let name = 'Unknown'
+    let guild = 'Unknown'
+    let id = 'Unknown'
     if (match && match[1]){
       emoji = Mike.emojis.get(match[1])
     }
     let URL = null
     if (emote.animated === true) {
       URL = `https://cdn.discordapp.com/emojis/${emote.id}.gif?v=1`
-      name = (emote ? emote.name : '???')
-      guild = '???'
-      id = (emoji ? emote.name : '???')
+      name = (emote ? emote.name : 'Unknown')
+      guild = 'Unknown'
+      id = (emoji ? emote.name : 'Unknown')
     } else if (emote.id === null) {
         const twemote = twemoji.parse(args[0])
         const regex = /src="(.+)"/g
         const regTwemote = regex.exec(twemote)[1]
         URL = regTwemote
-        name = '???'
-        guild = '???'
-        id = '???'
+        name = 'Unknown'
+        guild = 'Unknown'
+        id = 'Unknown'
       } else {
           URL = `https://cdn.discordapp.com/emojis/${emote.id}.png`
           name = (emoji ? emoji.name : '???')
