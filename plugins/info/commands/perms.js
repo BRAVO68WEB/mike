@@ -6,7 +6,7 @@ exports.output = async ({message}) => {
   }
   Mike.models.snap({
     object: message,
-    message: `**Mike Perms in this server:**
+    message: `**${message.guild.name} - Mike perms**
 
               ${perms}`,
   })
