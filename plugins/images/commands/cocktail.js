@@ -2,17 +2,12 @@ exports.output = async ({message, args}) => {
   Mike.http.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + args.join(" "))
     .then(async response => {
       const cocktail = response.body
-      console.log(cocktail)
-      if(!cocktail.drinks)
-      {
-        Mike.models.snap({
+      if(!cocktail.drinks) return Mike.models.snap({
           object: message,
-          message: '\`Bad cocktail name!\`',
+          message: '\`Coctail not found!\`',
           color: '#f44262'
-          })
-          return;
-        }
-      else{
+        })
+      else {
         Mike.models.snap({
           object: message,
           message: `**${cocktail.drinks[0].strDrink}**`,
