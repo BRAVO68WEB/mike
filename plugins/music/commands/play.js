@@ -1,7 +1,9 @@
 exports.output = async ({message, args}) => {
   const voiceChannel = message.member.voiceChannel
   let track = args.join(" ")
+
   let ok = false
+
   const spotify = await Mike.utils.regex.spotify(track)
   if (spotify) {
     const result = await Mike.utils.spotify.search(spotify[1])
@@ -15,60 +17,79 @@ exports.output = async ({message, args}) => {
       })
     }
   }
-  await Mike.music.player.getSong(track).then(async s => {
-      if(ok) return
-      if(s.loadType == "NO_MATCHES") {
-        let found = false
+
+  await Mike.music.player.getSong(track).then(async search => {
+      if (ok) return
+      if (search.loadType == "NO_MATCHES") {
+
         if (Mike.cache.youtube.hasOwnProperty(track)) {
-          found = true
+
           await play(Mike.cache.youtube[track])
+
         } else {
-          await Mike.music.player.getSong(`ytsearch:${track}`).then(async songs => {
-            songs.tracks.forEach(async song => {
-              if(found) return
-              found = true
-              Mike.cache.youtube[track] = song
-              await play(song)
-            })
+
+          await Mike.music.player.getSong(`ytsearch: ${track}`).then(async songs => {
+
+            if(songs.tracks.length == 0) {
+
+              return Mike.models.snap({
+                object: message,
+                message: '\`Nothing found.\`',
+                color: '#f44262'
+              })
+
+            }
+
+            Mike.cache.youtube[track] = songs.tracks[0]
+            await play(songs.tracks[0])
+
           })
+
         }
-        if(!found) {
-          return Mike.models.snap({
-            object: message,
-            message: '\`Nothing found.\`',
-            color: '#f44262'
-          })
-        }
-      } else if (s.loadType == "PLAYLIST_LOADED") {
-        if(!Mike.queue[message.guild.id]) new Mike.music.queue(message.guild.id)
-        let queue = Mike.queue[message.guild.id]
-        let count = 0
-        s.tracks.forEach(async song => {
-          count++
+
+      } else if (search.loadType == "PLAYLIST_LOADED") {
+
+          if (!Mike.queue[message.guild.id]) new Mike.music.queue(message.guild.id)
+          let queue = Mike.queue[message.guild.id]
           let player = await Mike.player.get(message.guild.id)
-          if (!player) player = await Mike.player.join({
-                  guild: message.guild.id,
-                  channel: voiceChannel.id,
-                  host: Mike.lavalink.host
-              }, { selfdeaf: true })
-              queue.songs.push(
-                {
-                  title: song.info.title.replace(/`/g, "'"),
-                  channel: song.info.author,
-                  length: song.info.length,
-                  requester: message.author.tag,
-                  url: song.info.uri,
-                  track: song.track
-                }
-              )
+          if (!player) {
+            player = await Mike.player.join({
+                                              guild: message.guild.id,
+                                              channel: voiceChannel.id,
+                                              host: Mike.lavalink.host
+                                            }, { selfdeaf: true })
+          }
+
+          let mess = `**${search.tracks.length} Songs Queued**\n\`\`\`ini\n`
+          search.tracks.forEach(async (song, i) => {
+
+            queue.songs.push({
+              title: song.info.title.replace(/`/g, "'"),
+              channel: song.info.author,
+              length: song.info.length,
+              requester: message.author.tag,
+              url: song.info.uri,
+              track: song.track
+            })
+
+            i++
+            if (i <= 20) {
+              mess += `[${(i < 10 ? '0' : '') + i}] ${song.info.title.replace(/`/g, "'").substring(0, 40)}\n`
+            }
+
           })
+
+          if (search.tracks.length >= 20) mess += `and ${search.tracks.length-20} more...`
+
+          mess += `\n\`\`\``
 
           Mike.models.snap({
             object: message,
-            message: `\`Loaded ${count} songs.\``,
+            message: mess,
           })
 
           setTimeout(async () => {
+
             let player = await Mike.player.get(message.guild.id)
             if(!player.playing) {
               let song = queue.songs.shift()
@@ -83,13 +104,16 @@ exports.output = async ({message, args}) => {
               })
             }
           }, 300)
+
       } else {
-              await play(s.tracks[0])
+              await play(search.tracks[0])
       }
+
       ok = true
   })
 
   function play(song) {
+
     if (!song) {
       return Mike.models.snap({
         object: message,
@@ -97,7 +121,8 @@ exports.output = async ({message, args}) => {
         color: '#f44262'
       })
     }
-    let s = {
+
+    let parsedSong = {
       title: song.info.title.replace(/`/g, "'"),
       channel: song.info.author,
       length: song.info.length,
@@ -105,24 +130,25 @@ exports.output = async ({message, args}) => {
       url: song.info.uri,
       track: song.track
     }
-    Mike.music.player.play(s, message).then(async t => {
+
+    Mike.music.player.play(parsedSong, message).then(async type => {
         let player = await Mike.player.get(message.guild.id)
-        const url = (s.url.startsWith("https://www.youtube.com/") ? `https://i.ytimg.com/vi/${s.url.replace("https://www.youtube.com/watch?v=", "")}/hqdefault.jpg` : ``)
-        if(t == "play") {
+        const url = (parsedSong.url.startsWith("https://www.youtube.com/") ? `https://i.ytimg.com/vi/${parsedSong.url.replace("https://www.youtube.com/watch?v=", "")}/hqdefault.jpg` : ``)
+        if (type == "play") {
             Mike.models.snap({
               object: message,
-              message: `Now playing: \`${s.title}\`
-                        from:\`${s.channel}\``,
+              message: `Now playing: \`${parsedSong.title}\`
+                        from:\`${parsedSong.channel}\``,
               thumbnail: url,
-              footer:`🔉 ${player.state.volume}% • Duration: ${await Mike.utils.time.formatLength(s.length) || 'N/A'} • Requester: ${message.author.tag}`
+              footer:`🔉 ${player.state.volume}% • Duration: ${await Mike.utils.time.formatLength(parsedSong.length) || 'N/A'} • Requester: ${message.author.tag}`
             })
         } else {
           Mike.models.snap({
             object: message,
-            message: `Queued: \`${s.title}\`
-                      from:\`${s.channel}\``,
+            message: `Queued: \`${parsedSong.title}\`
+                      from:\`${parsedSong.channel}\``,
             thumbnail: url,
-            footer:`Position: ${Mike.queue[message.guild.id].songs.length} • Duration: ${await Mike.utils.time.formatLength(s.length) || 'N/A'} • Requester: ${message.author.tag}`
+            footer:`Position: ${Mike.queue[message.guild.id].songs.length} • Duration: ${await Mike.utils.time.formatLength(parsedSong.length) || 'N/A'} • Requester: ${message.author.tag}`
 
           })
         }
