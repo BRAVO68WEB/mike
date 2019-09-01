@@ -24,7 +24,6 @@ exports.output = async ({message, args}) => {
         })
         return mention.ban()
     } catch (error) {
-        console.log(error)
         return Mike.models.snap({
           object: message,
           message: `\`I can not ban this user.\``,
