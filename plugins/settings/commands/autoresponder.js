@@ -25,5 +25,8 @@ exports.data = {
     description: 'Shows autoresponder settings.',
     usage: [
         '{prefix}{command} <disable/enable>'
+    ],
+    userPerms: [
+        "MANAGE_GUILD"
     ]
 }

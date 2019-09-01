@@ -28,5 +28,8 @@ exports.data = {
     description: 'Shows levels settings.',
     usage: [
         '{prefix}{command} [messages] <disable/enable>'
+    ],
+    userPerms: [
+        "MANAGE_GUILD"
     ]
 }
