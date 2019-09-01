@@ -114,7 +114,15 @@ exports.output = async ({message, args}) => {
         }).then(msg => { msg.delete(5000) })
       }
 
-      await message.channel.bulkDelete(fetched)
+      try {
+        await message.channel.bulkDelete(fetched)
+      } catch (e) {
+        return Mike.models.snap({
+          object: message,
+          message: `\`You can't clear this messages.\``,
+          color: '#f44262'
+        }).then(msg => { msg.delete(5000) })
+      }
 
       let deleted = {}
       let cleared = ``
