@@ -27,6 +27,10 @@ module.exports = async (message) => {
       }
       if (tokens[i] == 'delete') {
         await Mike.db.deleteGuild(stored.guild.id)
+        const table = new AsciiTable(`${stored.guild.id} - DELETED`)
+          .addRow('Owner', stored.guild.ownerID)
+          .addRow('Name', stored.guild.name)
+        message.channel.send(`\`\`\`css\n${table.toString()}\n\`\`\``)
       }
     }
     if(tokens[i] == 'user')
