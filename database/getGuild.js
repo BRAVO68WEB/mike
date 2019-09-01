@@ -28,6 +28,9 @@ module.exports = async (id, cache = true) => {
             message: `**{user}** advanced to level **{level}**!`,
             messages: true
           },
+          autoresponder: {
+            enabled: false
+          },
           customcmds: [],
           notifications: {
             reddit: {

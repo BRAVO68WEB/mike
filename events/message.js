@@ -6,16 +6,24 @@ module.exports = async (message) => {
     return require('../handlers/message/mention')(message)
   }
 
-  if (message.content.includes('wikipedia.org')) {
-    require('../handlers/message/url')(message)
-  }
 
   if (message.content.startsWith('$mike') && Mike.roles.developers.includes(message.author.id)) {
     return require('../handlers/message/cli')(message)
   }
 
+
   const dbGuild = await Mike.db.getGuild(message.guild.id)
 
+  if (dbGuild.plugins.autoresponder.enabled) {
+
+    if (message.content.includes('wikipedia.org')) {
+      require('../handlers/message/url')(message)
+    }
+
+    require('../handlers/message/auto')(message)
+
+  }
+  
   await Mike.db.addXp(message.author.id, message.guild.id, message, dbGuild)
 
   let messagePrefix = Mike.prefix
