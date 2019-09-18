@@ -136,13 +136,15 @@ exports.output = async ({message, args}) => {
         cleared += `\`${deleted[user].length}\` message${deleted[user].length == 1 ? `` : `s`} by ${user}\n`
       })
 
-      return Mike.models.snap({
-        object: message,
-        message: `**${message.author.tag}** has deleted \`${fetched.length}\` message${fetched.length == 1 ? `` : `s`}!
+      if (args[args.length-1] != "--nolog") {
+        return Mike.models.snap({
+          object: message,
+          message: `**${message.author.tag}** has deleted \`${fetched.length}\` message${fetched.length == 1 ? `` : `s`}!
 
-                  ${cleared}
-        `,
-      })
+                    ${cleared}
+          `,
+        })
+      }
   }
   return message.delete().then(() => { purge() })
 }
@@ -150,18 +152,18 @@ exports.data = {
   triggers: ['clear','prune', 'purge'],
   description: 'Clear messages.',
   usage: [
-    '{prefix}{command} all <number of messages>',
-    '{prefix}{command} embeds <number of messages>',
-    '{prefix}{command} attachments <number of messages>',
-    '{prefix}{command} links <number of messages>',
-    '{prefix}{command} bots <number of messages>',
-    '{prefix}{command} user <mention> <number of messages>',
-    '{prefix}{command} before <message id>',
-    '{prefix}{command} after <message id>',
-    '{prefix}{command} with <word> <number of messages>',
-    '{prefix}{command} without <word> <number of messages>',
-    '{prefix}{command} startswith <word> <number of messages>',
-    '{prefix}{command} endswith <word> <number of messages>'
+    '{prefix}{command} all <number of messages> [--nolog]',
+    '{prefix}{command} embeds <number of messages> [--nolog]',
+    '{prefix}{command} attachments <number of messages> [--nolog]',
+    '{prefix}{command} links <number of messages> [--nolog]',
+    '{prefix}{command} bots <number of messages> [--nolog]',
+    '{prefix}{command} user <mention> <number of messages> [--nolog]',
+    '{prefix}{command} before <message id> [--nolog]',
+    '{prefix}{command} after <message id> [--nolog]',
+    '{prefix}{command} with <word> <number of messages> [--nolog]',
+    '{prefix}{command} without <word> <number of messages> [--nolog]',
+    '{prefix}{command} startswith <word> <number of messages> [--nolog]',
+    '{prefix}{command} endswith <word> <number of messages> [--nolog]'
   ],
   args: [
     {
