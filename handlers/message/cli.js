@@ -3,7 +3,6 @@ const AsciiTable = require('ascii-table')
 module.exports = async (message) => {
   const tokens = message.content.split(' ')
   let stored = {}
-  let table
   for (let i = 1; i < tokens.length; i++) {
 
     if (tokens[i] == 'guild') {
