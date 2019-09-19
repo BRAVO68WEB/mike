@@ -15,14 +15,18 @@ module.exports = async (message) => {
     }
     try {
       await Mike.db.getGuild(message.guild.id).then(async guild => {
-      if(guild.settings.disabledPlugins.includes("DJWAKJLDLWAKJDLKAWJDLKAJWLD")) {
-        channel = message.guild.channels.get(guild.settings.mdeletelogs.channel)
-        if(channel == undefined) return
+        console.log(guild.settings.disabledPlugins.includes("logs"),!guild.plugins.logs.messages.enabled)
+      if (!guild.settings.disabledPlugins.includes("logs") && guild.plugins.logs.messages.enabled) {
+        channel = message.guild.channels.get(guild.plugins.logs.messages.channel)
+        if (!channel) return
         const embed = new Discord.RichEmbed()
             .setDescription(`Message Deleted`)
             .addField(`User`,message.author.tag,true)
+            .addField(`Channel`,message.channel,true)
+            .addField(`Message`,`\`[redacted]\``, true)
             .addField(`User ID`,message.author.id ,true)
-            .addField(`Message`,message.content, false)
+            .addField(`Channel ID`,message.channel.id ,true)
+            .addField(`Message ID`,message.id, true)
             .setColor("RED")
         channel.send(embed).catch(e => {
               Mike.utils.log.error(e)

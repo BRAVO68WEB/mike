@@ -43,6 +43,12 @@ module.exports = async (id, cache = true) => {
                 webhook: ``,
                 streamers: []
             }
+          },
+          logs: {
+            messages: {
+              enabled: false,
+              channel: ``
+            }
           }
         },
         settings: {
