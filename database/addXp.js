@@ -1,11 +1,12 @@
 const r = require('rethinkdb')
 
 module.exports = async (user, guild, message, dbGuild) => {
+  const randomXP = Math.floor(Math.random() * Math.ceil(message.content.length / 2)+3)
   try {
     await r.table('users')
             .get(user)
             .update({
-                xp:r.row('xp').add(Math.floor(Math.random() * Math.ceil(message.content.length / 2)+3))
+                xp:r.row('xp').add(randomXP)
             })
             .run(Mike.db.connection)
 
@@ -20,7 +21,7 @@ module.exports = async (user, guild, message, dbGuild) => {
         let xp = us.xp
         let lvl = us.lvl
         let lvlnext = us.lvlnext
-        let newXP = Math.floor(Math.random() * Math.ceil(message.content.length / 2)+3)
+        let newXP = randomXP
         let totalXP = xp + newXP
         if(totalXP >= lvlnext)  {
             totalXP = 0;
@@ -46,7 +47,7 @@ module.exports = async (user, guild, message, dbGuild) => {
           .get(guild)
           .update(
             {
-              users: r.object(user, r.object('lvl', 1, 'xp', 0, 'lvlnext', 80))
+              users: r.object(user, r.object('lvl', 1, 'xp', randomXP, 'lvlnext', 80))
             }
           ).run(Mike.db.connection)
       }
