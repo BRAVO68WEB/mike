@@ -12,18 +12,16 @@ Tag | Example Output
 **{server.members}** | `42`
 **{server.bots}** | `10`
 **{server.id}** | `340947847728070666`
-**{server.bots}** | `10`
 **{channel.name}** | `general`
 **{channel.mention}** | `#general`
 **{channel.id}** | `518783985699258389`
-**{option 1 \| option 2}** | `option 1`
 
 There are few special tags too:
 
 Tag | Function | Example
 :-------- | ------- | ---
 **{noeveryone}** | `Removes @everyone from command.` | `Hi @everyone {noeveryone}`
-**{option 1 \| option 2}** | `Returns random output.` | `You are so {good\|bad}!`
+**{option 1 \| option 2}** | `Returns random output.` | `You are so {good\|bad\|awesome}!`
 **{delete}** | `Deletes command trigger.` | `Someone summoned me? {delete}`
 
 
