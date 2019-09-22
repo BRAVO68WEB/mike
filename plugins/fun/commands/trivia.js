@@ -36,14 +36,14 @@ exports.output = async ({message}) => {
             'true',
             'false'
          ];
-          const answer = await Mike.Collector.awaitMessage(message.channel.id, message.author.id, 20*1000)
-          if (answer.content.toLowerCase() == response.correct_answer.toLowerCase()) {
+          const answer = await Mike.Collector.awaitMessage(message.channel.id, message.author.id, 2*1000)
+          if (answer.content && answer.content.toLowerCase() == response.correct_answer.toLowerCase()) {
               Mike.models.snap({
                 object: message,
                 message: `\`You're right!\``
               })
               activeChannels.splice(activeChannels.indexOf(message.channel.id), 1);
-          } else {
+          } else if (answer.content) {
               Mike.models.snap({
                 object: message,
                 message: `\`You're wrong.\``,
