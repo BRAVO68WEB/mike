@@ -29,7 +29,7 @@ module.exports = async (message) => {
             .addField(`Message`,message.content, true)
             .setColor("RED")
         channel.send(embed).catch(e => {
-              Mike.utils.log.error(e)
+          console.log(e)
         })
       }
       })

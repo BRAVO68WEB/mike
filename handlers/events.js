@@ -8,6 +8,8 @@ class events {
     Mike.on('voiceStateUpdate', (oldMember, newMember) => eRequire('voiceStateUpdate')(oldMember, newMember))
     Mike.on('messageReactionAdd', (reaction, user) => eRequire('messageReactionAdd')(reaction, user))
     Mike.on('messageReactionRemove', (reaction, user) => eRequire('messageReactionRemove')(reaction, user))
+    Mike.on('guildMemberAdd', (member) => eRequire('guildMemberAdd')(member))
+    Mike.on('guildMemberRemove', (member) => eRequire('guildMemberRemove')(member))
     Mike.on('raw', e => eRequire('raw')(e))
   }
 }

@@ -48,6 +48,10 @@ module.exports = async (id, cache = true) => {
             messages: {
               enabled: false,
               channel: ``
+            },
+            member: {
+              enabled: false,
+              channel: ``
             }
           }
         },
