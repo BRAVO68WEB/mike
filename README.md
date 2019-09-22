@@ -83,5 +83,34 @@ and many more...
 It is not recommended to self-host Mike due to the fact that a lot 3rd party APIs and programs are being used.
 It simply would be too difficult.
 
+But if you still want to do that, here's the instructions:
+> Please note that those instructions might be out of date!
+
+##### 1. Setting up the repository
+1. Clone the repository into a local directory.
+2. Open a command prompt inside the repositroy directory.
+3. Execute `npm install`
+
+##### 2. Setting up RethinkDB
+
+###### Windows:
+1. Create `rethinkdb` directory in the cloned repository.
+2. Download rethinkdb from https://rethinkdb.com/docs/install/windows/
+3. Extract the downloaded .zip file, and copy `rethinkdb.exe` into the directory created earlier in step 1.
+4. Run `rethinkdb.exe` either from a command prompt or by double clicking it.
+5. Open http://127.0.0.1:8080/#tables in your favourite web browser.
+6. Inside, the `test` database, click `+ Add Table` to add 2 new tables: `guilds` and `users`.
+7. Close rethinkdb, or keep it running for starting mike later.
+
+###### Ubuntu:
+
+1. Create `rethinkdb` directory in the cloned repository.
+2. Install rethinkdb by following instructions at https://rethinkdb.com/docs/install/ubuntu/
+3. Open a terminal in the `rethinkdb` directory created earlier, and execute `rethinkdb`
+5. Open http://127.0.0.1:8080/#tables in your favourite web browser.
+6. Inside, the `test` database, click `+ Add Table` to add 2 new tables: `guilds` and `users`.
+7. Terminate rethinkdb, or keep it running for starting mike later.
+
+##### 3. Installing Lavalink
 
 <!-- ## License -->
