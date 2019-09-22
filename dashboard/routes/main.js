@@ -39,8 +39,12 @@ module.exports = app => {
   })
 
   app.get("/", async (req, res) => {
-      renderTemplate(res, req, 'main/index.ejs', {
-        data: 'test'
+    let data = []
+    await Mike.dashboards.use.forEach(async id => {
+      data.push(await Mike.guilds.get(id))
+    })
+    renderTemplate(res, req, 'main/index.ejs', {
+        data: data
     })
   })
 
