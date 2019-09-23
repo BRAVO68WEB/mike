@@ -174,7 +174,7 @@ Create `tokens.json` in the `files` directory (in the cloned repository folder) 
 ```json
 {
     "main": "DISCORD_TOKEN_FOR_MIKE_MAIN",
-	"beta": "DISCORD_TOKEN_FOR_MIKE_BETA",
+    "beta": "DISCORD_TOKEN_FOR_MIKE_BETA",
 	
     "spotifyID": "SPOTIFY_ID",
     "spotifySecret": "SPOTIFY_SECRET",
