@@ -19,12 +19,12 @@ exports.output = async ({message, args}) => {
   if (dbGuild.warns[mention.id] && dbGuild.warns[mention.id].warns + 1 >= 3) {
     Mike.models.snap({
       object: message,
-      message: `This user has 3 (or more) warns. Should I take ban action?\n\`y/n\``,
+      message: `This user has ${dbGuild.warns[mention.id].warns + 1} warns.\n\n> Should I take ban action?\n\`[ y / n ]\``,
       thumbnail: mention.user.displayAvatarURL
     })
     const answer = await Mike.Collector.awaitMessage(message.channel.id, message.author.id, 20*1000)
 
-    if (answer.content.toLowerCase() == 'y') {
+    if (answer.content && answer.content.toLowerCase() == 'y') {
       if (mention.bannable) {
         mention.ban()
         Mike.models.snap({
