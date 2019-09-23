@@ -53,7 +53,7 @@ Thanks goes to these wonderful people :
 					<b>Juby210</b>
 				</sub>
 			</a><br />
-			<a href="#" title="Code">💻 </a></td>
+			<a href="#" title="Code">💻</a></td>
 		</td>
 		<td align="center">
 			<a href="https://github.com/Nimplex">
@@ -63,7 +63,19 @@ Thanks goes to these wonderful people :
 					<b>Nimplex</b>
 				</sub>
 			</a><br />
-			<a href="#" title="Code">💻 </a></td>
+			<a href="#" title="Code">💻</a></td>
+		</td>
+		<td align="center">
+			<a href="https://github.com/RamiLego4Game">
+				<img src="https://avatars3.githubusercontent.com/u/6272475?s=460&v=4" width="100px;" alt="Nimplex"/>
+				<br />
+				<sub>
+					<b>Rami Sabbagh</b>
+				</sub>
+			</a><br />
+			<a href="#" title="Code">💻</a></td>
+			<a href="#" title="Bug">🐛</a></td>
+			<a href="#" title="Tutorial">✅</a></td>
 		</td>
 </table>
 
@@ -83,8 +95,7 @@ and many more...
 It is not recommended to self-host Mike due to the fact that a lot 3rd party APIs and programs are being used.
 It simply would be too difficult.
 
-But if you still want to do that, here's the instructions for hosting mike **locally**:
-> Please note that those instructions might be out of date!
+But if you still want to do that, here's the instructions for hosting Mike **locally**:
 
 ##### 1. Setting up the repository:
 1. Clone the repository into a local directory.
@@ -99,8 +110,8 @@ But if you still want to do that, here's the instructions for hosting mike **loc
 3. Extract the downloaded .zip file, and copy `rethinkdb.exe` into the directory created earlier in step 1.
 4. Run `rethinkdb.exe` either from a command prompt or by double clicking it.
 5. Open http://127.0.0.1:8080/#tables in your favourite web browser.
-6. Inside, the `test` database, click `+ Add Table` to add 2 new tables: `guilds` and `users`.
-7. Close rethinkdb, or keep it running for starting mike later.
+6. Inside, the `test` database (or one specified in the configuration), click `+ Add Table` to add 2 new tables: `guilds` and `users`.
+7. Close rethinkdb, or keep it running for starting Mike later.
 
 ###### Ubuntu:
 
@@ -108,8 +119,8 @@ But if you still want to do that, here's the instructions for hosting mike **loc
 2. Install rethinkdb by following instructions at https://rethinkdb.com/docs/install/ubuntu/
 3. Open a terminal in the `rethinkdb` directory created earlier, and execute `rethinkdb`
 5. Open http://127.0.0.1:8080/#tables in your favourite web browser.
-6. Inside, the `test` database, click `+ Add Table` to add 2 new tables: `guilds` and `users`.
-7. Terminate rethinkdb, or keep it running for starting mike later.
+6. Inside, the `test` database (or one specified in the configuration), click `+ Add Table` to add 2 new tables: `guilds` and `users`.
+7. Terminate rethinkdb, or keep it running for starting Mike later.
 
 ##### 3. Setting up Lavalink:
 
@@ -120,7 +131,7 @@ But if you still want to do that, here's the instructions for hosting mike **loc
 5. Make sure to set the address into `127.0.0.1` if hosting locally.
 6. Change `password` into something different, and write down for usage later in the setup instructions.
 7. Change the logging path from `./logs/` into somewhere outside the cloned repository folder.
-8. Run Lavalink with `java -jar Lavalink.jar` for starting mike later.
+8. Run Lavalink with `java -jar Lavalink.jar` for starting Mike later.
 
 ##### 4. Create mike's missing configuration files:
 
@@ -135,18 +146,19 @@ But if you still want to do that, here's the instructions for hosting mike **loc
 }
 ```
 
-3. Create `dashboards.json` with this data:
+3. Create `dashboards.json` with this data: (Replace `YOUR_DISCORD_BOT_SECRET` with the your bot's secret from [Discord Developer Dashboard](https://discordapp.com/developers/applications/))
 ```json
 {
     "beta": {
         "https": false,
         "domain": "127.0.0.1",
         "port":"8081",
-        "secret": "TODO Dashboard Secret"
+        "secret": "YOUR_DISCORD_BOT_SECRET"
     },
 
     "use": [
-
+	"ID",
+	"ID"
     ]
 }
 ```
@@ -219,7 +231,7 @@ Create `tokens.json` in the `files` directory (in the cloned repository folder) 
 ###### Badosz:
 > Used to power the images commands!
 1. Join https://discord.gg/DfqHd6U
-2. Ask Badsoz kindly for an API key.
+2. Ask Badosz kindly for an API key.
 3. Replace `BADOSZ_API_TOKEN` with the provided API key.
 
 ###### Genius.com:
