@@ -111,7 +111,7 @@ But if you still want to do that, here's the instructions for hosting mike **loc
 6. Inside, the `test` database, click `+ Add Table` to add 2 new tables: `guilds` and `users`.
 7. Terminate rethinkdb, or keep it running for starting mike later.
 
-##### 3. Installing Lavalink:
+##### 3. Setting up Lavalink:
 
 1. Make sure you have java jre installed in your system.
 2. Download `Lavalink.jar` from https://github.com/Frederikam/Lavalink/releases and place it into the the cloned repository folder.
