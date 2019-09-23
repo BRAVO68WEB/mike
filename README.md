@@ -83,15 +83,15 @@ and many more...
 It is not recommended to self-host Mike due to the fact that a lot 3rd party APIs and programs are being used.
 It simply would be too difficult.
 
-But if you still want to do that, here's the instructions:
+But if you still want to do that, here's the instructions for hosting mike **locally**:
 > Please note that those instructions might be out of date!
 
-##### 1. Setting up the repository
+##### 1. Setting up the repository:
 1. Clone the repository into a local directory.
 2. Open a command prompt inside the repositroy directory.
 3. Execute `npm install`
 
-##### 2. Setting up RethinkDB
+##### 2. Setting up RethinkDB:
 
 ###### Windows:
 1. Create `rethinkdb` directory in the cloned repository.
@@ -111,6 +111,63 @@ But if you still want to do that, here's the instructions:
 6. Inside, the `test` database, click `+ Add Table` to add 2 new tables: `guilds` and `users`.
 7. Terminate rethinkdb, or keep it running for starting mike later.
 
-##### 3. Installing Lavalink
+##### 3. Installing Lavalink:
+
+1. Make sure you have java jre installed in your system.
+2. Download `Lavalink.jar` from https://github.com/Frederikam/Lavalink/releases and place it into the the cloned repository folder.
+3. Create `application.yml` in the same folder of `Lavalink.jar`
+4. Use this template for `application.yml` https://github.com/Frederikam/Lavalink/blob/master/LavalinkServer/application.yml.example
+5. Make sure to set the address into `127.0.0.1` if hosting locally.
+6. Change `password` into something different, and write down for usage later in the setup instructions.
+7. Change the logging path from `./logs/` into somewhere outside the cloned repository folder.
+8. Run Lavalink with `java -jar Lavalink.jar` for starting mike later.
+
+##### 4. Create mike's missing configuration files:
+
+> Those configuration files contain secrets and passwords, and so they are .gitignored by default, make sure to not post those secrets into the public!
+
+1. Browse into `files` directory inside the cloned repository folder.
+2. Create `databases.json` with this data:
+```json
+{
+    "main": {},
+    "beta": {}
+}
+```
+
+3. Create `dashboards.json` with this data:
+```json
+{
+    "beta": {
+        "https": false,
+        "domain": "127.0.0.1",
+        "port":"8081",
+        "secret": "TODO Dashboard Secret"
+    },
+
+    "use": [
+
+    ]
+}
+```
+
+4. Create `roles.json` with this data: (Replace `YOUR_DISCORD_USER_ID` with your discord user id, which you can figure out by enabling `Developer Mode` then rightclicking yourself and pressing `Copy ID`)
+```json
+{
+  "developers":["YOUR_DISCORD_USER_ID"],
+  "contributors":["214858075650260992","324622488644616195", "364056796932997121"]
+}
+```
+
+5. Create `lavalink.json` with this data: (Replace `YOUR_LAVALINK PASSWORD` with the password you've entered into `application.yml`)
+```json
+{
+    "host": "127.0.0.1",
+    "port": "2333",
+    "password": "YOUR_LAVALINK_PASSWORD"
+}
+```
+
+##### 5. Gathering API tokens:
 
 <!-- ## License -->
