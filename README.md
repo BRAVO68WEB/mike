@@ -170,4 +170,36 @@ But if you still want to do that, here's the instructions for hosting mike **loc
 
 ##### 5. Gathering API tokens:
 
+Create `tokens.json` in the `files` directory (in the cloned repository folder) and fill it with this template data:
+```json
+{
+    "main": "DISCORD_TOKEN_FOR_MIKE_MAIN",
+	"beta": "DISCORD_TOKEN_FOR_MIKE_BETA",
+	
+    "spotifyID": "SPOTIFY_ID",
+    "spotifySecret": "SPOTIFY_SECRET",
+
+    "dblist": "DISCORDBOTS.ORG_API_TOKEN",
+    "badosz": "BADOSZ_API_TOKEN",
+    "genius": "GENIUS_API_TOKEN",
+    "twitch": "TWITCH_API_TOKEN",
+    "fortnite": "FORTNITE_API_TOKEN",
+    "osu": "OSU_API_TOKEN",
+    "YoutubeAPIv3": "YOUTUBE_APIV3_TOKEN"
+}
+```
+
+###### Discord Bot Token:
+1. Open the [Discord Developer Dashboard](https://discordapp.com/developers/applications/).
+2. Press `New Application`.
+3. On the left panel, press the `Bot` tab.
+4. On the right, press the `Add Bot` button.
+5. Press the `Copy` button.
+6. Replace `DISCORD_TOKEN_FOR_MIKE_BETA` in `tokens.json` with the copied token.
+7. Back into the website, in the left panel, press the `OAuth2` tab.
+8. Scroll down, and check the `bot` box, then the `Adminstrator` box.
+9. Copy the generated url, and use it for inviting the bot into your discord server.
+
+###### Spotify Client Token:
+
 <!-- ## License -->
