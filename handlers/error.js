@@ -8,11 +8,18 @@ module.exports = async (message, error) => {
               The error has been sent to the developer with code **#${code}**
 
               If possible, please report it here too:
-              ${Mike.links.guild}
-
-              ||\`\`\`${error.message}\`\`\`||
-
-              `,
+              ${Mike.links.guild}`,
     color: '#f44262'
+  })
+
+  Mike.roles.developers.forEach(id => {
+    Mike.users.get(id).send(`
+Error Raport
+\`[USER ID]:\` ${message.author.id}
+\`[SERVER ID]:\` ${message.guild.id}
+\`[COMMAND]:\` ${message.content}
+
+\`[ERROR STACK]:\`
+${error.stack}`)
   })
 }
