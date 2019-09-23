@@ -73,8 +73,8 @@ Thanks goes to these wonderful people :
 					<b>Rami Sabbagh</b>
 				</sub>
 			</a><br />
-			<a href="#" title="Code">💻</a></td>
-			<a href="#" title="Bug">🐛</a></td>
+			<a href="#" title="Code">💻</a>
+			<a href="#" title="Bug">🐛</a>
 			<a href="#" title="Tutorial">✅</a></td>
 		</td>
 </table>
