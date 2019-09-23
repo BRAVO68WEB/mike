@@ -16,6 +16,7 @@ module.exports = async (member) => {
           .addField(`User`, member.user.tag, true)
           .addField(`User ID`, member.id, true)
           .setTimestamp()
+          .setThumbnail(member.user.displayAvatarURL)
           .setColor("GREEN")
       
           channel.send(embed).catch(e => {
