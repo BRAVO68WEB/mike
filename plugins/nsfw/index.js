@@ -6,7 +6,7 @@ module.exports = {
   name: ':underage: Nsfw',
   id: 'nsfw',
   description: 'Get nsfw images!',
-  author: '214858075650260992',
+  author: 'Badosz#0001',
   commands: commands,
   devOnly: false,
   hiddenInHelp: false

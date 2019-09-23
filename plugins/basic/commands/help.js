@@ -28,7 +28,7 @@ exports.output = async ({message, args, dbGuild}) => {
       message: `**${plugin.name}**
 
                 Description: \`${plugin.description}\`
-                Author: \`${await Mike.users.get(plugin.author).tag}\`
+                Author: \`${plugin.author}\`
 
                 Commands:
                 ${commands.normal.join(', ')}

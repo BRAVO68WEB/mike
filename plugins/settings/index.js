@@ -6,7 +6,7 @@ module.exports = {
   name: ':control_knobs: Settings',
   id: 'settings',
   description: 'Configure your server!',
-  author: '214858075650260992',
+  author: 'Badosz#0001',
   commands: commands,
   devOnly: false,
   hiddenInHelp: false

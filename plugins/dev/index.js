@@ -6,7 +6,7 @@ module.exports = {
   name: ':lock: Developer',
   id: 'dev',
   description: 'Own it.',
-  author: '214858075650260992',
+  author: 'Badosz#0001',
   commands: commands,
   devOnly: true,
   hiddenInHelp: false

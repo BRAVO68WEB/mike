@@ -6,7 +6,7 @@ module.exports = {
   name: ':musical_note: Music',
   id: 'music',
   description: 'Listen to music with your friends!',
-  author: '214858075650260992',
+  author: 'Badosz#0001',
   commands: commands,
   devOnly: false,
   hiddenInHelp: false

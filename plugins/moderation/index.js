@@ -6,7 +6,7 @@ module.exports = {
   name: ':tools: Moderation',
   id: 'moderation',
   description: 'Manage your server however you want!',
-  author: '214858075650260992',
+  author: 'Badosz#0001',
   commands: commands,
   devOnly: false,
   hiddenInHelp: false

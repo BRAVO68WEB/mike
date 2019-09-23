@@ -6,7 +6,7 @@ module.exports = {
   name: ':star: Starboard',
   id: 'starboard',
   description: 'Pin best and funniest messages!',
-  author: '214858075650260992',
+  author: 'Badosz#0001',
   commands: commands,
   devOnly: false,
   hiddenInHelp: false

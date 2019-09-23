@@ -6,7 +6,7 @@ module.exports = {
   name: ':books: Basic',
   id: 'basic',
   description: 'Get more information about the bot!',
-  author: '214858075650260992',
+  author: 'Badosz#0001',
   commands: commands,
   devOnly: false,
   hiddenInHelp: false
