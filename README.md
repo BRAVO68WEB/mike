@@ -199,6 +199,7 @@ Create `tokens.json` in the `files` directory (in the cloned repository folder) 
 7. Back into the website, in the left panel, press the `OAuth2` tab.
 8. Scroll down, and check the `bot` box, then the `Adminstrator` box.
 9. Copy the generated url, and use it for inviting the bot into your discord server.
+10. Also send the url to Badosz#0001, and ask him to add the created bot into the Mikemojis server (Required for mike emojies to work).
 
 ###### Spotify Client Token:
 1. Open the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/).
