@@ -83,5 +83,187 @@ and many more...
 It is not recommended to self-host Mike due to the fact that a lot 3rd party APIs and programs are being used.
 It simply would be too difficult.
 
+But if you still want to do that, here's the instructions for hosting mike **locally**:
+> Please note that those instructions might be out of date!
+
+##### 1. Setting up the repository:
+1. Clone the repository into a local directory.
+2. Open a command prompt inside the repositroy directory.
+3. Execute `npm install`
+
+##### 2. Setting up RethinkDB:
+
+###### Windows:
+1. Create `rethinkdb` directory in the cloned repository.
+2. Download rethinkdb from https://rethinkdb.com/docs/install/windows/
+3. Extract the downloaded .zip file, and copy `rethinkdb.exe` into the directory created earlier in step 1.
+4. Run `rethinkdb.exe` either from a command prompt or by double clicking it.
+5. Open http://127.0.0.1:8080/#tables in your favourite web browser.
+6. Inside, the `test` database, click `+ Add Table` to add 2 new tables: `guilds` and `users`.
+7. Close rethinkdb, or keep it running for starting mike later.
+
+###### Ubuntu:
+
+1. Create `rethinkdb` directory in the cloned repository.
+2. Install rethinkdb by following instructions at https://rethinkdb.com/docs/install/ubuntu/
+3. Open a terminal in the `rethinkdb` directory created earlier, and execute `rethinkdb`
+5. Open http://127.0.0.1:8080/#tables in your favourite web browser.
+6. Inside, the `test` database, click `+ Add Table` to add 2 new tables: `guilds` and `users`.
+7. Terminate rethinkdb, or keep it running for starting mike later.
+
+##### 3. Setting up Lavalink:
+
+1. Make sure you have java jre installed in your system.
+2. Download `Lavalink.jar` from https://github.com/Frederikam/Lavalink/releases and place it into the the cloned repository folder.
+3. Create `application.yml` in the same folder of `Lavalink.jar`
+4. Use this template for `application.yml` https://github.com/Frederikam/Lavalink/blob/master/LavalinkServer/application.yml.example
+5. Make sure to set the address into `127.0.0.1` if hosting locally.
+6. Change `password` into something different, and write down for usage later in the setup instructions.
+7. Change the logging path from `./logs/` into somewhere outside the cloned repository folder.
+8. Run Lavalink with `java -jar Lavalink.jar` for starting mike later.
+
+##### 4. Create mike's missing configuration files:
+
+> Those configuration files contain secrets and passwords, and so they are .gitignored by default, make sure to not post those secrets into the public!
+
+1. Browse into `files` directory inside the cloned repository folder.
+2. Create `databases.json` with this data:
+```json
+{
+    "main": {},
+    "beta": {}
+}
+```
+
+3. Create `dashboards.json` with this data:
+```json
+{
+    "beta": {
+        "https": false,
+        "domain": "127.0.0.1",
+        "port":"8081",
+        "secret": "TODO Dashboard Secret"
+    },
+
+    "use": [
+
+    ]
+}
+```
+
+4. Create `roles.json` with this data: (Replace `YOUR_DISCORD_USER_ID` with your discord user id, which you can figure out by enabling `Developer Mode` then rightclicking yourself and pressing `Copy ID`)
+```json
+{
+  "developers":["YOUR_DISCORD_USER_ID"],
+  "contributors":["214858075650260992","324622488644616195", "364056796932997121"]
+}
+```
+
+5. Create `lavalink.json` with this data: (Replace `YOUR_LAVALINK PASSWORD` with the password you've entered into `application.yml`)
+```json
+{
+    "host": "127.0.0.1",
+    "port": "2333",
+    "password": "YOUR_LAVALINK_PASSWORD"
+}
+```
+
+##### 5. Gathering Required API tokens:
+
+Create `tokens.json` in the `files` directory (in the cloned repository folder) and fill it with this template data:
+```json
+{
+    "main": "DISCORD_TOKEN_FOR_MIKE_MAIN",
+    "beta": "DISCORD_TOKEN_FOR_MIKE_BETA",
+	
+    "spotifyID": "SPOTIFY_ID",
+    "spotifySecret": "SPOTIFY_SECRET",
+
+    "dblist": "DISCORDBOTS.ORG_API_TOKEN",
+    "badosz": "BADOSZ_API_TOKEN",
+    "genius": "GENIUS_API_TOKEN",
+    "twitch": "TWITCH_API_TOKEN",
+    "fortnite": "FORTNITE_API_TOKEN",
+    "osu": "OSU_API_TOKEN",
+    "YoutubeAPIv3": "YOUTUBE_APIV3_TOKEN"
+}
+```
+
+###### Discord Bot Token:
+1. Open the [Discord Developer Dashboard](https://discordapp.com/developers/applications/).
+2. Press `New Application`.
+3. On the left panel, press the `Bot` tab.
+4. On the right, press the `Add Bot` button.
+5. Press the `Copy` button.
+6. Replace `DISCORD_TOKEN_FOR_MIKE_BETA` in `tokens.json` with the copied token.
+7. Back into the website, in the left panel, press the `OAuth2` tab.
+8. Scroll down, and check the `bot` box, then the `Adminstrator` box.
+9. Copy the generated url, and use it for inviting the bot into your discord server.
+10. Also send the url to Badosz#0001, and kindly ask him to add the created bot into the Mikemojis server (Required for mike emojies to work).
+
+###### Spotify Client Token:
+1. Open the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/).
+2. Login (Create an account if you don't have one).
+3. Press `Create a client ID`.
+4. Fill in the information.
+5. Once the creation is done, copy the displayed client ID, and replace `SPOTIFY_ID` in `tokens.json` with it.
+6. Press `Show client secret`, and copy it, then replace `SPOTIFY_SECRET` in `tokens.json` with it.
+
+##### 6. Start the local bot:
+1. Open a command prompt in the cloned repository directory.
+2. Execute `node mike.js beta`
+3. Enjoy!
+
+##### 7. Adding Extra Tokens:
+
+###### Badosz:
+> Used to power the images commands!
+1. Join https://discord.gg/DfqHd6U
+2. Ask Badsoz kindly for an API key.
+3. Replace `BADOSZ_API_TOKEN` with the provided API key.
+
+###### Genius.com:
+> Used for fetching music's lyrics!
+
+1. Open the [Genius Developer Dashboard](https://genius.com/developers).
+2. Press `Create an API client`.
+3. Login or register.
+4. Fill in the information.
+5. Press `Generate access token`
+6. Copy the access token, and replace `GENIUS_API_TOKEN` with it.
+
+##### Twitch:
+1. Open the [Twitch Developer Console](https://dev.twitch.tv/console).
+2. Login or Register.
+3. Enable 2FA on your account, that's required for managing applications.
+4. Back into the [Twitch Developer Console](https://dev.twitch.tv/console), Press the `Applications` tab.
+5. Press `Register Your Application` button.
+6. Fill in the information.
+7. Press manage on the created application.
+8. Copy the Client ID, and replace `TWITCH_API_TOKEN` with it.
+
+##### Fortnite API (Not the game):
+1. Open https://fortniteapi.com/
+2. Sign in or Register.
+> For some reason the contributer can't register into the website at the time of writing this section and so the instructions can't be continued :(
+
+##### Youtube API:
+1. Login with your google account.
+2. Open [Google's Developer Console](https://console.developers.google.com).
+3. Press `Enable APIs and Servies`.
+4. Search for `Youtube Data API v3`.
+5. Press `Enable`.
+6. On the left panel, press `Credentials`.
+7. Press `Create Credentials` at the top.
+8. Select `API Key`.
+9. Copy the generated API key, and replace `YOUTUBE_APIV3_TOKEN` with it.
+
+###### OSU:
+1. Open https://osu.ppy.sh/forum/ucp.php?mode=login
+2. Login or Register.
+> The contributer writing those instructions didn't want to install the OSU! client to continue his registration, so it's open for someone else to continue writing this section.
+
+###### DiscordBots.org:
+> For a local hosted development bot, you don't want to register it into DiscordBots.org, and those instructions are for local hosting only, so the DiscordBots.org token won't be included.
 
 <!-- ## License -->
