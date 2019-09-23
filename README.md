@@ -168,7 +168,7 @@ But if you still want to do that, here's the instructions for hosting mike **loc
 }
 ```
 
-##### 5. Gathering API tokens:
+##### 5. Gathering Required API tokens:
 
 Create `tokens.json` in the `files` directory (in the cloned repository folder) and fill it with this template data:
 ```json
@@ -201,5 +201,68 @@ Create `tokens.json` in the `files` directory (in the cloned repository folder) 
 9. Copy the generated url, and use it for inviting the bot into your discord server.
 
 ###### Spotify Client Token:
+1. Open the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/).
+2. Login (Create an account if you don't have one).
+3. Press `Create a client ID`.
+4. Fill in the information.
+5. Once the creation is done, copy the displayed client ID, and replace `SPOTIFY_ID` in `tokens.json` with it.
+6. Press `Show client secret`, and copy it, then replace `SPOTIFY_SECRET` in `tokens.json` with it.
+
+##### 6. Start the local bot:
+1. Open a command prompt in the cloned repository directory.
+2. Execute `node mike.js beta`
+3. Enjoy!
+
+##### 7. Adding Extra Tokens:
+
+###### Badosz:
+> Used to power the images commands!
+1. Join https://discord.gg/DfqHd6U
+2. Ask Badsoz kindly for an API key.
+3. Replace `BADOSZ_API_TOKEN` with the provided API key.
+
+###### Genius.com:
+> Used for fetching music's lyrics!
+
+1. Open the [Genius Developer Dashboard](https://genius.com/developers).
+2. Press `Create an API client`.
+3. Login or register.
+4. Fill in the information.
+5. Press `Generate access token`
+6. Copy the access token, and replace `GENIUS_API_TOKEN` with it.
+
+##### Twitch:
+1. Open the [Twitch Developer Console](https://dev.twitch.tv/console).
+2. Login or Register.
+3. Enable 2FA on your account, that's required for managing applications.
+4. Back into the [Twitch Developer Console](https://dev.twitch.tv/console), Press the `Applications` tab.
+5. Press `Register Your Application` button.
+6. Fill in the information.
+7. Press manage on the created application.
+8. Copy the Client ID, and replace `TWITCH_API_TOKEN` with it.
+
+##### Fortnite API (Not the game):
+1. Open https://fortniteapi.com/
+2. Sign in or Register.
+> For some reason the contributer can't register into the website at the time of writing this section and so the instructions can't be continued :(
+
+##### Youtube API:
+1. Login with your google account.
+2. Open [Google's Developer Console](https://console.developers.google.com).
+3. Press `Enable APIs and Servies`.
+4. Search for `Youtube Data API v3`.
+5. Press `Enable`.
+6. On the left panel, press `Credentials`.
+7. Press `Create Credentials` at the top.
+8. Select `API Key`.
+9. Copy the generated API key, and replace `YOUTUBE_APIV3_TOKEN` with it.
+
+###### OSU:
+1. Open https://osu.ppy.sh/forum/ucp.php?mode=login
+2. Login or Register.
+> The contributer writing those instructions didn't want to install the OSU! client to continue his registration, so it's open for someone else to continue writing this section.
+
+###### DiscordBots.org:
+> For a local hosted development bot, you don't want to register it into DiscordBots.org, and those instructions are for local hosting only, so the DiscordBots.org token won't be included.
 
 <!-- ## License -->
