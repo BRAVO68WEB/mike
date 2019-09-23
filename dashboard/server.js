@@ -64,6 +64,7 @@ module.exports = () => {
   require('./routes/main')(app)
   require('./routes/server')(app)
   require('./routes/sub')(app)
+  require('./routes/api')(app)
 
   app.listen(Mike.dashboard.port)
   Mike.console.info(`Dashboard is ready on port ${Mike.dashboard.port}.`)

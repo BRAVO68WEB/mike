@@ -1,15 +1,13 @@
 module.exports = app => {
-
-  app.get('/server/:id', async (req, res) => {
-
+  app.get('/api/server/:id', async (req, res) => {
     const guild = await Mike.db.getGuild(req.params.id)
     const data = guild.users
     const users = Object.keys(data)
-                        .sort(
-                          function(a,b){
-                            return (data[b]["lvl"]*1e10+data[b]["xp"])-(data[a]["lvl"]*1e10+data[a]["xp"])
-                          }
-                        )
+                  .sort(
+                    function(a,b){
+                      return (data[b]["lvl"]*1e10+data[b]["xp"])-(data[a]["lvl"]*1e10+data[a]["xp"])
+                    }
+                  )
     const top = []
     let place = 1
     for (const u of users) {
@@ -18,30 +16,24 @@ module.exports = app => {
         if (!user) continue
         top.push({
           id: user.id,
-          place: place,
           tag: user.user.tag,
+          username: user.user.username,
+          discrim: user.user.discriminator,
           avatar: user.user.displayAvatarURL,
-          bar: data[user.id].xp / data[user.id].lvlnext * 100,
           xp: data[user.id].xp,
-          needxp: data[user.id].lvlnext,
+          xpNeed: data[user.id].lvlnext,
           level: data[user.id].lvl
         })
       }
       place++
     }
-
+  
     const server = await Mike.guilds.get(req.params.id)
     if(!Mike.queue[server.id]) new Mike.music.queue(server.id)
-
-    renderTemplate(res, req, `server/main.ejs`,
-      {
-        guild: guild,
-        top: top,
-        special: Mike.roles.developers.concat(Mike.roles.contributors),
+      res.json({
+        users: top,
         server: server,
-        bg: Mike.bg,
         queue: Mike.queue[server.id]
-      }
-    )
-  })
+      })
+    })
 }
