@@ -6,7 +6,7 @@ module.exports = {
   name: ':saxophone: Memes',
   id: 'memes',
   description: 'Get funniest memes!',
-  author: '214858075650260992',
+  author: 'Badosz#0001',
   commands: commands,
   devOnly: false,
   hiddenInHelp: false

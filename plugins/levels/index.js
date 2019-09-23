@@ -6,7 +6,7 @@ module.exports = {
   name: ':trophy: Levels',
   id: 'levels',
   description: 'Let your users reach top by gaining XP!',
-  author: '214858075650260992',
+  author: 'Badosz#0001',
   commands: commands,
   devOnly: false,
   hiddenInHelp: false

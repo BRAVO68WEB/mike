@@ -6,7 +6,7 @@ module.exports = {
   name: ':money_with_wings: Social',
   id: 'social',
   description: 'Develop your profile and earn money!',
-  author: '214858075650260992',
+  author: 'Badosz#0001',
   commands: commands,
   devOnly: false,
   hiddenInHelp: false

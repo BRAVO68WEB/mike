@@ -6,7 +6,7 @@ module.exports = {
   name: ':anchor: Utility',
   id: 'utility',
   description: 'Make your life easier!',
-  author: '364056796932997121',
+  author: 'Badosz#0001',
   commands: commands,
   devOnly: false,
   hiddenInHelp: false

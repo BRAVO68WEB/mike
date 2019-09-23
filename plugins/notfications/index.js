@@ -6,7 +6,7 @@ module.exports = {
   name: ':small_red_triangle: Notifications',
   id: 'notif',
   description: 'Get notifications from diffrent platforms!',
-  author: '214858075650260992',
+  author: 'Badosz#0001',
   commands: commands,
   devOnly: false,
   hiddenInHelp: false

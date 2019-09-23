@@ -6,7 +6,7 @@ module.exports = {
   name: ':keyboard: Custom Commands',
   id: 'customcmds',
   description: 'Create custom commands for your server!',
-  author: '214858075650260992',
+  author: 'Badosz#0001',
   commands: commands,
   devOnly: false,
   hiddenInHelp: false
