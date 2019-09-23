@@ -13,6 +13,7 @@ module.exports = async (message) => {
 
 
   const dbGuild = await Mike.db.getGuild(message.guild.id)
+  const dbUser = await Mike.db.getUser(message.author.id)
 
   if (dbGuild.plugins.autoresponder.enabled) {
 
