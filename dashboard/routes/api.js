@@ -1,5 +1,6 @@
 module.exports = app => {
   app.get('/api/server/:id', async (req, res) => {
+    if (await !Mike.guilds.get(req.params.id)) return res.json({success:false})
     const guild = await Mike.db.getGuild(req.params.id)
     const data = guild.users
     const users = Object.keys(data)
@@ -31,6 +32,7 @@ module.exports = app => {
     const server = await Mike.guilds.get(req.params.id)
     if(!Mike.queue[server.id]) new Mike.music.queue(server.id)
       res.json({
+        success: true,
         users: top,
         server: server,
         queue: Mike.queue[server.id]
