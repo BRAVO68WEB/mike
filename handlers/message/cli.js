@@ -1,5 +1,5 @@
 const AsciiTable = require('ascii-table')
-
+// TODO : CLEAN UP THIS MESS
 module.exports = async (message) => {
   const tokens = message.content.split(' ')
   let stored = {}

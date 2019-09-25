@@ -1,5 +1,3 @@
-const url = require('url')
-
 module.exports = async (message) => {
 
   const expression = /(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/gi
@@ -22,9 +20,6 @@ module.exports = async (message) => {
                titles: items[items.length - 1]
              })
              .then(async response => {
-                 let description = ''
-                 let data = []
-                 let thumbnail = ''
                  response = response.body.query.pages[0]
                 if (response.missing) return
                 if (response.invalid) return
