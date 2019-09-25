@@ -1,3 +1,3 @@
 exports.random = async (min, max) => {
-  return Math.floor(Math.random() * max + min);
+  return Math.floor(Math.random() * max + min)
 };

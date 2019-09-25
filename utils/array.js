@@ -20,13 +20,13 @@ exports.single = (seed) => {
 }
 
 exports.getCount = (array, value) => {
-  var count = 0
+  let count = 0
   array.forEach((v) => (v === value && count++))
   return count
 }
 
 exports.shuffle = (array) => {
-  var currentIndex = array.length, temporaryValue, randomIndex
+  let currentIndex = array.length, temporaryValue, randomIndex
   while (0 !== currentIndex) {
     randomIndex = Math.floor(Math.random() * currentIndex)
     currentIndex -= 1

@@ -1,6 +1,6 @@
 exports.getLevel = (points) => {
-  var level = -1 + Math.sqrt(4 + points/100)
-  return Math.floor(level);
+  let level = -1 + Math.sqrt(4 + points/100)
+  return Math.floor(level)
 }
 
 exports.getPoints = (level) => {

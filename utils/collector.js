@@ -4,7 +4,7 @@ module.exports = class Collector {
     bot.on('message', this.verify.bind(this))
   }
   async verify (msg) {
-    const collector = this.collectors[msg.channel.id + msg.author.id];
+    const collector = this.collectors[msg.channel.id + msg.author.id]
     if (collector && collector.filter(msg)) {
       collector.resolve(msg)
     }
