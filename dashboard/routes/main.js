@@ -1,22 +1,28 @@
 const passport = require("passport")
 const url = require("url")
 module.exports = app => {
+  
   app.get("/login", (req, res, next) => {
+    
     if (req.session.backURL) {
       req.session.backURL = req.session.backURL
     } else if (req.headers.referer) {
+
       const parsed = url.parse(req.headers.referer)
       if (parsed.hostname === app.locals.domain) {
         req.session.backURL = parsed.path
       }
+
     } else {
       req.session.backURL = "/"
     }
-      next()
+
+    next()
     }, passport.authenticate("discord")
   )
 
   app.get("/callback", passport.authenticate("discord", { failureRedirect: "/autherror" }), async (req, res) => {
+    
     if (Mike.roles.developers.includes(req.user.id)) {
       req.session.isAdmin = true
     } else {
@@ -32,20 +38,26 @@ module.exports = app => {
   })
 
   app.get("/logout", function(req, res) {
+
     req.session.destroy(() => {
       req.logout()
       res.redirect("/")
     })
+
   })
 
   app.get("/", async (req, res) => {
+
     let data = []
+
     await Mike.dashboards.use.forEach(async id => {
       data.push(await Mike.guilds.get(id))
     })
+
     renderTemplate(res, req, 'main/index.ejs', {
         data: data
     })
+    
   })
 
 }

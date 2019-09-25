@@ -1,6 +1,10 @@
 module.exports = app => {
   app.get('/api/server/:id', async (req, res) => {
-    if (await !Mike.guilds.get(req.params.id)) return res.json({success:false})
+    if (await !Mike.guilds.get(req.params.id)) {
+      return res.json({
+        success:false
+      })
+    }
     const guild = await Mike.db.getGuild(req.params.id)
     const data = guild.users
     const users = Object.keys(data)
@@ -10,11 +14,17 @@ module.exports = app => {
                     }
                   )
     const top = []
+    
     let place = 1
-    for (const u of users) {
+    
+    for (const obj of users) {
+      
       if (place < 101) {
-        user = await Mike.guilds.get(req.params.id).members.get(u)
+        
+        const user = await Mike.guilds.get(req.params.id).members.get(obj)
+        
         if (!user) continue
+        
         top.push({
           id: user.id,
           tag: user.user.tag,
@@ -26,12 +36,18 @@ module.exports = app => {
           level: data[user.id].lvl
         })
       }
+      
       place++
+    
     }
   
     const server = await Mike.guilds.get(req.params.id)
-    if(!Mike.queue[server.id]) new Mike.music.queue(server.id)
-      res.json({
+    
+    if(!Mike.queue[server.id]) {
+      new Mike.music.queue(server.id)
+    } 
+      
+    res.json({
         success: true,
         users: top,
         server: server,

@@ -17,16 +17,18 @@ module.exports = () => {
   })
 
   passport.use(new Strategy({
-    callbackURL: `${Mike.dashboard.https ? 'https://' : 'http://'}${Mike.dashboard.domain}/callback`,
-    scope: ["identify"],
-    clientID: Mike.user.id,
-    clientSecret: Mike.dashboard.secret
-  }, (accessToken, refreshToken, profile, done) => {
-    process.nextTick(() => done(null, profile))
+      callbackURL: `${Mike.dashboard.https ? 'https://' : 'http://'}${Mike.dashboard.domain}/callback`,
+      scope: ["identify"],
+      clientID: Mike.user.id,
+      clientSecret: Mike.dashboard.secret
+    }, (accessToken, refreshToken, profile, done) => {
+      process.nextTick(() => done(null, profile))
   }))
 
   app.use(session({
-    store: new MemoryStore({ checkPeriod: 86400000 }),
+    store: new MemoryStore({
+      checkPeriod: 86400000 
+    }),
     secret: Mike.dashboard.secret,
     resave: false,
     saveUninitialized: false,

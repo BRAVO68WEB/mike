@@ -31,6 +31,7 @@ module.exports = app => {
       renderTemplate(res, req, 'commands/main.ejs', {
         plugins: plugins
     })
+
   })
 
   app.get("/customcmds", async (req, res) => {
@@ -45,6 +46,7 @@ module.exports = app => {
       renderTemplate(res, req, 'docs/customcmds.ejs', {
         md: md
     })
+    
   })
 
 }
