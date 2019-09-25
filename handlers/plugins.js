@@ -8,5 +8,6 @@ module.exports = async () => {
     const plugin = require(`../plugins/${pluginPath}`)
     Mike.plugins.push(plugin)
   }
+  
   Mike.console.info(`Loaded ${Mike.plugins.length} plugins.`)
 }
