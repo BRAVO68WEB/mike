@@ -105,8 +105,8 @@ But if you still want to do that, here's the instructions for hosting Mike **loc
 
 ##### 2. Setting up RethinkDB:
 
-<details>
-<summary>Windows</summary>
+###### Windows:
+
 1. Create `rethinkdb` directory in the cloned repository.
 2. Download rethinkdb from https://rethinkdb.com/docs/install/windows/
 3. Extract the downloaded .zip file, and copy `rethinkdb.exe` into the directory created earlier in step 1.
@@ -114,7 +114,7 @@ But if you still want to do that, here's the instructions for hosting Mike **loc
 5. Open http://127.0.0.1:8080/#tables in your favourite web browser.
 6. Inside, the `test` database (or one specified in the configuration), click `+ Add Table` to add 2 new tables: `guilds` and `users`.
 7. Close rethinkdb, or keep it running for starting Mike later.
-</details>
+
 ###### Ubuntu:
 
 1. Create `rethinkdb` directory in the cloned repository.
