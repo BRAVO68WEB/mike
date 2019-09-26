@@ -198,8 +198,7 @@ Create `tokens.json` in the `files` directory (in the cloned repository folder) 
     "genius": "GENIUS_API_TOKEN",
     "twitch": "TWITCH_API_TOKEN",
     "fortnite": "FORTNITE_API_TOKEN",
-    "osu": "OSU_API_TOKEN",
-    "YoutubeAPIv3": "YOUTUBE_APIV3_TOKEN"
+    "osu": "OSU_API_TOKEN"
 }
 ```
 
@@ -260,17 +259,6 @@ Create `tokens.json` in the `files` directory (in the cloned repository folder) 
 1. Open https://fortniteapi.com/
 2. Sign in or Register.
 > For some reason the contributer can't register into the website at the time of writing this section and so the instructions can't be continued :(
-
-##### Youtube API:
-1. Login with your google account.
-2. Open [Google's Developer Console](https://console.developers.google.com).
-3. Press `Enable APIs and Servies`.
-4. Search for `Youtube Data API v3`.
-5. Press `Enable`.
-6. On the left panel, press `Credentials`.
-7. Press `Create Credentials` at the top.
-8. Select `API Key`.
-9. Copy the generated API key, and replace `YOUTUBE_APIV3_TOKEN` with it.
 
 ###### OSU:
 1. Open https://osu.ppy.sh/forum/ucp.php?mode=login
