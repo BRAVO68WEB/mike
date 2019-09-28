@@ -54,7 +54,7 @@ Thanks goes to these wonderful people :
 					<b>Juby210</b>
 				</sub>
 			</a><br />
-			<a href="#" title="Code">💻</a></td>
+			<a href="#" title="Code">💻</a>
 		</td>
 		<td align="center">
 			<a href="https://github.com/Nimplex">
@@ -64,11 +64,11 @@ Thanks goes to these wonderful people :
 					<b>Nimplex</b>
 				</sub>
 			</a><br />
-			<a href="#" title="Code">💻</a></td>
+			<a href="#" title="Code">💻</a>
 		</td>
 		<td align="center">
 			<a href="https://github.com/RamiLego4Game">
-				<img src="https://avatars3.githubusercontent.com/u/6272475?s=460&v=4" width="100px;" alt="Nimplex"/>
+				<img src="https://avatars3.githubusercontent.com/u/6272475?s=460&v=4" width="100px;" alt="RamiLego4Game"/>
 				<br />
 				<sub>
 					<b>Rami Sabbagh</b>
@@ -76,7 +76,18 @@ Thanks goes to these wonderful people :
 			</a><br />
 			<a href="#" title="Code">💻</a>
 			<a href="#" title="Bug">🐛</a>
-			<a href="#" title="Tutorial">✅</a></td>
+			<a href="#" title="Tutorial">✅</a>
+		</td>
+		<td align="center">
+			<a href="https://github.com/Maanex/">
+				<img src="https://avatars3.githubusercontent.com/u/23345879?s=460&v=4" width="100px;" alt="Maanex"/>
+				<br />
+				<sub>
+					<b>Maanex</b>
+				</sub>
+			</a><br />
+			<a href="#" title="Code">💻</a>
+			<a href="#" title="Bug">🐛</a>
 		</td>
 </table>
 
