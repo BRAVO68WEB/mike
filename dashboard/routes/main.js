@@ -54,7 +54,7 @@ module.exports = app => {
       data.push(await Mike.guilds.get(id))
     })
 
-    renderTemplate(res, req, 'main/index.ejs', {
+    renderTemplate(res, req, 'main/index.html', {
         data: data
     })
     

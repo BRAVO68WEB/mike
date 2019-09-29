@@ -28,7 +28,7 @@ module.exports = app => {
         })
 
       })
-      renderTemplate(res, req, 'commands/main.ejs', {
+      renderTemplate(res, req, 'commands/index.html', {
         plugins: plugins
     })
 
