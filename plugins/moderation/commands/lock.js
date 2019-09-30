@@ -1,8 +1,12 @@
 exports.output = async ({message, args}) => {
+  
+  let channel = message.mentions.channels.first()
+
+  if (!channel) {
+    channel = message.channel
+  }
 
   const reason = args.join(' ')
-
-
 
   Mike.models.snap({
     object: message,
@@ -11,7 +15,7 @@ exports.output = async ({message, args}) => {
               ${reason ? `**Reason:** ${reason}` : ``}
     `,
   })
-  await message.channel.overwritePermissions(message.guild.id, {
+  await channel.overwritePermissions(message.guild.id, {
      SEND_MESSAGES: false,
      ADD_REACTIONS: false
   })

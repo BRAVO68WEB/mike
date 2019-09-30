@@ -8,6 +8,7 @@ exports.output = async ({message}) => {
     author: [`${mention.user.tag} has currently ${warns} warn${warns == 1 ? '' : 's'}.`, mention.user.displayAvatarURL]
   })
 }
+
 exports.data = {
   triggers: ['warns'],
   description: 'Shows how many warns user has.',
