@@ -9,7 +9,6 @@ exports.output = async ({message, args}) => {
            })
            .then(async response => {
               const osustats = response.body
-              console.log(osustats)
               if (osustats.length < 1) {
                 return Mike.models.snap({
                   object: message,
