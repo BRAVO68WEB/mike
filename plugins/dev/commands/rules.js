@@ -6,7 +6,7 @@ exports.output = async ({message, args}) => {
   **•** Do not spam, advertise anything.
   **•** Do not attack or harass anyone.
   **•** Do not post NSFW content.
-  **•** Do not message <@214858075650260992> unless he have told you that you can.
+  **•** Do not message <@214858075650260992> unless he has told you that you can.
   **•** Do not mention users without very good reason.
   **•** Do not use @everyone or @here.
 
