@@ -1,4 +1,5 @@
 exports.output = async ({message}) => {
+  
   const player = Mike.player.get(message.guild.id)
   if (!player || !player.playing) {
     return Mike.models.snap({
@@ -7,20 +8,22 @@ exports.output = async ({message}) => {
       color: '#f44262'
     })
   }
+  
   if(!Mike.queue[message.guild.id]) new Mike.music.queue(message.guild.id)
   let queue = Mike.queue[message.guild.id]
+  
   if(queue.repeat) {
-      queue.repeat = false
-      return Mike.models.snap({
-        object: message,
-        message: '\`This song will be not repeated.\`',
-      })
+    queue.repeat = false
+    return Mike.models.snap({
+      object: message,
+      message: '\`This song will be not repeated.\`',
+    })
   } else {
-      queue.repeat = true
-      return Mike.models.snap({
-        object: message,
-        message: '\`This song will be repeated.\`',
-      })
+    queue.repeat = true
+    return Mike.models.snap({
+      object: message,
+      message: '\`This song will be repeated.\`',
+    })
   }
 }
 

@@ -1,5 +1,6 @@
 exports.output = async ({message}) => {
   const player = Mike.player.get(message.guild.id)
+  
   if (!player.playing || !player) {
     return Mike.models.snap({
       object: message,
@@ -7,14 +8,18 @@ exports.output = async ({message}) => {
       color: '#f44262'
     })
   }
+  
   if(!Mike.queue[message.guild.id]) new Mike.music.queue(message.guild.id)
   let queue = Mike.queue[message.guild.id]
   if(!queue.np.paused) queue.pause()
+  
   await player.pause(true)
+  
   return Mike.models.snap({
     object: message,
     message: '\`Paused.\`',
   })
+
 }
 
 exports.data = {

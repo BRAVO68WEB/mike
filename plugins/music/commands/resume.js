@@ -7,10 +7,13 @@ exports.output = async ({message}) => {
       color: '#f44262'
     })
   }
+  
   if(!Mike.queue[message.guild.id]) new Mike.music.queue(message.guild.id)
   let queue = Mike.queue[message.guild.id]
+  
   if(!queue.np.paused) queue.resume()
   await player.pause(false)
+  
   return Mike.models.snap({
     object: message,
     message: '\`Resumed.\`',
