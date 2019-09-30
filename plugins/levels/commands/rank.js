@@ -1,14 +1,17 @@
 exports.output = async ({message, args}) => {
   const user = await Mike.utils.users.search(message, args[0])
-  if(user.bot) {
+  
+  if (user.bot) {
     return Mike.models.snap({
       object: message,
       message: '\`Bots don\'t have levels!\`',
       color: '#f44262'
     })
   }
+  
   const dbGuild = await Mike.db.getGuild(message.guild.id, false)
   const guildUser = dbGuild.users[user.id] ? dbGuild.users[user.id] : {lvl: 1, xp: 0, lvlnext: 80}
+  
   Mike.models.mult({
     object: message,
     fields: [
@@ -20,6 +23,7 @@ exports.output = async ({message, args}) => {
   })
 
 }
+
 exports.data = {
     triggers: ['rank'],
     description: 'Shows user level.',
