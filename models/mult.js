@@ -12,10 +12,12 @@ module.exports = async (data) => {
       color: Mike.color,
       footer: '',
       inmessage: '',
-      author: [``, null]
+      author: [``, null],
+      title: '',
   }, data)
 
   const embed = new Discord.RichEmbed()
+      .setTitle(data.title)
       .setDescription(`${data.hightlight ? `\``: ``}${data.description}${data.hightlight ? `\``: ``}`)
       .setThumbnail(data.thumbnail)
       .setImage(data.image)
