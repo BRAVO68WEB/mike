@@ -12,6 +12,7 @@ exports.output = async ({message}) => {
   })
 
 }
+
 exports.data = {
     triggers: ['perms'],
     description: 'Shows bot perms in server.'

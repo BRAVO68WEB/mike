@@ -5,6 +5,7 @@ exports.output = async ({message, args}) => {
     "true": `${Mike.customEmojis.markYes} Yes`,
     "false": `${Mike.customEmojis.markNo} No`
   }
+
   Mike.models.mult({
     object: message,
     fields: [
@@ -13,8 +14,8 @@ exports.output = async ({message, args}) => {
       ['Bot?',isBot[member.user.bot],true],
       ["ID", user.id, true],
       ["Status", user.presence.status.replace(/online/g, `${Mike.customEmojis.statusOnline} Online`).replace(/idle/g, `${Mike.customEmojis.statusIdle} Idle`).replace(/dnd/g, `${Mike.customEmojis.statusDnd} Do Not Disturb`).replace(/offline/g, `${Mike.customEmojis.statusOffline} Offline`), true],
-      ["In", user.presence.game ? `${user.presence.game.name}\n\`${user.presence.game.details ? user.presence.game.details : '--'}\`\n\`${user.presence.game.state ? user.presence.game.state : '--'}\`` : "Nothing", true],
-      ["Muted", member.serverMute ? `${Mike.customEmojis.markYes} Yes` : `${Mike.customEmojis.markNo} No`, true],
+      ["In", user.presence.game ? `${user.presence.game.name}\n\`${user.presence.game.details ? user.presence.game.details : ''}\`\n\`${user.presence.game.state ? user.presence.game.state : ''}\`` : "Nothing", true],
+      ["Muted?", member.serverMute ? `${Mike.customEmojis.markYes} Yes` : `${Mike.customEmojis.markNo} No`, true],
       ["Color", member.displayHexColor, true],
       ["Highest Role", member.highestRole.name.replace(/@everyone/g, '-'), true],
       ["Joined Guild", member.joinedAt.toUTCString(), false],
@@ -23,6 +24,7 @@ exports.output = async ({message, args}) => {
     thumbnail: user.displayAvatarURL
   })
 }
+
 exports.data = {
   triggers: ['userinfo','user'],
   description: 'Shows user info.',

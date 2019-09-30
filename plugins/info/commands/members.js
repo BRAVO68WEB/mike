@@ -28,6 +28,7 @@ exports.output = async ({message}) => {
     object: message,
     message: msg,
   })
+  
 }
 exports.data = {
     triggers: ['members'],
