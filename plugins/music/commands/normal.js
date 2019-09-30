@@ -1,6 +1,7 @@
 
 exports.output = async ({message}) => {
   const player = Mike.player.get(message.guild.id)
+  
   if (!player) {
     return Mike.models.snap({
       object: message,
@@ -8,6 +9,7 @@ exports.output = async ({message}) => {
       color: '#f44262'
     })
   }
+  
   await player.volume(100)
   await player.setEQ([
     {"band": 0, "gain": 0},
@@ -22,6 +24,7 @@ exports.output = async ({message}) => {
     {"band": 9, "gain": 0},
 
   ])
+  
   return Mike.models.snap({
     object: message,
     message: '\`Music is now in normal mode!\`',
