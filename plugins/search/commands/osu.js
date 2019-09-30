@@ -1,7 +1,7 @@
 const snek = require('snekfetch')
-
+let avatar = "";
 exports.output = async ({message, args}) => {
-  const username = args[0]
+  const username = args.join(" ")
   Mike.http.get(`https://osu.ppy.sh/api/get_user`)
            .query({
              u: username,
