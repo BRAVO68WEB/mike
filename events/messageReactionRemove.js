@@ -1,6 +1,7 @@
 const { RichEmbed }= require('discord.js')
 
 module.exports = async (reaction, user) => {
+  if (!reaction) return
   if (!reaction.message.guild) return
   if (reaction.message.author.id == Mike.user.id) return
   if (reaction.emoji.name !== "⭐") return
