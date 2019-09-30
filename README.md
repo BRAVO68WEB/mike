@@ -1,5 +1,4 @@
-
-# Mike
+[![Brand](https://i.imgur.com/IIp5AAb.png)](https://mikebot.xyz)
 
 [![Dbl](https://discordbots.org/api/widget/upvotes/419620594645073930.svg)](https://discordbots.org/bot/419620594645073930)
 [![Server](https://img.shields.io/discord/340947847728070666.svg?logo=discord&colorB=7289DA)](https://discord.gg/ZwPfRfp)
