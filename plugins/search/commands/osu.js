@@ -19,6 +19,7 @@ exports.output = async ({message, args}) => {
                 return Mike.models.mult({
                   object: message,
                   title: `**${osustats[0].username}'s stats**`,
+                  image: `https://www.countryflags.io/${osustats[0].country.toLowerCase()}/flat/64.png`,
                   fields: [
                     ['Level', parseInt(osustats[0].level).toPrecision(), true],
                     ['Ranked score', osustats[0].ranked_score, true],
@@ -29,7 +30,8 @@ exports.output = async ({message, args}) => {
                     ['Play count', osustats[0].playcount , true],
                     ['ID', osustats[0].user_id, true]
                   ],
-                  thumbnail: `https://www.countryflags.io/${osustats[0].country.toLowerCase()}/flat/64.png`
+                  thumbnail: `https://a.ppy.sh/${osustats[0].user_id}`,
+                  footer: `Requested by ${message.author.tag} (${message.author.id})`
                 })
               }
           }).catch(error => {
