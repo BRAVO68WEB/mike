@@ -10,6 +10,7 @@ exports.output = async ({message, args}) => {
                 object: message,
                 file: file,
                 message:'',
+                footer: `Generated for ${message.author.tag} (${message.author.id})`,
                 image: `attachment://file.${type ? type.ext : 'png'}`,
               })
             })

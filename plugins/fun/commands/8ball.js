@@ -20,7 +20,7 @@ exports.output = async ({message}) => {
   Mike.models.mult({
     object: message,
     fields: [
-      ['Answer',Mike.utils.array.single(outcomes),true]
+      ['Answer: ',Mike.utils.array.single(outcomes),true]
     ]
   })
 }

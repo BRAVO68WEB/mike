@@ -6,6 +6,7 @@ exports.output = async ({message, args}) => {
     message:`\`\`\`${cowsay.say({ text : args.join(" ").slice(0,12) })}\`\`\``,
   })
 }
+
 exports.data = {
   triggers: ['cowsay'],
   description: 'Generate cowsay meme.',

@@ -6,9 +6,9 @@ exports.output = async ({message}) => {
   Mike.models.mult({
     object: message,
     fields: [
-      ['Flipped',Mike.utils.array.single(outcomes),true]
+      ['Flipped', Mike.utils.array.single(outcomes),true]
     ],
-    thumbnail: "https:\//cdn.dribbble.com/users/58530/screenshots/2323771/coin-flip.gif",
+    thumbnail: 'https://i.imgur.com/6qJ4yaX.gif',
   })
 }
 exports.data = {

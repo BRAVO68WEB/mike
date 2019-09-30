@@ -1,5 +1,3 @@
-
-
 exports.output = async ({message, args}) => {
   for (const path in require.cache) {
       if (path.includes('v4')) {
