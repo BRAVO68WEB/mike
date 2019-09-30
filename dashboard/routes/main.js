@@ -48,15 +48,7 @@ module.exports = app => {
 
   app.get("/", async (req, res) => {
 
-    let data = []
-
-    await Mike.dashboards.use.forEach(async id => {
-      data.push(await Mike.guilds.get(id))
-    })
-
-    renderTemplate(res, req, 'main/index.html', {
-        data: data
-    })
+    renderTemplate(res, req, 'main/index.html', {})
     
   })
 
