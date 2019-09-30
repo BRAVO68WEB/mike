@@ -20,10 +20,10 @@ exports.output = async ({message, args}) => {
 
   if (args[1].match(/\.(jpeg|jpg|gif|png)$/)) {
     message.guild.createEmoji(args[1], args[0]).then(async emoji => {
-        return Mike.models.snap({
-            object: message,
-            message: '\`Emoji created.\`',
-        })
+      return Mike.models.snap({
+        object: message,
+        message: '\`Emoji created.\`',
+      })
     })
   } else {
     return Mike.models.snap({
