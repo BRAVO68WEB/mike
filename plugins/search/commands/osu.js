@@ -9,6 +9,7 @@ exports.output = async ({message, args}) => {
            })
            .then(async response => {
               const osustats = response.body
+              console.log(osustats)
               if (osustats.length < 1) {
                 return Mike.models.snap({
                   object: message,
@@ -24,7 +25,8 @@ exports.output = async ({message, args}) => {
                     ['Total score', osustats[0].total_score, true],
                     ['Country rank', osustats[0].pp_country_rank, true],
                     ['PP', parseFloat(osustats[0].pp_raw).toFixed(), true],
-                    ['Accuracy', `${parseFloat(osustats[0].accuracy).toFixed(2)}%`, true]
+                    ['Accuracy', `${parseFloat(osustats[0].accuracy).toFixed(2)}%`, true],
+                    ['Play count', osustats[0].playcount , true]
                   ],
                   thumbnail: `https://www.countryflags.io/${osustats[0].country.toLowerCase()}/flat/64.png`
                 })
