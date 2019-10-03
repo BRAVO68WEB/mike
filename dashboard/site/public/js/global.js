@@ -42,6 +42,7 @@ Vue.component('gfooter', {
                 </div>
                 <div class="footer-column">
                     <h3>More</h3>
+                    <a href="/team">The Team</a>
                     <a href="https://github.com/mike-boat/mike">Mike Sourcecode</a>
                 </div>
             </div>
