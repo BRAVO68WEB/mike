@@ -166,7 +166,7 @@
             }
         ];
 
-        users = users.sort(() => Math.random() - 0.5);
+        users = users.sort((a,b) => a.name == 'Badosz' ? -1 : (b.name == 'Badosz' ? 1 : (Math.random() - 0.5)));
     
         new Vue({el: '#app', data: {users: users}})    
     </script>
