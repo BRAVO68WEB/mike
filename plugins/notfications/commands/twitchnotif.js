@@ -111,5 +111,6 @@ exports.data = {
     ],
     userPerms: [
       "MANAGE_GUILD"
-    ]
+    ],
+    donator: true
 }
