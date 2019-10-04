@@ -1,36 +1,49 @@
 const marked = require('marked')
 const fs = require("fs")
 module.exports = app => {
-  app.get("/commands", async (req, res) => {
+  // app.get("/commands", async (req, res) => {
 
-      let plugins = {}
+  //     let plugins = {}
 
-      Mike.plugins.forEach(plugin => {
-
-
-        if (['nsfw','dev'].includes(plugin.id)) return
-
-        plugins[plugin.id] = {
-          commands: {},
-          name: plugin.name.split(/[::]/)[2]
-        }
-
-        plugins[plugin.id].commands = []
+  //     Mike.plugins.forEach(plugin => {
 
 
-        plugin.commands.forEach(command => {
+  //       if (['nsfw','dev'].includes(plugin.id)) return
 
-          plugins[plugin.id].commands.push({
-            name: command.data.triggers[0],
-            description: command.data.description
-          })
+  //       plugins[plugin.id] = {
+  //         commands: {},
+  //         name: plugin.name.split(/[::]/)[2]
+  //       }
 
-        })
+  //       plugins[plugin.id].commands = []
 
-      })
-      renderTemplate(res, req, 'commands/index.html', {
-        plugins: plugins
-    })
+
+  //       plugin.commands.forEach(command => {
+
+  //         plugins[plugin.id].commands.push({
+  //           name: command.data.triggers[0],
+  //           description: command.data.description
+  //         })
+
+  //       })
+
+  //     })
+  //     renderTemplate(res, req, 'commands/index.html', {
+  //       plugins: plugins
+  //   })
+
+  // })
+
+
+  app.get("/wip", async (req, res) => {
+
+    renderTemplate(res, req, 'wip/index.html', {})
+
+  })
+
+  app.get("/team", async (req, res) => {
+
+    renderTemplate(res, req, 'team/index.html', {})
 
   })
 

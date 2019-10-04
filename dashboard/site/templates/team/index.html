@@ -51,6 +51,7 @@
             youtube: 'fab fa-youtube',
             discord: 'fab fa-discord',
             website: 'fas fa-globe',
+            twitch: 'fab fa-twitch'
         }
 
         var users = [
@@ -62,12 +63,22 @@
                     {
                         type: media.website,
                         href: 'https://badosz.com/',
-                        title: 'maanex.tk'
+                        title: 'badosz.com'
                     },
                     {
                         type: media.twitter,
-                        href: 'https://twitter.com/Badosz_',
-                        title: '@Maanex_'
+                        href: 'https://twitter.com/badosz_',
+                        title: '@badosz_'
+                    },
+                    {
+                        type: media.discord,
+                        href: 'https://discord.gg/ZwPfRfp',
+                        title: 'Discord Server'
+                    },
+                    {
+                        type: media.github,
+                        href: 'https://badosz.com/github',
+                        title: '@badosz0'
                     }
                 ]
             },
@@ -88,6 +99,56 @@
                     }
                 ]
             },
+            {
+                name: 'Nimplex',
+                work: 'Commands',
+                icon: 'nimplex.png',
+                media: [
+                    {
+                        type: media.website,
+                        href: 'https://ctrl-team.netlify.com/',
+                        title: 'ctrl-team.netlify.com'
+                    },
+                    {
+                        type: media.youtube,
+                        href: 'https://youtube.com/Nimplex',
+                        title: 'Nimplex'
+                    },
+                    {
+                        type: media.twitch,
+                        href: 'https://twitch.tv/nimplexlive',
+                        title: 'Discord Server'
+                    }
+                ]
+            },
+            {
+                name: 'Rami',
+                work: 'Commands',
+                icon: 'rami.png',
+                media: [
+                    {
+                        type: media.website,
+                        href: 'https://ramilego4game.github.io/',
+                        title: 'ramilego4game.github.io'
+                    },
+                    {
+                        type: media.github,
+                        href: 'https://github.com/ramilego4game',
+                        title: 'ramilego4game'
+                    },
+                    {
+                        type: media.twitter,
+                        href: 'https://twitter.com/ramilego4game',
+                        title: 'ramilego4game'
+                    },
+                    {
+                        type: media.discord,
+                        href: 'https://discord.gg/GDtHrsJ',
+                        title: 'Discord Server'
+                    }
+                    
+                ]
+            }
         ]
     
         new Vue({el: '#app', data: {users: users}})    
