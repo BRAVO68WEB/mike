@@ -1,6 +1,6 @@
-#  Custom Commands
+#  Custom Commands / Welcomer
 
-In Custom Commands you can use special tags:
+In Custom Commands / Welcomer you can use special tags:
 
 Tag | Example Output
 :-------- | ---

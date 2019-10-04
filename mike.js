@@ -50,7 +50,7 @@ class Mike extends Client {
 
     this.type = process.argv[2]
 
-    this.db.init(this.databases[this.type])
+    this.db.init(this.databases[this.type].database)
     this.prefix = this.prefixes[this.type]
     this.dashboard = this.dashboards[this.type]
     this.login(this.tokens[this.type])

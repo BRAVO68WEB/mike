@@ -61,7 +61,7 @@ exports.data = {
   description: 'Adds custom command for server.',
   usage: [
     '{prefix}{command} <name> <text>',
-    '\n[\`[GUIDE](https://mikebot.xyz/customcmds)\`]'
+    '\n[\`[GUIDE](https://mikebot.xyz/tags)\`]'
   ],
   args: [
     {

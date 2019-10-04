@@ -91,6 +91,14 @@ module.exports = async (message, messagePrefix, dbGuild) => {
       }
   }
 
+  if (command.data.donator) {
+    return Mike.models.snap({
+      object: message,
+      message: `This command is available only for donators.`,
+      color: '#f44262',
+      image: Mike.gifs.nsfw
+    })
+  }
   if (await require('../args')(args, command, message)) return
 
   command.output({

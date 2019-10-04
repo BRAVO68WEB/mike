@@ -1,39 +1,6 @@
 const marked = require('marked')
 const fs = require("fs")
 module.exports = app => {
-  // app.get("/commands", async (req, res) => {
-
-  //     let plugins = {}
-
-  //     Mike.plugins.forEach(plugin => {
-
-
-  //       if (['nsfw','dev'].includes(plugin.id)) return
-
-  //       plugins[plugin.id] = {
-  //         commands: {},
-  //         name: plugin.name.split(/[::]/)[2]
-  //       }
-
-  //       plugins[plugin.id].commands = []
-
-
-  //       plugin.commands.forEach(command => {
-
-  //         plugins[plugin.id].commands.push({
-  //           name: command.data.triggers[0],
-  //           description: command.data.description
-  //         })
-
-  //       })
-
-  //     })
-  //     renderTemplate(res, req, 'commands/index.html', {
-  //       plugins: plugins
-  //   })
-
-  // })
-
 
   app.get("/wip", async (req, res) => {
 
@@ -47,7 +14,7 @@ module.exports = app => {
 
   })
 
-  app.get("/customcmds", async (req, res) => {
+  app.get("/tags", async (req, res) => {
 
       const md = function (filename) {
         const path = __dirname +"/../site/templates/docs/" + filename
@@ -56,7 +23,7 @@ module.exports = app => {
         return html
       }
 
-      renderTemplate(res, req, 'docs/customcmds.ejs', {
+      renderTemplate(res, req, 'docs/tags.ejs', {
         md: md
     })
     

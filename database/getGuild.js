@@ -24,9 +24,14 @@ module.exports = async (id, cache = true) => {
             number: 2,
             channel: ``
           },
+          welcomer: {
+            enabled: false,
+            message: ``,
+            channel: ``
+          },
           levels: {
             message: `**{user}** advanced to level **{level}**!`,
-            messages: true
+            messages: false
           },
           autoresponder: {
             enabled: false
