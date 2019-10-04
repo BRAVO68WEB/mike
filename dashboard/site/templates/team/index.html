@@ -30,7 +30,7 @@
                             <h3 v-html="u.name"></h3>
                             <h4 v-html="u.work"></h4>
                             <div class="media">
-                                <a v-for="m in u.media" :href="m.href" :title="m.title"> <i :class="m.type"></i> </a>
+                                <a v-for="m in u.media" :href="m.href" :title="m.title" target="_blank"> <i :class="m.type"></i> </a>
                             </div>
                         </div>
                     </div>
@@ -96,6 +96,16 @@
                         type: media.twitter,
                         href: 'https://twitter.com/Maanex_',
                         title: '@Maanex_'
+                    },
+                    {
+                        type: media.discord,
+                        href: 'https://discord.gg/mJnQXet',
+                        title: 'Discord Server'
+                    },
+                    {
+                        type: media.github,
+                        href: 'https://github.com/maanex',
+                        title: '@maanex'
                     }
                 ]
             },
@@ -137,11 +147,6 @@
                         title: 'ramilego4game.github.io'
                     },
                     {
-                        type: media.github,
-                        href: 'https://github.com/ramilego4game',
-                        title: 'ramilego4game'
-                    },
-                    {
                         type: media.twitter,
                         href: 'https://twitter.com/ramilego4game',
                         title: 'ramilego4game'
@@ -150,11 +155,18 @@
                         type: media.discord,
                         href: 'https://discord.gg/GDtHrsJ',
                         title: 'Discord Server'
+                    },
+                    {
+                        type: media.github,
+                        href: 'https://github.com/ramilego4game',
+                        title: 'ramilego4game'
                     }
                     
                 ]
             }
-        ]
+        ];
+
+        users = users.sort((a,b) => a.name == 'Badosz' ? -1 : (b.name == 'Badosz' ? 1 : (Math.random() - 0.5)));
     
         new Vue({el: '#app', data: {users: users}})    
     </script>
