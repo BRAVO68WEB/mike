@@ -41,6 +41,30 @@ module.exports = app => {
 
   })
 
+  app.get("/commands", async (req, res) => {
+
+    renderTemplate(res, req, 'wip/index.html', {})
+
+  })
+
+  app.get("/terms", async (req, res) => {
+
+    renderTemplate(res, req, 'wip/index.html', {})
+
+  })
+
+  app.get("/privacy", async (req, res) => {
+
+    renderTemplate(res, req, 'wip/index.html', {})
+
+  })
+
+  app.get("/faq", async (req, res) => {
+
+    renderTemplate(res, req, 'wip/index.html', {})
+
+  })
+
   app.get("/team", async (req, res) => {
 
     renderTemplate(res, req, 'team/index.html', {})
