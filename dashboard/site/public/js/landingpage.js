@@ -47,8 +47,9 @@ var app = new Vue({
 
 function loadServerlist() {
     fetch('/api/servers')
-        .then(res => res.json)
+        .then(res => res.json())
         .then(json => json.length&&Vue.set(app, 'serverlist', json));
+    
 }
 loadServerlist();
 

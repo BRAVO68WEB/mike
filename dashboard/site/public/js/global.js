@@ -10,7 +10,7 @@ Vue.component('gheader', {
                 </div>
                 <div id="header-nav">
                     <a class="nav-button" href="https://discord.gg/ZwPfRfp">Support</a>
-                    <a class="nav-button" href="/commands">Commands</a>
+                    <a class="nav-button" href="/wip">Commands</a>
                     <a class="nav-button border" href="https://discordapp.com/oauth2/authorize?client_id=419620594645073930&permissions=8&scope=bot">Invite</a>
                 </div>
             </div>
