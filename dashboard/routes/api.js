@@ -97,5 +97,40 @@ module.exports = app => {
 
     res.json(data)
   })
+
+  app.get('/api/commands', async (req, res) => {
+    
+    let plugins = {}
+
+    Mike.plugins.forEach(plugin => {
+
+      if (['nsfw','dev'].includes(plugin.id)) return
+
+      plugins[plugin.id] = {
+          commands: {},
+          name: plugin.name.split(/[::]/)[2].slice(1)
+      }
+
+      plugins[plugin.id].commands = []
+
+      plugin.commands.forEach(command => {
+  
+        plugins[plugin.id].commands.push({
+            name: command.data.triggers[0],
+            description: command.data.description,
+            usage: command.data.usage,
+            voter: command.data.voter,
+            donator: command.data.donator,
+            nsfw: command.data.nsfw,
+            userPerms: command.data.userPerms,
+            botPerms: command.data.botPerms
+        })
+
+      })
+
+    })
+    
+    res.json(plugins)
+  })
   
 }
