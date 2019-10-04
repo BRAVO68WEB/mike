@@ -49,7 +49,6 @@ module.exports = app => {
       icon: server.icon,
       splash: server.splash,
       name: server.name
-
     }
 
     if(!Mike.queue[server.id]) {
@@ -100,11 +99,3 @@ module.exports = app => {
   })
   
 }
-// {
-//   name: 'Rexcellent Games',
-//   members: 142,
-//   icon: 'https://cdn.discordapp.com/icons/440553300203667477/93803523f5d9bdc8ca6c775d5368639d.png?size=128',
-//   banner: 'https://cdn.discordapp.com/splashes/440553300203667477/7dccff92a50aaf23e82833614087cd68.jpg?size=2048',
-//   verified: true
-// },
-
