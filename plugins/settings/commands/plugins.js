@@ -32,8 +32,43 @@ exports.output = async ({message, dbGuild, args}) => {
           object: message,
           message: `\`Enabled!\``,
       })
+    } else if (args[0] == 'disable') {
+
+      const plugin = Mike.plugins.find(plugin => plugin.id == (args[1] ? args[1].toLowerCase() : '*'))
+
+      if (!plugin) {
+        return Mike.models.snap({
+          object: message,
+          message: '\`Plugin doesn\'t exist.\`',
+          color: '#f44262'
+        })
+      }
+
+      if (dbGuild.settings.disabledPlugins.includes(args[1])) {
+        return Mike.models.snap({
+          object: message,
+          message: '\`Plugin already disabled.\`',
+          color: '#f44262'
+        })
+      }
+
+      if (["settings","dev"].includes(args[1])) {
+        return Mike.models.snap({
+          object: message,
+          message: '\`You can\'t disable this plugin.\`',
+          color: '#f44262'
+        })
+      }
+
+      dbGuild.settings.disabledPlugins.push(args[1])
+
+      await Mike.db.update('guilds', message.guild.id, "settings", dbGuild.settings)
+        
+      return Mike.models.snap({
+          object: message,
+          message: `\`Disabled!\``,
+      })
     }
-  
   }
 
   Mike.models.snap({
