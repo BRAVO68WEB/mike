@@ -19,7 +19,7 @@ module.exports = app => {
     
     for (const obj of users) {
       
-      if (place < 101) {
+      if (place <= 1500) {
         
         const user = await Mike.guilds.get(req.params.id).members.get(obj)
         
