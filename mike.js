@@ -17,7 +17,8 @@ class Mike extends Client {
       'customEmojis',
       'lavalink',
       'gifs',
-      'bg'
+      'bg',
+      'colors'
     ]
 
     this.files.forEach(file => {
@@ -39,7 +40,7 @@ class Mike extends Client {
       guilds: {}
     }
 
-    this.color = '#ffe680'
+    this.color = this.colors.gold
     this.types = ['main', 'beta']
 
     if (!this.types.includes(process.argv[2])) {
