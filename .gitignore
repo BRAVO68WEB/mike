@@ -3,6 +3,7 @@ files/databases.json
 files/lavalink.json
 files/roles.json
 files/tokens.json
+files/logs.json
 node_modules/
 package-lock.json
 demo/

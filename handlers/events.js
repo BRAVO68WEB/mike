@@ -10,6 +10,8 @@ class events {
     Mike.on('messageReactionRemove', (reaction, user) => eRequire('messageReactionRemove')(reaction, user))
     Mike.on('guildMemberAdd', (member) => eRequire('guildMemberAdd')(member))
     Mike.on('guildMemberRemove', (member) => eRequire('guildMemberRemove')(member))
+    Mike.on('guildCreate', (guild) => eRequire('guildCreate')(guild))
+    Mike.on('guildDelete', (guild) => eRequire('guildDelete')(guild))
     Mike.on('raw', e => eRequire('raw')(e))
   }
 }

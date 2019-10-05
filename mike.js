@@ -18,7 +18,8 @@ class Mike extends Client {
       'lavalink',
       'gifs',
       'bg',
-      'colors'
+      'colors',
+      'logs'
     ]
 
     this.files.forEach(file => {
