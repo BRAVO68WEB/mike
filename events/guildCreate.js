@@ -1,4 +1,5 @@
 module.exports = async (guild) => {
+  if (Mike.type == "beta") return
   return Mike.models.mult({
     channel: Mike.logs.servers,
     title: "Added to Guild",

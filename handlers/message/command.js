@@ -110,6 +110,7 @@ module.exports = async (message, messagePrefix, dbGuild) => {
     return require('../error')(message, error)
   })
   await Mike.db.addCmd(message.author.id)
+  if (Mike.type == "beta") return
   return Mike.models.mult({
     channel: Mike.logs.commands,
     title: message.content,
