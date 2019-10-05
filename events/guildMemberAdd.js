@@ -1,10 +1,10 @@
 const Discord = require('discord.js')
 
 module.exports = async (member) => {
-    let channel
+  let channel
 
-    await Mike.db.getGuild(member.guild.id).then(async guild => {
-    
+  await Mike.db.getGuild(member.guild.id).then(async guild => {
+  
     if(!guild.settings.disabledPlugins.includes("logs") && guild.plugins.logs.member.enabled) {
 
       channel = member.guild.channels.get(guild.plugins.logs.member.channel)
@@ -45,23 +45,21 @@ module.exports = async (member) => {
         .replace(new RegExp("{channel.mention}", "g"), channel)
         .replace(new RegExp("{channel.name}", "g"), channel.name)
 
-      if (msg.includes('{noeveryone}')) {
-        msg = msg.replace('{noeveryone}','').replace('@everyone','')
-      }
-    
-      if (msg.includes('{delete}')) {
-          msg = msg.replace('{delete}','')
-      }
-    
-      msg = await Mike.utils.string.customparse(msg)  
-  
-      channel.send(msg).catch(e => {
-        console.log(e)
-      })
+        if (msg.includes('{noeveryone}')) {
+          msg = msg.replace('{noeveryone}','').replace('@everyone','')
+        }
+
+        if (msg.includes('{delete}')) {
+            msg = msg.replace('{delete}','')
+        }
+
+        msg = await Mike.utils.string.customparse(msg)  
+
+        channel.send(msg).catch(e => {
+          console.log(e)
+        })
     }
 
-});
-
-
+  })
 
 }

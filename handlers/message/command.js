@@ -95,8 +95,7 @@ module.exports = async (message, messagePrefix, dbGuild) => {
     return Mike.models.snap({
       object: message,
       message: `This command is available only for donators.`,
-      color: '#f44262',
-      image: Mike.gifs.nsfw
+      color: '#f44262'
     })
   }
   if (await require('../args')(args, command, message)) return
@@ -111,5 +110,5 @@ module.exports = async (message, messagePrefix, dbGuild) => {
     return require('../error')(message, error)
   })
   await Mike.db.addCmd(message.author.id)
-
+  Mike.console.info(`[${message.author.id}] [${message.guild.id}] ${message.content}`)
 }
