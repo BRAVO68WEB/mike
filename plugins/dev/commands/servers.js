@@ -1,5 +1,11 @@
 exports.output = async ({message}) => {
-  const servers = Mike.guilds.map(s => `${s.name} - \`${s.id}\``).join("\n")
+
+  const servers = Mike.guilds.sort((a, b) => a.members.size - b.members.size)
+                             .array()
+                             .reverse()
+                             .slice(0,10)
+                             .map((server, i) => `**${i + 1}. **${server.name}\n\`[${server.members.size} members]\` |  \`${server.id}\``)
+                             .join("\n")
 
   Mike.models.mult({
     object: message,

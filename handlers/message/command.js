@@ -95,8 +95,7 @@ module.exports = async (message, messagePrefix, dbGuild) => {
     return Mike.models.snap({
       object: message,
       message: `This command is available only for donators.`,
-      color: '#f44262',
-      image: Mike.gifs.nsfw
+      color: '#f44262'
     })
   }
   if (await require('../args')(args, command, message)) return
@@ -111,5 +110,17 @@ module.exports = async (message, messagePrefix, dbGuild) => {
     return require('../error')(message, error)
   })
   await Mike.db.addCmd(message.author.id)
-
+  if (Mike.type == "beta") return
+  return Mike.models.mult({
+    channel: Mike.logs.commands,
+    title: message.content,
+    fields: [
+      ["User", message.author.tag, true],
+      ["User ID", message.author.id, true],
+      ["Server", message.guild.name, true],
+      ["Server ID", message.guild.id, true],
+    ],
+    thumbnail: message.author.displayAvatarURL,
+    color: Mike.colors.gold
+  })
 }

@@ -19,7 +19,7 @@ module.exports = app => {
     
     for (const obj of users) {
       
-      if (place < 101) {
+      if (place <= 1500) {
         
         const user = await Mike.guilds.get(req.params.id).members.get(obj)
         
@@ -86,7 +86,7 @@ module.exports = app => {
           name: info.name,
           members: info.members.size,
           icon: info.iconURL,
-          banner: `https://cdn.discordapp.com/splashes/${info.id}/${info.splash}.jpg?size=512`,
+          banner: info.splash ? `https://cdn.discordapp.com/splashes/${info.id}/${info.splash}.jpg?size=512` : "",
           verified: info.verified
         })
 

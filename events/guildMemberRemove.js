@@ -1,13 +1,11 @@
 const Discord = require('discord.js')
 
 module.exports = async (member) => {
-    let channel
-
-    await Mike.db.getGuild(member.guild.id).then(async guild => {
-    
+  await Mike.db.getGuild(member.guild.id).then(async guild => {
+  
     if(!guild.settings.disabledPlugins.includes("logs") && guild.plugins.logs.member.enabled) {
 
-      channel = member.guild.channels.get(guild.plugins.logs.member.channel)
+      const channel = member.guild.channels.get(guild.plugins.logs.member.channel)
       
       if(!channel) return
 
@@ -23,8 +21,5 @@ module.exports = async (member) => {
             console.log(e)
       })
     }
-});
-
-
-
+  })
 }

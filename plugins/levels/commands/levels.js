@@ -2,11 +2,11 @@ exports.output = async ({message, dbGuild, args}) => {
   if (args.length >= 2) {
     if (args[0] == 'messages') {
       if (args[1] == 'enable' || args[1] == 'disable') {
-          dbGuild.plugins.levels.messages = (args[0] == 'enable')
+          dbGuild.plugins.levels.messages = (args[1] == 'enable')
         await Mike.db.update('guilds', message.guild.id, "plugins", dbGuild.plugins)
         return Mike.models.snap({
           object: message,
-          message: `\`${args[0] == 'enable'? 'Enable' : 'Disable'}d!\``,
+          message: `\`${args[1] == 'enable'? 'Enable' : 'Disable'}d!\``,
         })
       }
     }

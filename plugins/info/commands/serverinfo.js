@@ -25,7 +25,7 @@ exports.output = async ({message}) => {
       ['Channels', `Text: ${message.guild.channels.filter(c => c.type == 'text').size}\nVoice: ${message.guild.channels.filter(c=> c.type == 'voice').size}`, true],
       ['Bots', message.guild.members.filter(member => member.user.bot).size, true]
     ],
-    thumbnail: message.guild.iconURL
+    thumbnail: message.guild.icon ? message.guild.iconURL : `https://dummyimage.com/128/7289DA/FFFFFF/&text=${encodeURIComponent(message.guild.nameAcronym)}`
   })
 }
 

@@ -3,7 +3,7 @@ exports.output = async ({message}) => {
   if (dbGuild.snipe.content == undefined) {
     return Mike.models.snap({
       object: message,
-      message: '\`No snipes is this server!\`',
+      message: '\`No snipes in this server!\`',
       color: '#f44262'
     })
   }
