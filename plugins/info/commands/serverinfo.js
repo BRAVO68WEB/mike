@@ -1,7 +1,7 @@
 exports.output = async ({message}) => {
   const regions = {
     "europe":":flag_eu: Europe",
-    "eu-central":":flag_eu: Central Europe",
+    "india": ":flag_in: India",
     "brazil":":flag_br: Brazil",
     "hongkong":":flag_hk: Hongkong",
     "japan": ":flag_jp: Japan",
@@ -12,8 +12,7 @@ exports.output = async ({message}) => {
     "us-central":":flag_us: United States of America",
     "us-east":":flag_us: United States of America",
     "us-south": ":flag_us: United States of America",
-    "us-west":":flag_us: United States of America",
-    "eu-west":":flag_eu: West Europe",
+    "us-west":":flag_us: United States of America"
   }
   Mike.models.mult({
     object: message,
