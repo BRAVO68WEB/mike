@@ -1,5 +1,6 @@
 exports.output = async ({message}) => {
   const regions = {
+    "europe":":flag_eu: Europe"
     "eu-central":":flag_eu: Central Europe",
     "brazil":":flag_br: Brazil",
     "hongkong":":flag_hk: Hongkong",
