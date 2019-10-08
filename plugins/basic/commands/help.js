@@ -95,7 +95,7 @@ exports.output = async ({message, args, dbGuild}) => {
       help += `**${plugin.name}** (ID: *${plugin.id}*)\n`
     }
   })
-  help += `\nType \`${Mike.prefix}settings\` to configure plugins.`
+  help += `\nType \`${Mike.prefix}plugins\` to configure plugins.`
   help += `\n\n[:globe_with_meridians:](${Mike.links.website}) | [${Mike.customEmojis.patreon}](${Mike.links.patreon}) | [${Mike.customEmojis.github}](${Mike.links.github}) | [${Mike.customEmojis.trello}](${Mike.links.trello})`
   Mike.models.snap({
     object: message,

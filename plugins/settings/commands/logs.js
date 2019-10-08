@@ -114,6 +114,9 @@ exports.output = async ({message, dbGuild, args}) => {
       usage: [
           '{prefix}{command} mess [channel] [#channel]',
           '{prefix}{command} mess [enable/disable]',
+      ],
+      userPerms: [
+          "MANAGE_GUILD"
       ]
   }
   

@@ -5,20 +5,22 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500,800" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="/public/css/global.css">
-    <link rel="stylesheet" type="text/css" href="/public/css/CUSTOMCSS.css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
 </head>
 <body>
     <div id="app">
-        <gheader pagename="Commands" color="var(--accent)"></gheader>
+        <gheader></gheader>
 
         <div id="content-wrapper">
             <div id="content">
-                <h3>WIP</h3>
+
+                <h2>This Page is Work in Progress!</h2>
+                <h4>Please check back later!</h4>
+
             </div>
         </div>
 
@@ -26,6 +28,6 @@
     </div>
 
     <script src="/public/js/global.js"></script>
-    <script src="/public/js/commands.js"></script>
+    <script>new Vue({el: '#app'});</script>
 </body>
 </html>

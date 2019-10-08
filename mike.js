@@ -17,7 +17,9 @@ class Mike extends Client {
       'customEmojis',
       'lavalink',
       'gifs',
-      'bg'
+      'bg',
+      'colors',
+      'logs'
     ]
 
     this.files.forEach(file => {
@@ -39,7 +41,7 @@ class Mike extends Client {
       guilds: {}
     }
 
-    this.color = '#ffe680'
+    this.color = this.colors.gold
     this.types = ['main', 'beta']
 
     if (!this.types.includes(process.argv[2])) {
@@ -50,7 +52,7 @@ class Mike extends Client {
 
     this.type = process.argv[2]
 
-    this.db.init(this.databases[this.type])
+    this.db.init(this.databases[this.type].database)
     this.prefix = this.prefixes[this.type]
     this.dashboard = this.dashboards[this.type]
     this.login(this.tokens[this.type])
@@ -59,7 +61,7 @@ class Mike extends Client {
   }
 }
 
-const Core = new Mike (
+new Mike (
   {
     disabledEvents: [
       'TYPING_START',

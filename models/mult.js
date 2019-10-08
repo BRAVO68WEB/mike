@@ -31,5 +31,16 @@ module.exports = async (data) => {
           embed.addField(field[0], field[1], field[2])
         }
       })
-  return data.object.channel.send(data.inmessage, {embed})
+
+  if (data.channel) {
+
+    const channel = await Mike.channels.get(data.channel)
+
+    return channel.send(data.inmessage, {embed})
+
+  } else {
+    
+    return data.object.channel.send(data.inmessage, {embed})
+
+  }
 }

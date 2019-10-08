@@ -10,6 +10,7 @@ module.exports = async (database) => {
     }
 
     Mike.console.warn(`Mike has frozen own process. Please reboot.`)
+    Mike.console.error(e)
     while (true) {}
   }
 }

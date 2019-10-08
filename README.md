@@ -19,7 +19,7 @@ Mike is a customizable Discord bot with a lot of plugins:
 * Suggestions
 * Chat Filters
 * Custom Commands
-* Welcome Message
+* Welcome/Leave Messages
 * Image Generation
 * Twitch, Reddit Notifications
 

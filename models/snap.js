@@ -27,5 +27,18 @@ module.exports = async (data) => {
       .setFooter(data.footer)
       .setAuthor(data.author[0], data.author[1])
       .setURL(data.url)
-  return data.object.channel.send(data.inmessage, {embed})
+
+  if (data.channel) {
+    
+    const channel = await Mike.channels.get(data.channel)
+
+    return channel.send(data.inmessage, {embed})
+
+  } else {
+
+    return data.object.channel.send(data.inmessage, {embed})
+
+  }
+  
+ 
 }
