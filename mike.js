@@ -61,7 +61,7 @@ class Mike extends Client {
   }
 }
 
-const Core = new Mike (
+new Mike (
   {
     disabledEvents: [
       'TYPING_START',
