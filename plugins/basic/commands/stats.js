@@ -1,7 +1,8 @@
 const moment = require('moment')
 const m = require('moment-duration-format')
-
+let lala = 0;
 exports.output = async ({message}) => {
+  Mike.plugins.forEach(plugin => { lala += plugin.commands.length })
     Mike.models.mult({
       object: message,
       fields: [
@@ -10,7 +11,9 @@ exports.output = async ({message}) => {
         ["Users", Mike.users.size.toLocaleString(), true],
         ["Servers", Mike.guilds.size.toLocaleString(), true],
         ["Channels", Mike.channels.size.toLocaleString(), true],
-        ["Api Latency", `${Math.round(Mike.ping)}ms`, true]
+        ["Api Latency", `${Math.round(Mike.ping)}ms`, true],
+        ["Commands count", lala, true],
+        ["Plugins count", `${Mike.plugins.length}`, true]
       ]
     })
 }
