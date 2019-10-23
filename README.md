@@ -96,7 +96,6 @@ Thanks goes to these wonderful people :
 - [RethinkDB](https://www.rethinkdb.com/)
 - [Lavalink](https://github.com/Frederikam/Lavalink)
 - [Notif Worker](https://github.com/mike-boat/notif-worker)
-- Milkscript (soon)
 
 and many more...
 
