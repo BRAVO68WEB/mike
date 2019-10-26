@@ -28,7 +28,7 @@ Vue.component('gfooter', {
                     <h3>Mike</h3>
                     <p>Copyright &copy; 2019 Badosz</p>
                     <p>All rights reserved.</p>
-                    <a href="https://maanex.tk/">Website by Maanex</a>
+                    <a href="https://maanex.tk/?utm_source=mikebot&utm_medium=footer&utm_campaign=credits">Website by Maanex</a>
                 </div>
                 <div class="footer-column">
                     <h3>Support</h3>
