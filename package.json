@@ -41,7 +41,7 @@
     "qrcode": "^1.4.1",
     "rethinkdb": "^2.3.3",
     "steam-provider": "^0.3.2",
-    "tempy": "^0.3.0",
+    "tempy": "^0.7.1",
     "twemoji": "^12.1.2",
     "weather-js": "^2.0.0"
   }
